@@ -1,0 +1,278 @@
+%%
+%% This is file `./samples/minutes.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% meetingmins.dtx  (with options: `minutes')
+%% ----------------------------------------------------------------------
+%% 
+%% meetingmins - A LaTeX class for formatting minutes of meetings
+%% 
+%% Copyright (C) 2011-2013 by Brian D. Beitzel <brian@beitzel.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License (LPPL), either
+%% version 1.3c of this license or (at your option) any later
+%% version.  The latest version of this license is in the file:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% Users may freely modify these files without permission, as long as the
+%% copyright line and this statement are maintained intact.
+%% 
+%% ----------------------------------------------------------------------
+%% 
+\documentclass[11pt]{meetingmins}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{etoolbox}
+\usepackage{subcaption}
+\setlength{\oddsidemargin}{0pt} % give 2.54cm (1 inch) left margin
+\setlength{\headheight}{15pt} 
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{pdfpages}
+\usepackage[titletoc]{appendix}
+\usepackage{tocbibind}
+\usepackage{tocloft}
+\usepackage{xpatch}
+\usepackage{float}
+
+%% Optionally, the following text could be set in the file
+%% department.min in this folder, then add the option 'department'
+%% in the \documentclass line of this .tex file:
+%%\setcommittee{Department of Instruction}
+%%
+%%\setmembers{
+%%  \chair{B.~Smart},
+%%  B.~Brave,
+%%  D.~Claire,
+%%  B.~Gone
+%%}
+
+\setcommittee{Modelling Light-Driven Micro-Machines}
+
+\setmembers{
+  \chair{B.~Smart},
+  B.~Brave,
+  D.~Claire,
+  B.~Gone
+}
+
+\setdate{September 28, 2017}
+
+\setpresent{
+  \chair{B.~Smart},
+  B.~Brave,
+  D.~Claire
+}
+
+\absent{B.~Gone \textit{(sabbatical)}}
+
+\alsopresent{B.~There}
+
+\begin{document}
+\maketitle
+
+\section{Announcements}
+\begin{hiddenitems}
+\item
+The dean is coming today.
+
+\item
+The dean has canceled.
+
+\end{hiddenitems}
+
+\section{Committee Reports}
+
+\subsection{College-wide Committees}
+\subsubsection{Library}
+The library still has books that no one has read.
+
+\subsubsection{Curriculum {\rm (D.~Claire)}}
+\begin{hiddensubitems}
+\item
+There is widespread interest in reforming the curriculum.
+
+\item
+Unfortunately, no one seems interested in participating on the
+curriculum reform committee.
+\end{hiddensubitems}
+
+\subsection{Department Committees}
+\subsubsection{Personnel}
+No one can have a raise this year.
+
+\subsubsection{Assistant Professor Search}
+We are looking for someone who will do a lot for very little money.
+
+\section{Old Business}
+\begin{items}
+\item
+\priormins
+\end{items}
+
+\section{New Business}
+\begin{items}
+\item
+We will teach classes next semester.
+
+\item
+We will do research next semester.
+\end{items}
+
+\vspace{1em}
+\nextmeeting{Wednesday, October 19, at 3:00}
+
+\begin{thebibliography}{99}
+\pagenumbering{gobble}
+
+\bibitem{Ref1}
+	Airbus S.A.S.,
+	"The Airbus Concept Plane",
+	Airbus S.A.S; Toulouse,
+	2017,
+	[Online],
+	Available: \url{http://www.airbus.com/innovation/future-by-airbus/the-concept-plane/the-airbus-concept-plane/},
+	[Accessed 25 April 2017].
+
+\bibitem{Ref2}
+	M. D. Guenov; M. Nunez; A. Molina-Cristóbal; V. C. Datta and A. Riaz,
+	“Aircadia -an interactive tool for the composition and exploration of aircraft computational studies at early design stage",
+	Cranfield University,
+	Cranfield,
+	2014.
+
+\bibitem{Ref3}
+	MoSSEC Consortium,
+	“Modelling and Simulation information in a collaborative Systems Engineering Context”,
+	Airbus; Filton,
+	2016,
+	[Online],
+	Available: \url{http://www.mossec.org},
+	[Accessed 25 April 2017].
+
+\bibitem{Ref4}
+	Aerospace Technology Institute,
+	"New ATI-funded project led by Airbus is announced by Minister for Industry \& Energy",
+	Aerospace Technology Institute, 
+	27 October 2016,
+	[Online],
+	Available: \url{http://www.ati.org.uk/aprocone-271016/},
+	[Accessed 25 April 2017].
+
+\bibitem{Ref5}
+	International Organisation for Standardization, 
+	“ISO/ AWI 22071”, 
+	International Organisation for Standardization; Geneva,
+	2016, 
+	[Online], 
+	Available: \url{https://www.iso.org/standard/72491.html}, 
+	[Accessed 25 April 2017].
+
+\bibitem{Ref6}
+	MoSSEC Consortium, 
+	“White Paper MoSSEC ed1 - v1.0, 8”, 
+	2016, 
+	[Online], 
+	Available: \url{http://www.mossec.org/c/document_library/get_file?p_l_id=410483&folderId=349886&name=DLFE-11320.pdf}, 
+	[Accessed 25 April 2017].
+
+\bibitem{Ref7}
+	MoSSEC Consortium, “Illustrative Example - Ad-hoc Design Study”, MoSSEC Consortium, 2016, [Online], Available: \url{http://www.mossec.org/overview/scenarios/scenario-1}, [Accessed 25 April 2017].
+
+\bibitem{Ref8}
+	M. Butchers, “Uncertainty Quantification and Management Study Group with Industry: Register Now!”, Innovate UK, 25 May 2016, [Online], Available: \url{https://connect.innovateuk.org/web/mathsktn/article-view/-/blogs/uncertainty-quantification-and-management-study-group-with-industry-register-now-}, [Accessed 15 June 2017].
+
+\bibitem{Ref9}
+	S. Sharma, “Climb-Cruise Engine Matching”, 17 July 2016, [Online], Available: \url{https://openktn.org/uqmscdb/?use-case=climb-cruise-engine-matching}, [Accessed 15 June 2017].
+
+\bibitem{Ref10}
+	J. A. Rice, “\textit{Mathematical Statistics and Data Analysis}”, 7th ed., Belmont, Brooks/Cole, 2007, pp. 504-505.
+
+\bibitem{Ref11}
+	D. S. Lemons, “\textit{An Introduction to Stochostatic Processes in Physics}”, Baltimore, The John Hopkins University Press, 2002, p. 1.
+
+\bibitem{Ref12}
+	D. S. Lemons, “\textit{An Introduction to Stochostatic Process in Physics}”, Baltimore, The John Hopkins University Press, 2002, p. 5.
+
+\bibitem{Ref13}
+	A. Forrester; A. Sóbester and A. Keane, “\textit{Engineering Design via Surrogate Modelling}”, Chichester, John Wiley \& Sons Ltd., 2008, pp. 33-35.
+
+\bibitem{Ref14}
+	C. E. Rasmussen and C. K. I. Williams, “\textit{Gaussian Processes for Machine Learning}”, Cambridge; MA, MIT Press, 2006, pp. 3-5.
+
+\bibitem{Ref15}
+	DATADVANCE, “pSeven Brochure,” 2017, [Online], Available: \url{https://www.datadvance.net/assets/files/media/pseven/pSeven-brochure-2017.pdf}, [Accessed 15 June 2017].
+
+\bibitem{Ref16}
+	DATADVANCE, “pSeven Core Manual: GTApprox/Technique”, 2016. [Online], Available: \url{https://www.datadvance.net/product/macros/manual/6.10/guide/gtapprox/options.html#gtapprox-technique}, [Accessed 15 June 2017].
+
+\bibitem{Ref17}
+	C. E. Rasmussen and C. K. I. Williams, “\textit{Gaussian Processes for Machine Learning}”, Cambridge; MA, MIT Press, 2006, pp. 1-2;7.
+
+\bibitem{Ref18}
+	DATADVANCE, “pSeven Core Manual: Techniques”, 2016, [Online], Available: \url{https://www.datadvance.net/product/macros/manual/6.10/guide/gtapprox/techniques.html}, [Accessed 16 June 2017].
+
+\bibitem{Ref19}
+	S. Kotz and J. R. Van Dorp, “\textit{The Triangular Distribution}” in \textit{Beyond Beta: Other Continuous Familes of Distributions with Bounded Support and Applications}, Singapore, World Scientific Publishing Co. Pte. Ltd., 2004, p. 8.
+
+\bibitem{Ref20}
+	I. Tartaruga; J. E. Cooper; M. H. Lowenberg; P. Sartor; S. Coggon and Y. Lemmens, “Prediction and uncertainty propagation of correlated time-varying quantities using surrogate models,” \textit{CEAS Aeronautical Journal}, vol. 7, no. 1, pp. 29-42, 2016. 
+
+\bibitem{Ref21}
+	F. C. Champion and N. Davy, “Properties of matter”, 6th ed., London, Blackie \& Son Limited, 1944, p. 47.
+
+\bibitem{Ref22}
+	D. P. Holmes, “Mechanics of Materials: Bending - Normal Stress”, [Online], Available: \url{http://www.bu.edu/moss/mechanics-of-materials-bending-normal-stress/}, [Accessed 19 June 2017].
+
+\bibitem{Ref23}
+	W. C. Young and R. G. Budynas, “Roark's Formulas for Stress and Strain”, 7th ed., New York, McGraw-Hill, 2002, p. 382.
+
+\bibitem{Ref24}
+	eFunda Inc, “Principal Stress (2D)”, eFunda Inc, [Online], Available: \url{http://www.efunda.com/formulae/solid_mechanics/mat_mechanics/plane_stress_principal.cfm}, [Accessed 19 June 2017].
+
+\bibitem{Ref25}
+	W. C. Young and R. G. Budynas, “Roark's Formulas for Stress and Strain”, 7th ed., New York, McGraw-Hill, 2002, p. 404.
+
+\bibitem{Ref26}
+	M. Bourne, “6. Simpson's Rule”, 19 February 2015, [Online], Available: \url{http://www.intmath.com/integration/6-simpsons-rule.php}, [Accessed 15 June 2017].
+
+\end{thebibliography}
+
+\end{document}
+%% 
+%% Copyright (C) 2011-2013 by Brian D. Beitzel <brian@beitzel.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License (LPPL), either
+%% version 1.3c of this license or (at your option) any later
+%% version.  The latest version of this license is in the file:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% Users may freely modify these files without permission, as long as the
+%% copyright line and this statement are maintained intact.
+%% 
+%% This work is "maintained" (as per LPPL maintenance status) by
+%% Brian D. Beitzel.
+%% 
+%% This work consists of the file  meetingmins.dtx
+%% and the derived files           meetingmins.cls,
+%%                                 sampleminutes.tex,
+%%                                 department.min,
+%%                                 README.txt, and
+%%                                 meetingmins.pdf.
+%% 
+%%
+%% End of file `./samples/minutes.tex'.

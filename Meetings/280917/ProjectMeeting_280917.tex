@@ -1,0 +1,191 @@
+%%
+%% This is file `./samples/minutes.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% meetingmins.dtx  (with options: `minutes')
+%% ----------------------------------------------------------------------
+%% 
+%% meetingmins - A LaTeX class for formatting minutes of meetings
+%% 
+%% Copyright (C) 2011-2013 by Brian D. Beitzel <brian@beitzel.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License (LPPL), either
+%% version 1.3c of this license or (at your option) any later
+%% version.  The latest version of this license is in the file:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% Users may freely modify these files without permission, as long as the
+%% copyright line and this statement are maintained intact.
+%% 
+%% ----------------------------------------------------------------------
+%% 
+\documentclass[11pt]{meetingmins}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{etoolbox}
+\usepackage{subcaption}
+\setlength{\oddsidemargin}{0pt} % give 2.54cm (1 inch) left margin
+\setlength{\headheight}{15pt} 
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{pdfpages}
+\usepackage[titletoc]{appendix}
+\usepackage{tocbibind}
+\usepackage{tocloft}
+\usepackage{xpatch}
+\usepackage{float}
+
+%% Optionally, the following text could be set in the file
+%% department.min in this folder, then add the option 'department'
+%% in the \documentclass line of this .tex file:
+%%\setcommittee{Department of Instruction}
+%%
+%%\setmembers{
+%%  \chair{B.~Smart},
+%%  B.~Brave,
+%%  D.~Claire,
+%%  B.~Gone
+%%}
+
+\setcommittee{Modelling Light-Driven Micro-Machines}
+
+\setmembers{
+  S.~Hanna,
+  K.~Hall,
+  M v.~Laar
+}
+
+\setdate{September 28, 2017}
+
+\setpresent{
+  S.~Hanna,
+  K.~Hall,
+  M v.~Laar
+}
+
+\begin{document}
+\maketitle
+
+\section{Project Overview}
+
+This was a preliminary meeting to discuss the core aims of the project and the direction we would like to take the project. We initially noted this project as ``Optically Controlled Micro-Machines'' because ``Modelling Light-Driven Micro-Machines'' was labeled as a MSci project.
+
+The general overview of the project is to produce a calculation system that is able to calculate `optical forces', i.e. the forces acting on a particle; consisting of dipoles sensitive to EM waves in the optical range; due to an optical beam passing over the particle.
+
+To perform these calculations within our designed environment requires extensive computational processing, as the variations in the electrical field of the particle vary as the dipoles re-orient themselves due to the input radiation to the system \cite{Ref1}. To make these calculations we will research the coupled-dipole method \cite{Ref2} and due to the complexity of the method, utilise a framework for calculating the individual coupled dipole moments. The option to manually produce a couple dipole method, was suggested but was decided at this meeting to be of relative insignificance to the goals of the BSc projects, so long as adequate understanding of the Coupled Dipole is achieved by the end of the project.
+
+The two toolsets available are:
+\begin{itemize}
+\item DDSCAT - Discrete-Dipole Scattering \cite{Ref3}, which is built using FORTRAN code. This is built by some of the original authors for this type of calculation.
+\item ADDA - Amsterdam Discrete-Dipole Approximation \cite{Ref4}, which is built using C code.
+\end{itemize}
+
+As part of further research other tool-sets are to be explored, however given ADDA's \cite{Ref4} use of C code, it is almost certain this willbe the most appropriate toolset.
+
+With these tool-sets we could then develop a front end, possibly in Python, were existing visualisation tool-kits could be explored.
+
+Before the project begins it will be useful to explore the reasoning behind the structures used in the particles being modeled.
+
+We also discussed how calculating the forces on each dipole moment due to all others would be a computationally expensive problem. The preferred method is to perform these calculations iteratively. For each dipole there is a resulting matrix vector. What people usually do is accelerate the process using a series of Fast Fourier Transforms whichneed to be understood ahead of the project commencing \cite{Ref1}.
+
+For this project we will be requiring a cloud collaborative platform to code between users, such as GitHub.
+
+We will also be using computing clusters available to the School of Physics including:
+\begin{itemize}
+\item Calgary
+\item Monster III
+\item Blue Crystal (potentially)
+\end{itemize}
+
+Although these are available by speaking to Tom Kennedy and S Hanna is to request accounts shortly for Calgary and Monster III. Previous students have found that for some calculations it is simpler to use their own PCs.
+
+ADDA \cite{Ref4} was stated to use the FFTW (Fastest Fourier Transform in the West) V3 Package for handling Fourier Transforms and so this will be an interesting area to explore.
+
+Chaumet's paper on optical forces \cite{Ref5} is a good reference to review and may be useful if the optical forces can not be directly calculated from the ADDA \cite{Ref4} or DDSCAT \cite{Ref3} packages.
+
+A word of caution was also given that some papers may discuss the combined method for calculating the coupled dipole moments and the calculation of optical forces. This should be avoided as so to fully understand and appreciate the underlying calculations given the nature of the project.
+
+The possibilities for creating the incident beam als should be considered, with research made as to how to approximate for an optical tweezer. S Hanna seems to be sure that approximations already exist.
+
+The first simple task will be to have a `bead' move through a beam of optical waves, and calculate the optical forces acting on the `bead' as time progresses and the positionvaries. We can then expand this to consider what torques are also being applied, and as such what sort of physical work can we do with this.
+
+Ahead of completing any work on this project, a risk assessment for the project should be completed, this will require details regarding desk based working. Any risks should be assessed as ``low''.
+
+We should also consider best working practices for computer based projects, including best practices for submitting batch computing jobs.
+
+From this meeting it was decided to set up weekly meetings going forward.
+
+\section{Tasks to be completed}
+\begin{enumerate}
+\item Complete Risk Assessment for this project
+\item Read and become familiar with the discrete dipole method for optical interactions \cite{Ref1}.
+\item Evaluate how to calculate coupled dipole moments within a computer environment \cite{Ref2}.
+\item Consider coupled dipole packages such as DDSCAT \cite{Ref3} and ADDA \cite{Ref4}.
+\item Consider how to calculate optical forces \cite{Ref5}.
+\item Consider how to represent the beam in the problem.
+\item Create a GitHub environment for cross collaboration.
+\item Consider a visualisation environment package, though this should be noted as not being a priority of the project.
+\end{enumerate}
+
+\vspace{1em}
+
+\nextmeeting{Thursday, October 5, at 14:00}
+
+\begin{thebibliography}{99}
+\pagenumbering{gobble}
+
+\bibitem{Ref1}
+	Jackson DF. Concepts of atomic physics / Daphne F. Jackson. Maidenhead: Maidenhead : McGraw-Hill; 1971.
+
+\bibitem{Ref2}
+	Draine BT, Flatau PJ. Discrete-Dipole Approximation For Scattering Calculations. Journal of the Optical Society of America A. 1994;11(4):1491-9.
+	
+\bibitem{Ref3}
+	Draine BT, Flatau PJ. Discrete-dipole approximation for periodic targets: theory and tests. Journal of the Optical Society of America A, Optics, image science, and vision. 2008;25(11):2693.
+	
+\bibitem{Ref4}
+	Yurkin MA, Hoekstra AG. The discrete-dipole-approximation code ADDA: capabilities and known limitations. Journal of Quantitative Spectroscopy and Radiative Transfer. 2011;112(13):2234-47.
+	
+\bibitem{Ref5}
+	Chaumet PC, Rahmani A, Sentenac A, Bryant GW. Efficient computation of optical forces with the coupled dipole method. Physical review E, Statistical, nonlinear, and soft matter physics. 2005;72(4 Pt 2):046708.
+
+\end{thebibliography}
+
+\end{document}
+%% 
+%% Copyright (C) 2011-2013 by Brian D. Beitzel <brian@beitzel.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License (LPPL), either
+%% version 1.3c of this license or (at your option) any later
+%% version.  The latest version of this license is in the file:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% Users may freely modify these files without permission, as long as the
+%% copyright line and this statement are maintained intact.
+%% 
+%% This work is "maintained" (as per LPPL maintenance status) by
+%% Brian D. Beitzel.
+%% 
+%% This work consists of the file  meetingmins.dtx
+%% and the derived files           meetingmins.cls,
+%%                                 sampleminutes.tex,
+%%                                 department.min,
+%%                                 README.txt, and
+%%                                 meetingmins.pdf.
+%% 
+%%
+%% End of file `./samples/minutes.tex'.
