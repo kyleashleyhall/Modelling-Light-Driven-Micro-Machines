@@ -1,0 +1,103 @@
+Notes on how I native Windows executables.for DDSCAT 7.3.0 were made
+Piotr J. Flatau
+pflatau@ucsd.edu
+September 2  2013
+GNU Copyright  Draine & Flatau 2013
+
+
+In directoroes
+ 
+bin_mingw64_gfortran_single_nomp_nompi (use this version if you have 64bit windows >2Gbyte memory)
+bin_mingw32_gfortran_single_nomp_nompi (<2Gbyte memory, if you have 32 bit machine) 
+
+
+there are already precompiled versions of ddscat.exe. You can run examples using ddscat.exe 
+(and ddscat.par + dielectric constant file) 
+on a Windows computer. Notice that these are NOT optimal version of an executable 
+of DDSCAT. For example most Window machines have several CORES (for example quad)
+and the code will run faster (2-3 times) if you compile the code with OpenMP option. Also MKL (Intel)
+FFT is about 2x faster in comparison to GPFA. There is free INTEL compiler on LINUX (for educational users).
+
+These versions are to get you going on Windows computer. Overall the best 
+strategy is to use LINUX operating system.
+
+You don't have to use MinGW shell on Windows but it may be easier that way (see below)
+
+
+What I have done to compile the code on Windows
+
+1. Downloaded 
+ddscat7.3.0_130527.tgz
+ddscat7.3.0_examples_130526.tgz
+from GOOGLE CODE DDSCAT https://code.google.com/p/ddscat/
+
+
+2. Mingw64 Installation
+
+(a) Go to http://sourceforge.net/projects/mingwbuilds/
+and download file "mingw-builds-install.exe"
+This is executable file and it will install 64 bit "gfortran" (among other things)
+
+(b) During the installation of "mingw-builds-install.exe"  one has to define  options
+Architecture: x64 (of course)
+Threads: win32  (NOTE: there is another option -   "posix"  but if this is specified one needs libwinpthread-1.dll library during linking step)
+
+This install files in directory
+c:/Program files/mingw-builds/x64-4.8.1-win32-seh-rev5/mingw
+
+(c) Install also 32-bit MinGW/MSYS because his provides some additional programs such as "make"
+
+http://sourceforge.net/projects/mingw/files/Installer/
+
+http://www.mingw.org/wiki/Getting_Started
+
+
+(d)  To compile 64 bit application one needs to run 64-bit (not 32-bit) terminal which is located here
+
+start/all programs/Mingw by mingw-builds-project
+x64-4.8.1-win32-seh-rev5
+run terminal
+
+Now you can compile 64 bit DDSCAT by moving to proper directory and
+cd c:/ddscat/src
+make all
+
+
+3. MinGW32 Installation
+You will need MinGW to run DDSCAT easily. It is free
+http://www.mingw.org/
+Install MinGW and add paths to System Environment
+Control Panel/Advanced system Settings opens system Properties Window/Environmental Variables. In System Variables add
+c:\MinGW\bin;c:\MinGW\msys\1.0\bin;C:\
+
+
+Installation of     Ddscat7.3.0.130527_single32_gfortran_nomp_nompi_nomkl
+MinGW32
+GFORTRAN
+Single precision
+32 bit gfortran compiler (i.e. THERE IS 2Gbyte MEMORY LIMIT)
+Without OPENMP
+Witout MPI
+Without MKL option
+Eddited Makefile and added these lines (gfortran section)
+LFLAGS	= -static-libgcc -static-libgfortran
+MKLROOT	=
+INCLUDE	=
+make all
+(it build ddscat.exe and other executables)
+I have tested that
+objdump -x ddscat.exe | grep "DLL" command (it should give KERNEL32.dll, msvcrt.dll).
+I have tested that example ELLIPSOID works
+Notice that all tests and compilation was done in MinGW  Window which is invoked as follows
+All Programs/MinGW/MinGW Shell
+
+
+
+INTELL (not complete notes)
+I was able to make excutables using INTELL FORTRAN COMPILER (but these are not provided)
+I have purchased   Intell Composer XE 2013 64 bit and 32 bit.
+Make sure that you also have MinGW and proper path defined (you need  this to run make command)
+Start/all programs/intell parallel studio xe 2013/command prompt/Intel 64 visual studio XE 2010 mode
+MKLROOT 	=
+INCLUDE 	=
+make all
