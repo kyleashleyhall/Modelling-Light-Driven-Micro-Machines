@@ -8,18 +8,25 @@ Created on Fri Nov 10 13:57:26 2017
 import numpy as np
 import matplotlib.pyplot as plt
 
-def RadForce(x, y, z, l, DipPoll, Eintl):  #l is an axis, so either x, y or z.
-    d = (max(l) - min(l)) / len(l)  #takes the width of the shape, and divides it by the number of dipoles CHECK
-    dE = np.empty([len(Eintl),len(Eintl)], dtype=complex) 
-    for i in range(len(Eintl)-2):
-        dE[i+1] = ((Eintl[i] - Eintl[i+2]))/ (2 * d)  #Central Difference Formula with error in d^2 to calculate the derivative
-    dE[0] = dE[1] #set first value due to boundary
-    dE[-1] = dE[-2] #set last value due to boundary
 
-    Force = 0.5 * np.real(DipPoll*np.conjugate(dE))
+def Forces(axes, DipPol, Eint):
+    d_l = np.zeros([3])  #d for central difference formula, for each axis
+    for i in range(len(d_l)):
+        d_l[i] = (max(axes[i]) - min(axes[i])) / len(axes[i])
+        
+    dE = np.zeros([3, len(Eint[0])], dtype=complex) #Derivative at each point, for each axis
+    Force = np.zeros([3, len(Eint[0])])
+    for i in range(3):
+        d = d_l[i]
+        for j in range(len(Eint[i])-2):
+            dE[i,j+1] = (Eint[i, j+2] - Eint[i, j]) / (2 * d) #Central difference formula
+        
+        dE[i,0], dE[i,-1] = dE[i,1], dE[i,-2] #set the boundary values
+        
+        Force[i] = np.real(DipPol[i]*np.conjugate(dE[i])) /2  #Calculate the Force
     
-    return np.vstack([x,y,z,Force])
-
+    return np.vstack([axis,Force])
+    
     
 DipPolar = np.loadtxt('DipPol-X', skiprows=1) #skip first row if it is a heading
 x, y, z = DipPolar[:,0], DipPolar[:,1], DipPolar[:,2]
@@ -32,11 +39,15 @@ Eintx = Eintn[:,4] + 1j*Eintn[:,5]
 Einty = Eintn[:,6] + 1j*Eintn[:,7]
 Eintz = Eintn[:,8] + 1j*Eintn[:,9]
 
+axis = np.vstack([x,y,z])
+entry = np.vstack([DipPolx, DipPoly, DipPolz])
+yentr = np.vstack([Eintx, Einty, Eintz])
 
-print(RadForce(x,y,z,y,DipPolx,Eintx))
+#print(Forces(axis, entry, yentr))
+Quiv = Forces(axis, entry, yentr)
 
-
-
+plt.quiver(Quiv[0], Quiv[1], Quiv[4], Quiv[5])
+plt.show()
 
 #Going to need all 3 vectors for output
 
