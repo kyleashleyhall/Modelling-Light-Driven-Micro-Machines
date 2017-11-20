@@ -28,13 +28,13 @@ def Forces(axes, DipPol, Eint):
     return np.vstack([axis,Force])
     
     
-DipPolar = np.loadtxt('DipPol-X', skiprows=1) #skip first row if it is a heading
+DipPolar = np.loadtxt('DipPol-Y', skiprows=1) #skip first row if it is a heading
 x, y, z = DipPolar[:,0], DipPolar[:,1], DipPolar[:,2]
 DipPolx = DipPolar[:,4] + 1j*DipPolar[:,5]
 DipPoly = DipPolar[:,6] + 1j*DipPolar[:,7]
 DipPolz = DipPolar[:,8] + 1j*DipPolar[:,9]
 
-Eintn = np.loadtxt('IntField-X', skiprows=1)
+Eintn = np.loadtxt('IntField-Y', skiprows=1)
 Eintx = Eintn[:,4] + 1j*Eintn[:,5]
 Einty = Eintn[:,6] + 1j*Eintn[:,7]
 Eintz = Eintn[:,8] + 1j*Eintn[:,9]
@@ -46,7 +46,7 @@ yentr = np.vstack([Eintx, Einty, Eintz])
 #print(Forces(axis, entry, yentr))
 Quiv = Forces(axis, entry, yentr)
 
-plt.quiver(Quiv[0], Quiv[1], Quiv[4], Quiv[5])
+plt.quiver(Quiv[0], Quiv[1], Quiv[3], Quiv[4])
 plt.show()
 
 #Going to need all 3 vectors for output
