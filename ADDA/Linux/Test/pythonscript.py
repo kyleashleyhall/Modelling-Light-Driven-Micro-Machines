@@ -8,6 +8,9 @@ Created on Fri Nov 10 13:57:26 2017
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import axes3d
+import glob
+import os
+import string
 
 
 def FileSlice(Fname):
@@ -69,10 +72,10 @@ def Forces(axes, DipPol, Eint, DipoleSep):
     
     return Force
     
-def DipSep(SingleAxis):
-    dx = np.zeros([len(Xaxis)-1])
-    for i in range(len(Xaxis)-1):
-        dx[i] = Xaxis[i+1] - Xaxis[i]
+def DipSep(Singleaxis):
+    dx = np.zeros([len(Singleaxis)-1])
+    for i in range(len(Singleaxis)-1):
+        dx[i] = Singleaxis[i+1] - Singleaxis[i]
     return min(dx)
 
 #Getting file handles, stored in a list
@@ -89,15 +92,12 @@ for i in range(len(DipFiles)):
     EField = IntField + BeamF #Total electric field 
     DipSeperation = DipSep(axes[0]) #Calculate the dipole seperation        
     CalcForce = Forces(axes, DipPol, EField, DipSeperation)
-    np.savetxt((DipFiles[i]-'DipPol-X'+'Forces')),np.transpose([np.vstack([axes,CalcForce])]), fmt='.10f',delimiter=' ')
-    try:
-        TForce = np.vstack(TForce,[sum(CalcForce[0]), sum(CalcForce[1]), sum(CalcForce[2])])
-    except:
-        TForce = np.array([sum(CalcForce[0]), sum(CalcForce[1]), sum(CalcForce[2])])
+    FFiles = DipFiles
+    for j in range(len(DipFiles)):
+        string.replace(FFiles[j],'DipPol-X','Forces')
+    np.savetxt((FFiles[j]),np.transpose([np.vstack([axes,CalcForce])]), fmt='.10f',delimiter=' ')
 
     #Add any analysis to be performed on each simulation here
-
-print(TForce)
 #plt.quiver(axes[0], axes[1], CalcForce[0], CalcForce[1])
 #plt.show()
 #print(sum(CalculatedForces[0]), sum(CalculatedForces[1]), sum(CalculatedForces[2]))
