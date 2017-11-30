@@ -8,8 +8,16 @@ Created on Fri Nov 10 13:57:26 2017
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import axes3d
+import glob
+import os
 
-
+def FileSlice(Fname):
+    filename = np.loadtxt(Fname, skiprows=1)    
+    x,y,z = filename[:,0], filename[:,1], filename[:,2]
+    varX = filename[:,4] + 1j*filename[:,5]
+    varY = filename[:,6] + 1j*filename[:,7]
+    varZ = filename[:,8] + 1j*filename[:,9]
+    return np.vstack([x,y,z]), np.vstack([varX,varY,varZ])
 
 def Forces(axes, DipPol, Eint, DipoleSep):
     d_l = np.zeros([2])  #d for central difference formula, for each axis
@@ -62,40 +70,35 @@ def Forces(axes, DipPol, Eint, DipoleSep):
     
     return Force
     
-# Import Dipole Polorisations    
-DipPolar = np.loadtxt('DipPol-Y', skiprows=1) #skip first row if it is a heading
-x, y, z = DipPolar[:,0], DipPolar[:,1], DipPolar[:,2]
-DipPolx = DipPolar[:,4] + 1j*DipPolar[:,5]
-DipPoly = DipPolar[:,6] + 1j*DipPolar[:,7]
-DipPolz = DipPolar[:,8] + 1j*DipPolar[:,9]
+def DipSep(SingleAxis):
+    dx = np.zeros([len(SingleAxis)-1])
+    for i in range(len(SingleAxis)-1):
+        dx[i] = SingleAxis[i+1] - SingleAxis[i]
+    return min(dx)
 
-# Import Internal Electric Field contributions
-Eintn = np.loadtxt('IntField-Y', skiprows=1)
-Eintx = Eintn[:,4] + 1j*Eintn[:,5]
-Einty = Eintn[:,6] + 1j*Eintn[:,7]
-Eintz = Eintn[:,8] + 1j*Eintn[:,9]
-
-# Import Electric field due to beam
-Ebeam = np.loadtxt('IncBeam-Y', skiprows=1)
-Ebeax = Ebeam[:,4] + 1j*Ebeam[:,5]
-Ebeay = Ebeam[:,6] + 1j*Ebeam[:,7]
-Ebeaz = Ebeam[:,8] + 1j*Ebeam[:,9]
-
-# Import Dipole Seperation
-DipSep = (np.loadtxt('DipSep'))+0 # To remove the array condition we add zero
-
-axis = np.vstack([x,y,z]) 
-DipolePolarisations = np.vstack([DipPolx, DipPoly, DipPolz]) #Dipole Polarisations
-ElectricFields = np.vstack([(Eintx+Ebeax), (Einty+Ebeay), (Eintz+Ebeaz)]) #Internal Fields
-
-CalculatedForces = Forces(axis, DipolePolarisations, ElectricFields, DipSep)
-np.savetxt('Forces.out',np.transpose([np.vstack([axis,CalculatedForces])]),delimiter=' ')
-
-plt.quiver(axis[0], axis[1], CalculatedForces[0], CalculatedForces[1])
-plt.show()
+#Getting file handles, stored in a list
+DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-X')  
+IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-X')
+BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-X')
+DipFiles, IntFFiles, BeamFiles = glob.glob(DipPathInput), glob.glob(IntFPathInput), glob.glob(BeamPathInput) #File containing the paths to each DipPol, IntField file
+#Now for any calculation to be done for each run/iteration/simulation
+for i in range(len(DipFiles)): 
+    axes = FileSlice(DipFiles[i])[0] #array containing the position of all dipoles
+    DipPol = FileSlice(DipFiles[i])[1] #array with the polarization of said dipoles
+    IntField = FileSlice(IntFFiles[i])[1] #array with the Internal field at each point
+    BeamF = FileSlice(BeamFiles[i])[1] #array with the Beam field at each point
+    EField = IntField + BeamF #Total electric field 
+    DipSeperation = DipSep(axes[0]) #Calculate the dipole seperation        
+    CalcForce = Forces(axes, DipPol, EField, DipSeperation)
+    Forcefiles = np.replace(DipFiles,'DipPol-X', 'Forces')
+    np.savetxt((Forcefiles[i]),np.transpose([np.vstack([axes,CalcForce])]), fmt='.10f',delimiter=' ')
 
 
-print(sum(CalculatedForces[0]), sum(CalculatedForces[1]), sum(CalculatedForces[2]))
+    #Add any analysis to be performed on each simulation here
+
+#plt.quiver(axes[0], axes[1], CalcForce[0], CalcForce[1])
+#plt.show()
+#print(sum(CalculatedForces[0]), sum(CalculatedForces[1]), sum(CalculatedForces[2]))
 
 
 

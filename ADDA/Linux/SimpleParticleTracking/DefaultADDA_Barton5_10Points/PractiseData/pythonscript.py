@@ -6,11 +6,8 @@ Created on Fri Nov 10 13:57:26 2017
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import axes3d
 import glob
 import os
-import string
 
 
 def FileSlice(Fname):
@@ -76,13 +73,16 @@ def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
     for i in range(len(Singleaxis)-1):
         dx[i] = Singleaxis[i+1] - Singleaxis[i]
-    return min(dx)
+    return min(np.absolute(dx))
 
 #Getting file handles, stored in a list
 DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')  
 IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-Y')
 BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
-DipFiles, IntFFiles, BeamFiles = glob.glob(DipPathInput), glob.glob(IntFPathInput), glob.glob(BeamPathInput) #File containing the paths to each DipPol, IntField file
+DipFiles, IntFFiles, BeamFiles = sorted(glob.glob(DipPathInput)), sorted(glob.glob(IntFPathInput)), sorted(glob.glob(BeamPathInput)) #File containing the paths to each DipPol, IntField file
+FFiles = DipFiles
+FFiles = np.core.defchararray.replace(FFiles,'DipPol-Y','Forces')
+print(FFiles)
 #Now for any calculation to be done for each run/iteration/simulation
 for i in range(len(DipFiles)): 
     axes = FileSlice(DipFiles[i])[0] #array containing the position of all dipoles
@@ -92,10 +92,7 @@ for i in range(len(DipFiles)):
     EField = IntField + BeamF #Total electric field 
     DipSeperation = DipSep(axes[0]) #Calculate the dipole seperation        
     CalcForce = Forces(axes, DipPol, EField, DipSeperation)
-    FFiles = DipFiles
-    for j in range(len(DipFiles)):
-        str.replace(FFiles[j],'DipPol-Y','Forces')
-    np.savetxt((FFiles[j]),np.transpose([np.vstack([axes,CalcForce])]), fmt='%.10f',delimiter=' ')
+    np.savetxt((FFiles[i]),np.transpose([np.vstack([axes,CalcForce])]), fmt='%.10f',delimiter=' ')
 
     #Add any analysis to be performed on each simulation here
 #plt.quiver(axes[0], axes[1], CalcForce[0], CalcForce[1])
