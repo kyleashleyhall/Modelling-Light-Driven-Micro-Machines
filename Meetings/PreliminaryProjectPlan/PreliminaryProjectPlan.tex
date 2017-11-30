@@ -1,0 +1,182 @@
+%%
+%% This is file `./samples/minutes.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% meetingmins.dtx  (with options: `minutes')
+%% ----------------------------------------------------------------------
+%% 
+%% meetingmins - A LaTeX class for formatting minutes of meetings
+%% 
+%% Copyright (C) 2011-2013 by Brian D. Beitzel <brian@beitzel.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License (LPPL), either
+%% version 1.3c of this license or (at your option) any later
+%% version.  The latest version of this license is in the file:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% Users may freely modify these files without permission, as long as the
+%% copyright line and this statement are maintained intact.
+%% 
+%% ----------------------------------------------------------------------
+%% 
+\documentclass[11pt]{meetingmins}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{etoolbox}
+\usepackage{subcaption}
+\setlength{\oddsidemargin}{0pt} % give 2.54cm (1 inch) left margin
+\setlength{\headheight}{15pt} 
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{pdfpages}
+\usepackage[titletoc]{appendix}
+\usepackage{tocbibind}
+\usepackage{tocloft}
+\usepackage{xpatch}
+\usepackage{float}
+
+%% Optionally, the following text could be set in the file
+%% department.min in this folder, then add the option 'department'
+%% in the \documentclass line of this .tex file:
+%%\setcommittee{Department of Instruction}
+%%
+%%\setmembers{
+%%  \chair{B.~Smart},
+%%  B.~Brave,
+%%  D.~Claire,
+%%  B.~Gone
+%%}
+
+\setcommittee{Modelling Light-Driven Micro-Machines - Preliminary Project Plan}
+
+\setmembers{
+  Marius van Laar,
+  Kyle Hall,
+}
+
+\setdate{November 29, 2017}
+
+\setpresent{
+  Marius van Laar,
+  Kyle Hall,
+}
+
+\begin{document}
+\maketitle
+
+\section{1. Investigate the effects of optics on a fixed particle system}
+
+\begin{itemize}
+
+\item Using DDA calculate the forces and torques on the macroscopic particle
+
+\begin{itemize}
+
+\item Use ADDA
+
+\item Maybe time permitting use DDSCAT
+
+\end{itemize}
+
+\item Apply T-Matrix theory for rotationally symmetric particles
+
+\item Use both Gaussian and Planar beams (Planar beams will allow us to clarify our force calculations with those calculated within ADDA)
+
+\item Evaluate the optimum calculation of forces and torques, removing truncation errors
+
+\item Vary the propagation direction of the beam for a non realistic system
+
+\item Use the following objects in this sequence, to illustrate evolution of understanding:
+
+\begin{enumerate}
+
+\item Sphere
+
+\item Rotationally symmetric object (simple)
+
+\item Rotationally symmetric object (complex)
+
+\item Non Rotationally symmetric object
+
+\end{enumerate}
+
+\end{itemize}
+
+\section{2. Investigate external effects on particles}
+
+\begin{itemize}
+
+\item Taking the simple spherical particle and seeing how it behaves as a under different conditions (i.e. Friction, Gravity, etc.)
+
+\item Vary environmental conditions (i.e. Temperature, Refractive index of the medium, etc.)
+
+\item Vary the propagation direction of the beam for a real system
+
+\item Consider how to translate between the different reference frames of the:
+
+\begin{itemize}
+
+\item Particle
+
+\item Beam
+
+\item Laboratory
+
+\end{itemize}
+
+\item Consider more complex objects within the same scenarios illustrated above
+
+\end{itemize}
+
+\section{3. Investigate realistic systems}
+
+\begin{itemize}
+
+\item Replicate an experiment currently being undertaken by postgraduate students, to determine the extent to which microscopic arrow heads are moving in a system. Compare and contrast our results with the physical results attained in the laboratory
+
+\item Consider an optical tweezer arrangement to manipulate realistic particles, compare to previous experiments
+
+\item Create a propeller system that replicates physical motion to an applied particle
+
+\item Create a drill simulation, whereby we move a formed drill bit to create holes in a material using a beam or optical beams arrangement
+
+\end{itemize}
+
+\end{document}
+%% 
+%% Copyright (C) 2011-2013 by Brian D. Beitzel <brian@beitzel.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License (LPPL), either
+%% version 1.3c of this license or (at your option) any later
+%% version.  The latest version of this license is in the file:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% Users may freely modify these files without permission, as long as the
+%% copyright line and this statement are maintained intact.
+%% 
+%% This work is "maintained" (as per LPPL maintenance status) by
+%% Brian D. Beitzel.
+%% 
+%% This work consists of the file  meetingmins.dtx
+%% and the derived files           meetingmins.cls,
+%%                                 sampleminutes.tex,
+%%                                 department.min,
+%%                                 README.txt, and
+%%                                 meetingmins.pdf.
+%% 
+%%
+%% End of file `./samples/minutes.tex'.
