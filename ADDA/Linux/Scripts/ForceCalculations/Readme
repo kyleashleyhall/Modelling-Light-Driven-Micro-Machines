@@ -1,1 +1,1 @@
-This script iterates through all available folders and processes the DipPol-Y, IncBeam-Y and IntField-Y files to calculate the Forces acting on the dipoles. These forces are saved in Forces files within each run folder
+This script iterates through all available folders and processes the DipPol-Y, IncBeam-Y and IntField-Y files to calculate the Forces acting on the dipoles. These forces are saved in Forces files within each run folder and one Force file in the main folder.
