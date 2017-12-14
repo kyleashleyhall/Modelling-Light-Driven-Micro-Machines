@@ -9,6 +9,7 @@ import numpy as np
 import glob
 import os
 import subprocess
+import shutil
 
 def FileSlice(Fname):
     filename = np.loadtxt(Fname, skiprows=1)    
@@ -79,7 +80,7 @@ def DipSep(Singleaxis):
 x=0
 z=5
 Initial_y=-5
-Step_y=1
+Step_y=0.05
 Final_y=5
 
 y=Initial_y #Set the value of y to the initial value
@@ -105,6 +106,10 @@ while (y<Final_y):
   CalcForce = Forces(axes, DipPol, EField, DipSeperation)
   np.savetxt(FFiles,np.transpose([np.vstack([axes,CalcForce])]), fmt='%.10f',delimiter=' ')
   ParticleForce = np.array([[x],[y],[z],[sum(CalcForce[0])],[sum(CalcForce[1])],[sum(CalcForce[2])]])
+  try:
+    shutil.rmtree(FFiles.replace(os.sep+'Forces',''))
+  except:
+    print('Cannot Delete')
   try:
     AllForces = np.hstack([AllForces,ParticleForce])
   except:

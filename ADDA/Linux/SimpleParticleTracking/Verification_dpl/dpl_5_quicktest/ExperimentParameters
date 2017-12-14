@@ -1,0 +1,17 @@
+Preliminary running of tracking using the default parameters within ADDA
+
+Experiment Conditions:
+
+Beam Type: Barton5 Gaussian Wave Radius 1 Micron
+Beam Direction: Along positive z axis (0,0,1)
+Beam Path: x=0 y=-5:1:5 z=5
+Wavelength: 1 micron
+Size: 2 microns
+
+-size 2
+-lambda 1
+-prop 0 0 1
+-beam plane [1 x y z]
+-store_beam
+-store_dip_pol
+-store_int_field
