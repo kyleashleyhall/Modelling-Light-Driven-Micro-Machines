@@ -92,7 +92,8 @@ IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-Y')
 BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
 while (y<Final_y):
   print('\nProcessing DDA for beam location x='+str(x)+', y='+str(y)+' z='+str(z)+'...\n')
-  callString="../adda -size 2 -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x)+" "+str(y)+" "+str(z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+  callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -sym enf -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x)+" "+str(y)+" "+str(z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+  print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -sym enf -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x)+" "+str(y)+" "+str(z)+" -store_beam -store_dip_pol -store_int_field")
   subprocess.call(callString,shell=True)
   DipFiles, IntFFiles, BeamFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1] #File containing the paths to each DipPol, IntField file
   FFiles = DipFiles.replace('DipPol-Y','Forces')

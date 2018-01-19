@@ -8,7 +8,9 @@ Created on Fri Nov 10 13:57:26 2017
 import matplotlib.pyplot as plt
 import numpy as np
 
-Forces = np.transpose(np.loadtxt('TotalForce'))
+FileName=input('Filename: ')
+
+Forces = np.transpose(np.loadtxt(FileName))
 
 plt.figure(1)
 

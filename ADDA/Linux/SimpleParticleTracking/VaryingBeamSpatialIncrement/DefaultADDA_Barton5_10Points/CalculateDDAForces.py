@@ -9,6 +9,7 @@ import numpy as np
 import glob
 import os
 import subprocess
+import shutil
 
 def FileSlice(Fname):
     filename = np.loadtxt(Fname, skiprows=1)    
@@ -77,7 +78,7 @@ def DipSep(Singleaxis):
 
 #Preliminary Variables
 x=0
-z=0
+z=5
 Initial_y=-5
 Step_y=1
 Final_y=5
@@ -91,7 +92,8 @@ IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-Y')
 BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
 while (y<Final_y):
   print('\nProcessing DDA for beam location x='+str(x)+', y='+str(y)+' z='+str(z)+'...\n')
-  callString="../adda -size 2 -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x)+" "+str(y)+" "+str(z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+  callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -sym enf -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x)+" "+str(y)+" "+str(z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+  print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -sym enf -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x)+" "+str(y)+" "+str(z)+" -store_beam -store_dip_pol -store_int_field")
   subprocess.call(callString,shell=True)
   DipFiles, IntFFiles, BeamFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1] #File containing the paths to each DipPol, IntField file
   FFiles = DipFiles.replace('DipPol-Y','Forces')
@@ -103,15 +105,19 @@ while (y<Final_y):
   DipSeperation = DipSep(axes[0]) #Calculate the dipole seperation
   print('\nProcessing Forces for beam location x='+str(x)+', y='+str(y)+' z='+str(z)+'...\n')
   CalcForce = Forces(axes, DipPol, EField, DipSeperation)
-  np.savetxt(FFiles,np.transpose([np.vstack([axes,CalcForce])]),fmt='%.10lf',delimiter=' ')
+  np.savetxt(FFiles,np.transpose([np.vstack([axes,CalcForce])]), fmt='%.10f',delimiter=' ')
   ParticleForce = np.array([[x],[y],[z],[sum(CalcForce[0])],[sum(CalcForce[1])],[sum(CalcForce[2])]])
+  try:
+    shutil.rmtree(FFiles.replace(os.sep+'Forces',''))
+  except:
+    print('Cannot Delete')
   try:
     AllForces = np.hstack([AllForces,ParticleForce])
   except:
     AllForces = ParticleForce
   y=y+Step_y
 AllForcesPath = str(os.getcwd())+str(os.sep+'TotalForce')
-np.savetxt(AllForcesPath,np.transpose(AllForces),fmt='%.10lf',delimiter=' ')
+np.savetxt(AllForcesPath,np.transpose(AllForces), fmt='%.10f',delimiter=' ')
 
 
 
