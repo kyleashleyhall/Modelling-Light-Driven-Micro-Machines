@@ -12,7 +12,7 @@ import subprocess
 import fnmatch
 
 def FileSlice(Fname):
-	filename = np.loadtxt(Fname, skiprows=1)	
+    filename = np.loadtxt(Fname, skiprows=1)	
 	x,y,z = filename[:,0], filename[:,1], filename[:,2]
 	varX = filename[:,4] + 1j*filename[:,5]
 	varY = filename[:,6] + 1j*filename[:,7]
