@@ -1,0 +1,12 @@
+MLDMM/ADDA/Linux
+
+1. LitReviewTests - These were the calculations that were performed for the Literature Review
+
+2. InitialForceCalculations - These were the ADDA calculations that used the initial incorrect Force calculation script
+
+3. SecondForceCalculations - These were the ADDA force calculations that were done after Christmas that showed improvements but were still incorrect
+
+
+Scripts - Contains many useful scripts for running ADDA, and illustrating the Forces and Electric Fields
+
+Test - Is just a dumping area of test data that does not necessarily need filing

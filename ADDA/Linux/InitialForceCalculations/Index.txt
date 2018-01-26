@@ -1,0 +1,8 @@
+MLDMM/ADDA/Linux/InitialForceCalculations
+
+1. Verification_planar - This was an experimental test to compare how our calculated forces compared with those of ADDA in a Planar wave set up
+
+2. VaryingBeamSpatialIncrement - This was an experimental test illustrating the effect of varying the spatial increment between calculations as the beam moves over the particle
+
+3. Verification_dpl - This was an experimental test illustrating the effect of varying the dpl number for a constant spatial increment as the beam moves over the particle
+

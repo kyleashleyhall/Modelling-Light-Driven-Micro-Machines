@@ -1,0 +1,19 @@
+MLDMM/ADDA/Linux/InitialForceCalculations/Verification_planar
+
+1. Verification_Planar_Run1 - We did not include any rounding in our force calculations - See script (Unsuccessful see ForceResults spreadsheet for total force)
+
+2. Verification_Planar_Run2 - We performed 8dp rounding in our force calculations - See script (Unsuccessful see ForceResults spreadsheet for total force)
+
+3. Verification_Planar_Run3 - We performed 7dp rounding in our force calculations - See script (Unsuccessful see ForceResults spreadsheet for total force)
+
+4. Verification_Planar_Run4 - We performed 6dp rounding in our force calculations - See script (Unsuccessful see ForceResults spreadsheet for total force)
+
+5. Verification_Planar_Run5 - We performed 5dp rounding in our force calculations - See script (Unsuccessful see ForceResults spreadsheet for total force)
+
+6. Verification_Planar_Run6 - We performed Kahan Summation Algorithm (Interesting) in our force calculations - See script (Unsuccessful see ForceResults spreadsheet for total force)
+
+7. Verification_Planar_Run7 - We performed Numpy Summation in our force calculations instead of Python summation - See script (Unsuccessful see ForceResults spreadsheet for total force)
+
+8. Verification_Planar_30dpl - Ran on 30 dpl and saw improvements however the plots were still incorrect as can be seen by looking at the plots
+
+9. Verification_Planar_30dpl_Simon - Ran on 30dpl under certain parameters to compare with Simon Hanna's simulation
