@@ -2,6 +2,8 @@ MLDMM/ADDA/Linux/SecondForceCalculations/Verification_planar
 
 1. Verification_Planar_30dpl_Simon_New - The first run of the new script under Simon's test case scenario (Total forces incorrect)
 
+2. Verification_Planar_30dpl_NaNBoundary - Added a NaN boundary to stop Numpy looping around to the last value in the matrix on the boundary
+
 CalculateDDAForces_New - The new Force calculation with ADDA running alongside
 
 CalculateDDAForces_New_alphaE - The new Force calculation using alphaE instead of DipPol
