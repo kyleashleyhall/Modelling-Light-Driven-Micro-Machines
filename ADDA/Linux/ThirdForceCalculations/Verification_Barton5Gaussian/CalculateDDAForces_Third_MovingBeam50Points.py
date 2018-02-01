@@ -177,7 +177,7 @@ while (dpl<Final_dpl):
         except:
             print('Cannot Delete')'''
         y=y+Step_y
-        dpl=dpl+Step_dpl
+    dpl=dpl+Step_dpl
 
 TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
 with open(TimeLogPath, 'wb') as f:

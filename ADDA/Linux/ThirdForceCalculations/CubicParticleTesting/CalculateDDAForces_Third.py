@@ -117,7 +117,7 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
     return Force
 
 #Preliminary Variables
-Initial_dpl=31
+Initial_dpl=
 Final_dpl=41
 Step_dpl=1
 
