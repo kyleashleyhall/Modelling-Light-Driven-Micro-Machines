@@ -1,0 +1,108 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+all data is saved in 'run000_sphere_g30_m1.5'
+box dimensions: 30x30x30
+lambda: 1   Dipoles/lambda: 15.0672
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 14328
+Memory usage for MatVec matrices: 8.1 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 13.8 MB
+
+here we go, calc Y
+
+CoupleConstant:2.091557528e-05+7.234244286e-08i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 7.9355743446E-01  + 
+RE_002 = 7.7522316732E-01  + 
+RE_003 = 4.9749114201E-01  + 
+RE_004 = 4.4852481605E-01  + 
+RE_005 = 3.4663407342E-01  + 
+RE_006 = 3.0518597794E-01  + 
+RE_007 = 3.0177206858E-01  + 
+RE_008 = 2.9779243953E-01  + 
+RE_009 = 2.7946608253E-01  + 
+RE_010 = 2.6325642873E-01  + 
+RE_011 = 2.6333290353E-01  - 
+RE_012 = 2.6545472349E-01  - 
+RE_013 = 2.6410353928E-01  -+
+RE_014 = 2.6481965905E-01  - 
+RE_015 = 2.3461445205E-01  + 
+RE_016 = 2.1341220315E-01  + 
+RE_017 = 1.8534613202E-01  + 
+RE_018 = 1.6665855090E-01  + 
+RE_019 = 1.5642651035E-01  + 
+RE_020 = 1.4323405036E-01  + 
+RE_021 = 1.4248273250E-01  + 
+RE_022 = 8.1866610833E-02  + 
+RE_023 = 6.3974356371E-02  + 
+RE_024 = 5.1389233906E-02  + 
+RE_025 = 4.2003633818E-02  + 
+RE_026 = 3.6571109495E-02  + 
+RE_027 = 2.9173439925E-02  + 
+RE_028 = 2.7205616567E-02  + 
+RE_029 = 2.5674660345E-02  + 
+RE_030 = 2.3238358850E-02  + 
+RE_031 = 1.7051347717E-02  + 
+RE_032 = 1.6911982439E-02  + 
+RE_033 = 1.5552462905E-02  + 
+RE_034 = 1.4467908270E-02  + 
+RE_035 = 1.1660930666E-02  + 
+RE_036 = 6.9615639175E-03  + 
+RE_037 = 5.4319078542E-03  + 
+RE_038 = 5.6490789550E-03  - 
+RE_039 = 5.1341535700E-03  + 
+RE_040 = 3.6513168349E-03  + 
+RE_041 = 3.6883875886E-03  - 
+RE_042 = 2.6138042865E-03  + 
+RE_043 = 1.5554446060E-03  + 
+RE_044 = 1.4428133263E-03  + 
+RE_045 = 1.4050871755E-03  + 
+RE_046 = 1.2365136837E-03  + 
+RE_047 = 7.2411506774E-04  + 
+RE_048 = 4.9966918090E-04  + 
+RE_049 = 3.9461048407E-04  + 
+RE_050 = 3.9491317295E-04  - 
+RE_051 = 3.6297748395E-04  + 
+RE_052 = 2.0954086010E-04  + 
+RE_053 = 1.5213734092E-04  + 
+RE_054 = 1.4766475977E-04  + 
+RE_055 = 1.4313379126E-04  + 
+RE_056 = 1.4377845153E-04  - 
+RE_057 = 1.3844981507E-04  + 
+RE_058 = 1.2525791950E-04  + 
+RE_059 = 1.2520463855E-04  + 
+RE_060 = 1.1077349541E-04  + 
+RE_061 = 9.8891071330E-05  + 
+RE_062 = 8.4665975754E-05  + 
+RE_063 = 6.7092406666E-05  + 
+RE_064 = 5.3944918004E-05  + 
+RE_065 = 3.3749618282E-05  + 
+RE_066 = 2.9903444221E-05  + 
+RE_067 = 2.3333508715E-05  + 
+RE_068 = 2.3225765051E-05  + 
+RE_069 = 1.7274464877E-05  + 
+RE_070 = 1.6028239209E-05  + 
+RE_071 = 1.6278918615E-05  - 
+RE_072 = 7.2483130906E-06  + 
+Cext	= 7.425929506
+Qext	= 2.363746776
+Cabs	= -9.913160493e-17
+Qabs	= -3.155456988e-17
+Calculating the force per dipole
+Additional memory usage for radiation forces: 0.3 MB
+
+Based on radiation forces:
+Cext.a	= (0,0,7.425929506)
+Csca.g	= (-7.080679468e-09,-3.959759846e-07,4.412462232)
+Cpr	= (7.080679468e-09,3.959759846e-07,3.013467274)
+Qpr	= (2.253850276e-09,1.260430706e-07,0.9592164249)
+Radiation forces saved to file
+Internal fields saved to file
+Dipole polarizations saved to file
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -store_beam -store_dip_pol -store_int_field -store_force

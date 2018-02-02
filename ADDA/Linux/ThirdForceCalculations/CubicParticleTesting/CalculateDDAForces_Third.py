@@ -117,8 +117,8 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
     return Force
 
 #Preliminary Variables
-Initial_dpl=
-Final_dpl=41
+Initial_dpl=1
+Final_dpl=2
 Step_dpl=1
 
 #Perform the DDA Calculations and calculate forces
@@ -132,10 +132,10 @@ TimeRecordings=np.zeros([(Final_dpl-Initial_dpl),3])
 CalculationTimes=np.zeros([(Final_dpl-Initial_dpl),2])
 while (dpl<Final_dpl):
     print('Processing dpl: '+str(dpl))
-    #callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1 -prop 0 0 1 -store_beam -store_dip_pol -store_int_field -store_force" #The script for performing the DDA calculations
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1 -prop 0 0 1 -store_beam -store_dip_pol -store_int_field -store_force" #The script for performing the DDA calculations
     print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1 -prop 0 0 1 -store_beam -store_dip_pol -store_int_field -store_force")
     StartTime_ADDA=time.clock()
-    #subprocess.call(callString,shell=True)
+    subprocess.call(callString,shell=True)
     EndTime_ADDA=time.clock()
     DipFiles, IntFFiles, BeamFiles, ForceFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1], sorted(glob.glob(ForcePathInput))[-1] #File containing the paths to each DipPol, IntField file
     FFiles = DipFiles.replace('DipPol-Y','CalculatedForces')
