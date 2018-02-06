@@ -14,7 +14,7 @@ import shutil
 
 def deltapos(F,m,t):
     '''Solution to F=ma, deltapos stands for change in position'''
-    return F*(t**2)/(2*m)
+    return float(F*(t**2)/(2*m))
     
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
@@ -125,7 +125,7 @@ Initial_dpl=30
 Final_dpl=31
 Step_dpl=1
 
-m = 4.2e-12 #Polystyrene bead density*1 micrometer radius
+m = 4.2e-4 #EDITED needs to be accurate Polystyrene bead density*1 micrometer radius 
 
 #Preliminary Dynamic variables
 t_0 = 0
@@ -140,30 +140,22 @@ while t_0 <= t_end:
 
     #Perform the DDA Calculations and calculate forces
 
-    #DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')  
-    #IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-Y')
-    #BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
-    #ForcePathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'RadForce-Y')
-    #dpl=Initial_dpl
-    #ForceError=np.zeros([(Final_dpl-Initial_dpl),7])
+    DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')  
+    IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-Y')
+    BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
+    ForcePathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'RadForce-Y')
     #TimeRecordings=np.zeros([(Final_dpl-Initial_dpl),3])
     #CalculationTimes=np.zeros([(Final_dpl-Initial_dpl),2])
-    #while (dpl<Final_dpl):
     print('Processing time: '+str(t_0))
     callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
     print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field")
     StartTime_ADDA=time.clock()
     subprocess.call(callString,shell=True)
     EndTime_ADDA=time.clock()
-    DipPol = np.loadtxt('DipPol-Y', skiprows=1)
-    IntField = np.loadtxt('IntField-Y', skiprows=1)
-    BeamField = np.loadtxt('IncBeam-Y', skiprows=1)
-    ADDAForces = np.loadtxt('RadForce-Y', skiprows=1)
-    #DipFiles, IntFFiles, BeamFiles, ForceFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1], sorted(glob.glob(ForcePathInput))[-1] #File containing the paths to each DipPol, IntField file
-    #FFiles = DipFiles.replace('DipPol-Y','CalculatedForces')
-    DipPolRaw=np.transpose(DipPol)
-    IntFieldRaw=np.transpose(IntField)
-    IncBeamRaw=np.transpose(BeamField)
+    DipFiles, IntFFiles, BeamFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1] #File containing the paths to each DipPol, IntField file
+    DipPolRaw=np.transpose(np.loadtxt(DipFiles, skiprows=1))
+    IntFieldRaw=np.transpose(np.loadtxt(IntFFiles, skiprows=1))
+    IncBeamRaw=np.transpose(np.loadtxt(BeamFiles, skiprows=1))
     DipoleSeperation=DipSep(DipPolRaw[0,:])
     StartTime_OurCalc=time.clock()
     CalculatedForce=Forces(DipPolRaw,IntFieldRaw,IncBeamRaw,DipoleSeperation)
@@ -203,11 +195,10 @@ while t_0 <= t_end:
     PPositionArray = np.append(PPositionArray, np.array([[t_0,-x_beam,-y_beam,-z_beam]]),axis=0)
                        
     #Use to delete the files after processing
-#         '''try:
-#            shutil.rmtree(FFiles.replace(os.sep+'CalculatedForces',''))
-#        except:
-#            print('Cannot Delete')'''
-    #dpl=dpl+Step_dpl
+    try:
+        shutil.rmtree(FFiles.replace(os.sep+'CalculatedForces',''))
+    except:
+        print('Cannot Delete')
         
 np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
 #==============================================================================
