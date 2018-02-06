@@ -1,7 +1,0 @@
-Warning: no access to tty (Bad file descriptor).
-Thus no job control in this shell.
-Processing dpl: 30
-../src/seq/adda -size 2 -dpl 30 -lambda 1 -prop 0 0 1 -store_beam -store_dip_pol -store_int_field -store_force
-3.76016964689e-11
--3.05798848434e-09
-0.38890028629
