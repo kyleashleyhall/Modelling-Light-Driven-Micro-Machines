@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Feb  7 11:36:23 2018
+
+@author: Marius
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+file1 = np.loadtxt('CorrectionFactors', skiprows=1)
+
+plt.plot(file1[:,1],file1[:,-1])
+plt.show()
+plt.plot(file1[:,2],file1[:,-1])
+plt.show()
+plt.plot(file1[:,3],file1[:,-1])
+plt.show()
+plt.hist(file[:,-1],50)
+plt.show()
