@@ -12,6 +12,10 @@ import subprocess
 import time
 import shutil
 
+def deltapos(F,m,t):
+    '''Solution to F=ma, deltapos stands for change in position'''
+    return float(F*(t**2)/(2*m))
+    
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
     for i in range(len(Singleaxis)-1):
@@ -117,91 +121,93 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
     return Force
 
 #Preliminary Variables
-Initial_dpl=27
-Final_dpl=28
+Initial_dpl=30
+Final_dpl=31
 Step_dpl=1
 
-Initial_lambdaValue=0.9
-Final_lambdaValue=1.1
-Step_lambdaValue=0.1
+m = 4.2e-3 #EDITED needs to be accurate Polystyrene bead density*1 micrometer radius 
 
-Initial_refractiveIndexValue=1.4
-Final_refractiveIndexValue=1.65
-Step_refractiveIndexValue=0.05
+#Preliminary Dynamic variables
+t_0 = 0
+t_end = 5
+t_step = 0.1
+x_beam, y_beam, z_beam = 0,0,0
 
-Initial_particleDiameterValue=1
-Final_particleDiameterValue=2.1
-Step_particleDiameterValue=0.1
+#Array to track particle position
+N = (t_end - t_0) / t_step
+PPositionArray = np.zeros([1,4])
+while t_0 <= t_end:
 
+    #Perform the DDA Calculations and calculate forces
 
-#Perform the DDA Calculations and calculate forces
-DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')  
-IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-Y')
-BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
-ForcePathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'RadForce-Y')
-dpl=Initial_dpl
-CorrectionFactors=np.zeros([462,5]) #Edit me if varying Preliminary Variables
-CalculationTimes=np.zeros([(Final_dpl-Initial_dpl),2])
-iterator=0
-while (dpl<Final_dpl):
-    StartTime=time.clock()
-    lambdaValue=Initial_lambdaValue
-    while(lambdaValue<Final_lambdaValue):
-        refractiveIndexValue=Initial_refractiveIndexValue
-        while(refractiveIndexValue<Final_refractiveIndexValue):
-            particleDiameterValue=Initial_particleDiameterValue
-            while(particleDiameterValue<Final_particleDiameterValue):
-                
-                callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(particleDiameterValue)+" -dpl "+str(dpl)+" -lambda "+str(lambdaValue)+" -prop 0 0 1 -m "+str(refractiveIndexValue)+" 0 -store_beam -store_dip_pol -store_int_field -store_force" #The script for performing the DDA calculations
-                subprocess.call(callString,shell=True)
-                DipFiles, IntFFiles, BeamFiles, ForceFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1], sorted(glob.glob(ForcePathInput))[-1] #File containing the paths to each DipPol, IntField file
-                FFiles = DipFiles.replace('DipPol-Y','CalculatedForces')
-                DipPolRaw=np.transpose(np.loadtxt(DipFiles, skiprows=1))
-                IntFieldRaw=np.transpose(np.loadtxt(IntFFiles, skiprows=1))
-                IncBeamRaw=np.transpose(np.loadtxt(BeamFiles, skiprows=1))
-                DipoleSeperation=DipSep(DipPolRaw[0,:])
-                CalculatedForce=Forces(DipPolRaw,IntFieldRaw,IncBeamRaw,DipoleSeperation)
+    DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')  
+    IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-Y')
+    BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
+    ForcePathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'RadForce-Y')
+    #TimeRecordings=np.zeros([(Final_dpl-Initial_dpl),3])
+    #CalculationTimes=np.zeros([(Final_dpl-Initial_dpl),2])
+    print('Processing time: '+str(t_0))
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field")
+    StartTime_ADDA=time.clock()
+    subprocess.call(callString,shell=True)
+    EndTime_ADDA=time.clock()
+    DipFiles, IntFFiles, BeamFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1] #File containing the paths to each DipPol, IntField file
+    DipPolRaw=np.transpose(np.loadtxt(DipFiles, skiprows=1))
+    IntFieldRaw=np.transpose(np.loadtxt(IntFFiles, skiprows=1))
+    IncBeamRaw=np.transpose(np.loadtxt(BeamFiles, skiprows=1))
+    DipoleSeperation=DipSep(DipPolRaw[0,:])
+    StartTime_OurCalc=time.clock()
+    CalculatedForce=Forces(DipPolRaw,IntFieldRaw,IncBeamRaw,DipoleSeperation)
+    EndTime_OurCalc=time.clock()
     
     
-                #SAVE CALCULATED FORCES
-                with open(FFiles,'wb') as f:
-                    f.write(b'x y z |F|^2 Fx Fy Fz \n')
-                    np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')
+    #SAVE CALCULATED FORCES
+#    with open(FFiles,'wb') as f:
+#        f.write(b'x y z |F|^2 Fx Fy Fz \n')
+#        np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')
     
-                #This section is where we look at the ADDA Calculated Forces
-                EstimatedParticleForce=np.array([[np.sum(CalculatedForce[:,4])],[np.sum(CalculatedForce[:,5])],[np.sum(CalculatedForce[:,6])]])
-                ADDADipoleForceFile = np.loadtxt(ForceFiles, skiprows=1) #Load the ADDA Dipole Forces File
-                ADDAParticleForce = np.array([[np.sum(ADDADipoleForceFile[:,4])],[np.sum(ADDADipoleForceFile[:,5])],[np.sum(ADDADipoleForceFile[:,6])]]) #Save the ADDA Particle Forces to memory
-                CorrectionFactors[iterator,0] = dpl
-                CorrectionFactors[iterator,1] = lambdaValue
-                CorrectionFactors[iterator,2] = refractiveIndexValue
-                CorrectionFactors[iterator,3] = particleDiameterValue
-                CorrectionFactors[iterator,4] = ADDAParticleForce[2]/EstimatedParticleForce[2]
-                iterator+=1
-                particleDiameterValue+=Step_particleDiameterValue
-                
-                #Use to delete the files after processing
-                try:
-                    shutil.rmtree(FFiles.replace(os.sep+'CalculatedForces',''))
-                except:
-                    print('Cannot Delete')
-                
-            refractiveIndexValue+=Step_refractiveIndexValue
-            
-        lambdaValue+=Step_lambdaValue
+    #This section is where we look at the ADDA Calculated Forces
+    EstimatedParticleForce=np.array([[np.sum(CalculatedForce[:,4])],[np.sum(CalculatedForce[:,5])],[np.sum(CalculatedForce[:,6])]])
+#==============================================================================
+#         ADDADipoleForceFile = np.loadtxt(ForceFiles, skiprows=1) #Load the ADDA Dipole Forces File
+#         ADDAParticleForce = np.array([[np.sum(ADDADipoleForceFile[:,4])],[np.sum(ADDADipoleForceFile[:,5])],[np.sum(ADDADipoleForceFile[:,6])]]) #Save the ADDA Particle Forces to memory
+#         ForceError[(dpl-Initial_dpl),0] = dpl 
+#         ForceError[(dpl-Initial_dpl),1] = pow((pow(ADDAParticleForce[0]-EstimatedParticleForce[0],2)),0.5)
+#         ForceError[(dpl-Initial_dpl),2] = pow((pow(ADDAParticleForce[1]-EstimatedParticleForce[1],2)),0.5)
+#         ForceError[(dpl-Initial_dpl),3] = pow((pow(ADDAParticleForce[2]-EstimatedParticleForce[2],2)),0.5)
+#         ForceError[(dpl-Initial_dpl),4] = pow((pow(ADDAParticleForce[0]-EstimatedParticleForce[0],2)),0.5)/ADDAParticleForce[0]
+#         ForceError[(dpl-Initial_dpl),5] = pow((pow(ADDAParticleForce[1]-EstimatedParticleForce[1],2)),0.5)/ADDAParticleForce[1]
+#         ForceError[(dpl-Initial_dpl),6] = pow((pow(ADDAParticleForce[2]-EstimatedParticleForce[2],2)),0.5)/ADDAParticleForce[2]
+#         TimeRecordings[(dpl-Initial_dpl),0] = dpl
+#         TimeRecordings[(dpl-Initial_dpl),1] = EndTime_ADDA-StartTime_ADDA
+#         TimeRecordings[(dpl-Initial_dpl),2] = EndTime_OurCalc-StartTime_OurCalc
+#==============================================================================
+                    
+    #Calculate the change in position of the particle
+    x = deltapos(EstimatedParticleForce[0],m,t_step)
+    y = deltapos(EstimatedParticleForce[1],m,t_step)
+    z = deltapos(EstimatedParticleForce[2],m,t_step)
+    x_beam += -x
+    y_beam += -y
+    z_beam += -z
+    t_0 += t_step
+    PPositionArray = np.append(PPositionArray, np.array([[t_0,-x_beam,-y_beam,-z_beam]]),axis=0)
+                       
+    #Use to delete the files after processing
+    try:
+        shutil.rmtree(DipFiles.replace(os.sep+'DipPol-Y',''))
+    except:
+        print('Cannot Delete')
         
-    #Include in dpl script
-    EndTime=time.clock()
-    CalculationTimes[(dpl-Initial_dpl),0] = dpl
-    CalculationTimes[(dpl-Initial_dpl),1] = EndTime-StartTime
-    dpl=dpl+Step_dpl
-
-
-CorrectionFactorsPath = str(os.getcwd())+str(os.sep+'CorrectionFactors') #|(F_ADDA - F_Calc)|/F_ADDA	
-with open(CorrectionFactorsPath, 'wb') as f:
-    f.write(b'dpl Lambda(micro m) RefractiveIndex ParticleDiameter(micro m) CorrectionFactor\n')
-    np.savetxt(f, CorrectionFactors, fmt='%.10f', delimiter=' ')
-TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
-with open(TimeLogPath, 'wb') as f:
-    f.write(b'dpl Time\n')
-    np.savetxt(f, CalculationTimes, fmt='%.10f', delimiter=' ')
+np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
+#==============================================================================
+# ForceErrorPath = str(os.getcwd())+str(os.sep+'ForceError') #|(F_ADDA - F_Calc)|/F_ADDA	
+# with open(ForceErrorPath, 'wb') as f:
+#     f.write(b'dpl |F_ADDA(x)-F_Calc(x)| |F_ADDA(y)-F_Calc(y)| |F_ADDA(z)-F_Calc(z)| |F_ADDA(x)-F_Calc(x)|/F_ADDA(x) |F_ADDA(y)-F_Calc(y)|/F_ADDA(y) |F_ADDA(z)-F_Calc(z)|/F_ADDA(z)\n')
+#     np.savetxt(f, ForceError, fmt='%.10f', delimiter=' ')
+# TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
+# with open(TimeLogPath, 'wb') as f:
+#     f.write(b'dpl ADDATime OurCalcTime\n')
+#     np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
+#==============================================================================

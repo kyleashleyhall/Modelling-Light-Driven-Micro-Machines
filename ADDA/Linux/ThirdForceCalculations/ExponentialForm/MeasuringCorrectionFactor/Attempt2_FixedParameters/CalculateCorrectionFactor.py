@@ -12,6 +12,13 @@ import subprocess
 import time
 import shutil
 
+def PolystyreneRefractiveIndex(Lambda,MediumsRefractiveIndex):
+    
+    RefracIndex=((((1.4435*((Lambda)**2)))/(((Lambda)**2)-0.020216))+1)**0.5
+    RefracIndex/=MediumsRefractiveIndex
+    
+    return(RefracIndex)
+
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
     for i in range(len(Singleaxis)-1):
@@ -117,85 +124,66 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
     return Force
 
 #Preliminary Variables
-Initial_dpl=28
-Final_dpl=29
-Step_dpl=1
+dpl=15
 
-Initial_lambdaValue=0.9
-Final_lambdaValue=1.1
-Step_lambdaValue=0.1
+lambdaValue=0.9
 
-Initial_refractiveIndexValue=1.4
-Final_refractiveIndexValue=1.65
-Step_refractiveIndexValue=0.05
+MediumRefractiveIndex=1.3280
 
-Initial_particleDiameterValue=1
-Final_particleDiameterValue=2.1
-Step_particleDiameterValue=0.1
+refractiveIndexValue=PolystyreneRefractiveIndex(lambdaValue,MediumRefractiveIndex) #Calculates for Polystyrene
 
+particleDiameterValue=2
+
+iterations=100
 
 #Perform the DDA Calculations and calculate forces
 DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')  
 IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-Y')
 BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
 ForcePathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'RadForce-Y')
-dpl=Initial_dpl
-CorrectionFactors=np.zeros([462,5]) #Edit me if varying Preliminary Variables
-CalculationTimes=np.zeros([(Final_dpl-Initial_dpl),2])
-iterator=0
-while (dpl<Final_dpl):
-    StartTime=time.clock()
-    lambdaValue=Initial_lambdaValue
-    while(lambdaValue<Final_lambdaValue):
-        refractiveIndexValue=Initial_refractiveIndexValue
-        while(refractiveIndexValue<Final_refractiveIndexValue):
-            particleDiameterValue=Initial_particleDiameterValue
-            while(particleDiameterValue<Final_particleDiameterValue):
+CorrectionFactors=np.zeros([iterations,5]) #Edit me if varying Preliminary Variables
+CalculationTimes=np.zeros([1,5])
+StartTime=time.clock()
                 
-                callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(particleDiameterValue)+" -dpl "+str(dpl)+" -lambda "+str(lambdaValue)+" -prop 0 0 1 -m "+str(refractiveIndexValue)+" 0 -store_beam -store_dip_pol -store_int_field -store_force" #The script for performing the DDA calculations
-                subprocess.call(callString,shell=True)
-                DipFiles, IntFFiles, BeamFiles, ForceFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1], sorted(glob.glob(ForcePathInput))[-1] #File containing the paths to each DipPol, IntField file
-                FFiles = DipFiles.replace('DipPol-Y','CalculatedForces')
-                DipPolRaw=np.transpose(np.loadtxt(DipFiles, skiprows=1))
-                IntFieldRaw=np.transpose(np.loadtxt(IntFFiles, skiprows=1))
-                IncBeamRaw=np.transpose(np.loadtxt(BeamFiles, skiprows=1))
-                DipoleSeperation=DipSep(DipPolRaw[0,:])
-                CalculatedForce=Forces(DipPolRaw,IntFieldRaw,IncBeamRaw,DipoleSeperation)
-    
-    
-                #SAVE CALCULATED FORCES
-                with open(FFiles,'wb') as f:
-                    f.write(b'x y z |F|^2 Fx Fy Fz \n')
-                    np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')
-    
-                #This section is where we look at the ADDA Calculated Forces
-                EstimatedParticleForce=np.array([[np.sum(CalculatedForce[:,4])],[np.sum(CalculatedForce[:,5])],[np.sum(CalculatedForce[:,6])]])
-                ADDADipoleForceFile = np.loadtxt(ForceFiles, skiprows=1) #Load the ADDA Dipole Forces File
-                ADDAParticleForce = np.array([[np.sum(ADDADipoleForceFile[:,4])],[np.sum(ADDADipoleForceFile[:,5])],[np.sum(ADDADipoleForceFile[:,6])]]) #Save the ADDA Particle Forces to memory
-                CorrectionFactors[iterator,0] = dpl
-                CorrectionFactors[iterator,1] = lambdaValue
-                CorrectionFactors[iterator,2] = refractiveIndexValue
-                CorrectionFactors[iterator,3] = particleDiameterValue
-                CorrectionFactors[iterator,4] = ADDAParticleForce[2]/EstimatedParticleForce[2]
-                iterator+=1
-                particleDiameterValue+=Step_particleDiameterValue
-                
-                #Use to delete the files after processing
-                try:
-                    shutil.rmtree(FFiles.replace(os.sep+'CalculatedForces',''))
-                except:
-                    print('Cannot Delete')
-                
-            refractiveIndexValue+=Step_refractiveIndexValue
-            
-        lambdaValue+=Step_lambdaValue
-        
-    #Include in dpl script
-    EndTime=time.clock()
-    CalculationTimes[(dpl-Initial_dpl),0] = dpl
-    CalculationTimes[(dpl-Initial_dpl),1] = EndTime-StartTime
-    dpl=dpl+Step_dpl
+for iterator in range(iterations):
 
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(particleDiameterValue)+" -dpl "+str(dpl)+" -lambda "+str(lambdaValue)+" -prop 0 0 1 -m "+str(refractiveIndexValue)+" 0 -store_beam -store_dip_pol -store_int_field -store_force" #The script for performing the DDA calculations
+    subprocess.call(callString,shell=True)
+    DipFiles, IntFFiles, BeamFiles, ForceFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1], sorted(glob.glob(ForcePathInput))[-1] #File containing the paths to each DipPol, IntField file
+    FFiles = DipFiles.replace('DipPol-Y','CalculatedForces')
+    DipPolRaw=np.transpose(np.loadtxt(DipFiles, skiprows=1))
+    IntFieldRaw=np.transpose(np.loadtxt(IntFFiles, skiprows=1))
+    IncBeamRaw=np.transpose(np.loadtxt(BeamFiles, skiprows=1))
+    DipoleSeperation=DipSep(DipPolRaw[0,:])
+    CalculatedForce=Forces(DipPolRaw,IntFieldRaw,IncBeamRaw,DipoleSeperation)
+
+    #SAVE CALCULATED FORCES
+    with open(FFiles,'wb') as f:
+        f.write(b'x y z |F|^2 Fx Fy Fz \n')
+        np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')
+    
+    #This section is where we look at the ADDA Calculated Forces
+    EstimatedParticleForce=np.array([[np.sum(CalculatedForce[:,4])],[np.sum(CalculatedForce[:,5])],[np.sum(CalculatedForce[:,6])]])
+    ADDADipoleForceFile = np.loadtxt(ForceFiles, skiprows=1) #Load the ADDA Dipole Forces File
+    ADDAParticleForce = np.array([[np.sum(ADDADipoleForceFile[:,4])],[np.sum(ADDADipoleForceFile[:,5])],[np.sum(ADDADipoleForceFile[:,6])]]) #Save the ADDA Particle Forces to memory
+    CorrectionFactors[iterator,0] = dpl
+    CorrectionFactors[iterator,1] = lambdaValue
+    CorrectionFactors[iterator,2] = refractiveIndexValue
+    CorrectionFactors[iterator,3] = particleDiameterValue
+    CorrectionFactors[iterator,4] = ADDAParticleForce[2]/EstimatedParticleForce[2]
+                
+    #Use to delete the files after processing
+    try:
+        shutil.rmtree(FFiles.replace(os.sep+'CalculatedForces',''))
+    except:
+        print('Cannot Delete')
+                
+EndTime=time.clock()
+CalculationTimes[0,0] = dpl
+CalculationTimes[0,1] = lambdaValue
+CalculationTimes[0,2] = refractiveIndexValue
+CalculationTimes[0,3] = particleDiameterValue
+CalculationTimes[0,4] = EndTime-StartTime
 
 CorrectionFactorsPath = str(os.getcwd())+str(os.sep+'CorrectionFactors') #|(F_ADDA - F_Calc)|/F_ADDA	
 with open(CorrectionFactorsPath, 'wb') as f:
