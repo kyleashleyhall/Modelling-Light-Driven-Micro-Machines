@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits.mplot3d import axes3d
 
-Quiv = np.transpose(np.loadtxt('RadForce-Y', skiprows=1))
+Quiv = np.transpose(np.loadtxt('CalculatedForces', skiprows=1))
 
 print(sum(Quiv[4]))
 print(sum(Quiv[5]))

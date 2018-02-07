@@ -125,11 +125,11 @@ Initial_dpl=30
 Final_dpl=31
 Step_dpl=1
 
-m = 4.2e-4 #EDITED needs to be accurate Polystyrene bead density*1 micrometer radius 
+m = 4.2e-3 #EDITED needs to be accurate Polystyrene bead density*1 micrometer radius 
 
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 0.3
+t_end = 5
 t_step = 0.1
 x_beam, y_beam, z_beam = 0,0,0
 
@@ -196,7 +196,7 @@ while t_0 <= t_end:
                        
     #Use to delete the files after processing
     try:
-        shutil.rmtree(FFiles.replace(os.sep+'CalculatedForces',''))
+        shutil.rmtree(DipFiles.replace(os.sep+'DipPol-Y',''))
     except:
         print('Cannot Delete')
         
