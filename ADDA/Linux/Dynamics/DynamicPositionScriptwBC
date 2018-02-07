@@ -189,9 +189,9 @@ while t_0 <= t_end:
     v_x += deltavel(EstimatedParticleForce2[0],m,t_step)
     v_y += deltavel(EstimatedParticleForce2[1],m,t_step)
     v_z += deltavel(EstimatedParticleForce2[2],m,t_step)
-    F_dragx = DragForce(nu, r, v_x)
-    F_dragy = DragForce(nu, r, v_y)
-    F_dragz = DragForce(nu, r, v_z)
+    F_dragx = 0 #DragForce(nu, r, v_x)
+    F_dragy = 0 #DragForce(nu, r, v_y)
+    F_dragz = 0 #DragForce(nu, r, v_z)
     EstimatedParticleForce3 = np.array([[EstimatedParticleForce2[0]-F_dragx],[EstimatedParticleForce2[1]-F_dragy],[EstimatedParticleForce2[2]-F_dragz]])
 #==============================================================================
 #         ADDADipoleForceFile = np.loadtxt(ForceFiles, skiprows=1) #Load the ADDA Dipole Forces File
