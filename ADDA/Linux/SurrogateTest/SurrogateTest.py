@@ -6,7 +6,7 @@ Created on Thu Feb  1 12:03:16 2018
 """
 
 import numpy as np
-from sklearn import svm
+from da.p7core import gtapprox
 
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
@@ -40,8 +40,16 @@ for i in range(len(DipPol[0])):
     TotalField[7,i]=IncBeam[8,linePositionCurrent_IncBeam]+IntField[8,linePositionCurrent_IntField]
     TotalField[8,i]=IncBeam[9,linePositionCurrent_IncBeam]+IntField[9,linePositionCurrent_IntField]
 
-Surrogate_Ex_r=svm.SVC()
-Surrogate_Ex_r.fit(np.transpose(TotalField[0:2,:]),TotalField[3,:])
+xSample=TotalField[0:3,:]
+ySample=TotalField[3:9,:]
 
-print(np.transpose(TotalField[0:3,:]))
-print(TotalField[3,:])
+builder = gtapprox.Builder()
+options = {
+'GTApprox/AccuracyEvaluation': 'on',
+'GTApprox/Technique': 'GP',
+'GTApprox/LogLevel': 'Info'
+}
+builder.options.set(options)
+model = builder.build(xSample, ySample)
+
+model.save('approxModel.gta')
