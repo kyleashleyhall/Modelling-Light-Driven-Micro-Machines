@@ -40,8 +40,11 @@ for i in range(len(DipPol[0])):
     TotalField[7,i]=IncBeam[8,linePositionCurrent_IncBeam]+IntField[8,linePositionCurrent_IntField]
     TotalField[8,i]=IncBeam[9,linePositionCurrent_IncBeam]+IntField[9,linePositionCurrent_IntField]
 
-xSample=TotalField[0:3,:]
-ySample=TotalField[3:9,:]
+xSample=np.transpose(TotalField[0:3,:])
+ySample=np.transpose(TotalField[3,:])
+
+print(xSample)
+print(ySample)
 
 builder = gtapprox.Builder()
 options = {

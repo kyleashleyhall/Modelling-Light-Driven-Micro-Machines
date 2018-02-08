@@ -1,5 +1,5 @@
-#PBS -N Verification_Barton5Gaussian_Exponential
+#PBS -N Varying_yGaussian
 # The working directory
-cd /usersc/kh13490/Project/Verification_Barton5Gaussian_Exponential
+cd /usersc/kh13490/Project/Varying_yGaussian
 # Script goes below here
 python CalculateDDAForces_Third_MovingBeam50Points.py

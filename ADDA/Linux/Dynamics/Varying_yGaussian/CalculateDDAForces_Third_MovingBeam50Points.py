@@ -11,6 +11,17 @@ import os
 import subprocess
 import time
 import shutil
+import scipy.constants as constants
+
+def ADDAForceConversion(Force,ElectricFieldStrength):
+
+	Force=Force*(((ElectricFieldStrength)**2)/((constants.c)**2))*(10**(-5))
+	
+	return(Force)
+	
+def OurForceConversion(Force,CorrectionFactor,ElectricFieldStrength):
+    
+   return(ADDAForceConversion((Force*CorrectionFactor),ElectricFieldStrength))
 
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
@@ -126,6 +137,9 @@ Initial_y=-5
 Step_y=0.2
 Final_y=5
 
+ElectricFieldStrength=1 #V/m
+CorrectionFactor=0.0734357589
+
 y=Initial_y #Set the value of y to the initial value
 
 #Perform the DDA Calculations and calculate forces
@@ -137,8 +151,8 @@ TimeRecordings=np.zeros([(((Final_y-Initial_y)//Step_dpl)+1),5])
 while (dpl<Final_dpl):
     while (y<Final_y):
         print('Processing dpl: '+str(dpl))
-        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x)+" "+str(y)+" "+str(z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-        print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x)+" "+str(y)+" "+str(z)+" -store_beam -store_dip_pol -store_int_field")
+        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 1 "+str(x)+" "+str(y)+" "+str(z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+        print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 1 "+str(x)+" "+str(y)+" "+str(z)+" -store_beam -store_dip_pol -store_int_field")
         StartTime_ADDA=time.clock()
         subprocess.call(callString,shell=True)
         EndTime_ADDA=time.clock()
@@ -150,6 +164,7 @@ while (dpl<Final_dpl):
         DipoleSeperation=DipSep(DipPolRaw[0,:])
         StartTime_OurCalc=time.clock()
         CalculatedForce=Forces(DipPolRaw,IntFieldRaw,IncBeamRaw,DipoleSeperation)
+        CalculatedForce=OurForceConversion(CalculatedForce,CorrectionFactor,ElectricFieldStrength)
         EndTime_OurCalc=time.clock()
     
     

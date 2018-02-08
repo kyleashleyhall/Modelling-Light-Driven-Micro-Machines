@@ -188,8 +188,7 @@ while t_0 <= t_end:
     
     #This section is where we look at the ADDA Calculated Forces
     EstimatedParticleForce1=np.array([[np.sum(CalculatedForce[:,4])],[np.sum(CalculatedForce[:,5])],[np.sum(CalculatedForce[:,6])]])
-    EstimatedParticleForce1=OurForceConversion(EstimatedParticleForce1,CorrectionFactor,ElectricFieldStrength) #Convert to ADDA
-    EstimatedParticleForce2=ADDAForceConversion(EstimatedParticleForce1,ElectricFieldStrength) #Convert to SI
+    EstimatedParticleForce2=OurForceConversion(EstimatedParticleForce1,CorrectionFactor,ElectricFieldStrength) #Convert to ADDA and SI
     v_x += deltavel(EstimatedParticleForce2[0],m,t_step)
     v_y += deltavel(EstimatedParticleForce2[1],m,t_step)
     v_z += deltavel(EstimatedParticleForce2[2],m,t_step)
