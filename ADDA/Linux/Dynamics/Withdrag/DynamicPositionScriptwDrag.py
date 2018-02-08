@@ -36,6 +36,10 @@ def ADDAForceConversion(Force,ElectricFieldStrength):
 	Force=Force*(((ElectricFieldStrength)**2)/((constants.c)**2))*(10**(-5))
 	
 	return(Force)
+	
+def OurForceConversion(Force,CorrectionFactor,ElectricFieldStrength):
+    
+   return(ADDAForceConversion((Force*CorrectionFactor),ElectricFieldStrength))	
     
 def Forces(DipPol,IntField,IncBeam,DipoleSep):
     
@@ -133,10 +137,9 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
     
     return Force
 
-#Preliminary Variables
-Initial_dpl=30
-Final_dpl=31
-Step_dpl=1
+#Preliminary Variables	
+ElectricFieldStrength=1 #V/m
+CorrectionFactor=0.0734357589	
 
 m = 4.2e-12 #Polystyrene bead density*1 micrometer radius
 nu = 8.891e-4
@@ -185,13 +188,16 @@ while t_0 <= t_end:
     
     #This section is where we look at the ADDA Calculated Forces
     EstimatedParticleForce1=np.array([[np.sum(CalculatedForce[:,4])],[np.sum(CalculatedForce[:,5])],[np.sum(CalculatedForce[:,6])]])
-    EstimatedParticleForce2=ADDAForceConversion(EstimatedParticleForce1, 1) #Convert to SI
+    EstimatedParticleForce1=OurForceConversion(EstimatedParticleForce1,CorrectionFactor,ElectricFieldStrength) #Convert to ADDA
+    EstimatedParticleForce2=ADDAForceConversion(EstimatedParticleForce1,ElectricFieldStrength) #Convert to SI
     v_x += deltavel(EstimatedParticleForce2[0],m,t_step)
     v_y += deltavel(EstimatedParticleForce2[1],m,t_step)
     v_z += deltavel(EstimatedParticleForce2[2],m,t_step)
+    print(v_x,v_y,v_z)
     F_dragx = DragForce(nu, r, v_x)
     F_dragy = DragForce(nu, r, v_y)
     F_dragz = DragForce(nu, r, v_z)
+    print(F_dragx,F_dragy,F_dragz)
     EstimatedParticleForce3 = np.array([[EstimatedParticleForce2[0]-F_dragx],[EstimatedParticleForce2[1]-F_dragy],[EstimatedParticleForce2[2]-F_dragz]])
 #==============================================================================
 #         ADDADipoleForceFile = np.loadtxt(ForceFiles, skiprows=1) #Load the ADDA Dipole Forces File
