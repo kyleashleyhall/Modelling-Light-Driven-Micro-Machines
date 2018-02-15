@@ -168,7 +168,9 @@ def prop(l, w, dipsep):
     dipoles = np.vstack({tuple(row) for row in dipoles})
     return dipoles
 
-dipoleSeperation= 0.06 #-0.04999901792+0.08333169654
+
+
+dipoleSeperation= 0.09955405125-0.03318468375
 ConeRadius=1 #1 micro m
 ConeHeight=2 #2 micro m
 
@@ -185,7 +187,7 @@ ax.set_zlabel('2 Column')
 plt.show()
 
 #PROPELLOR FILE
-dipolearray2 = prop(2,2,0.1)
+dipolearray2 = prop(2,2,dipoleSeperation)
 np.savetxt('propellorfile', dipolearray2, fmt='%d')
 xyzrows = np.transpose([dipolearray2])
 fig = plt.figure()
