@@ -187,7 +187,7 @@ ax.set_zlabel('2 Column')
 plt.show()
 
 #PROPELLOR FILE
-dipolearray2 = prop(2,2,dipoleSeperation)
+dipolearray2 = prop(1,1,dipoleSeperation)
 np.savetxt('propellorfile', dipolearray2, fmt='%d')
 xyzrows = np.transpose([dipolearray2])
 fig = plt.figure()

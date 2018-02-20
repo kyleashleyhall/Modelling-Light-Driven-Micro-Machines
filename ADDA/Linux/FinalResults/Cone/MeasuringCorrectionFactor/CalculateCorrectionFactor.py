@@ -172,7 +172,7 @@ for iterator in range(iterations):
     CorrectionFactors[iterator,1] = lambdaValue
     CorrectionFactors[iterator,2] = refractiveIndexValue
     CorrectionFactors[iterator,3] = particleDiameterValue
-    CorrectionFactors[iterator,4] = ADDAParticleForce[2]/EstimatedParticleForce[2]
+    CorrectionFactors[iterator,4] = ((((ADDAParticleForce[0])**2)+((ADDAParticleForce[1])**2)+((ADDAParticleForce[2])**2))**0.5)/((((EstimatedParticleForce[0])**2)+((EstimatedParticleForce[1])**2)+((EstimatedParticleForce[2])**2))**0.5)
                 
     #Use to delete the files after processing
     if (iterator!=0): #Delete all but the first run

@@ -11,17 +11,18 @@ import os
 import subprocess
 import time
 import shutil
+import random
 import scipy.constants as constants
 
-def deltapos(F,m,t,v):
-    '''Solution to F=ma, deltapos stands for change in position'''
-    return float(F*(t**2)/(2*m) + v*t)
+def DragCoef(nu, r):
+    return 6*np.pi*nu*r
     
-def deltavel(F,m,t):
-    return F*t/m
-
-def DragForce(nu, r, vel):
-    return 6*np.pi*nu*r*vel
+def BrownianForce(Dragcoefficient, tempertature):
+    Boltzmann=1.38064852e-23
+    return np.sqrt(2*Dragcoefficient*(Boltzmann)*(tempertature+273))*random.gauss(0,1e-4)
+    
+def PositionChange(Force, Dragcoefficient, timestep):
+    return (Force*timestep)/Dragcoefficient
         
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
@@ -39,7 +40,14 @@ def ADDAForceConversion(Force,ElectricFieldStrength):
 	
 def OurForceConversion(Force,CorrectionFactor,ElectricFieldStrength):
     
-   return(ADDAForceConversion((Force*CorrectionFactor),ElectricFieldStrength))	
+   return(ADDAForceConversion((Force*CorrectionFactor),ElectricFieldStrength))
+   
+def ElectricFieldStrengthCalc(DielConstant,Power,BeamWidth): #Power in Watts, BeamWidth in micro m
+    
+    Impedence=((constants.mu_0)/((constants.epsilon_0)*(DielConstant)))**0.5
+    ElectricFieldStrength=((Impedence*Power)/((constants.pi)*(((BeamWidth*(1e-6))/2)**2)))**0.5
+    
+    return(ElectricFieldStrength)
     
 def Forces(DipPol,IntField,IncBeam,DipoleSep):
     
@@ -138,23 +146,28 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
     return Force
 
 #Preliminary Variables	
-ElectricFieldStrength=1 #V/m
-CorrectionFactor=0.0734357589	
-
-m = 4.2e-12 #Polystyrene bead density*1 micrometer radius
+CorrectionFactor=0.308310573308
+BeamWidth=1 #In micro m
+Temperature=20 #Degrees C
+Power=5e-3 #In Watts
+MediumDielectricConstant=87.740-(0.40008*Temperature)+(9.398e-4*(Temperature**2))-(1.410e-6*(Temperature**3))
+print(MediumDielectricConstant)
+ElectricFieldStrength=ElectricFieldStrengthCalc(MediumDielectricConstant,Power,BeamWidth) #V/m
+print(ElectricFieldStrength)
 nu = 8.891e-4
-r = 1e-6 
+r = 1e-6
 
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 0.4
-t_step = 0.1
+t_end = 0.01
+t_step = 5e-5
 x_beam, y_beam, z_beam = 0,0,0
-v_x, v_y, v_z = 0,0,0
+
 
 #Array to track particle position
 N = (t_end - t_0) / t_step
 PPositionArray = np.zeros([1,4])
+StartTime=time.clock()
 while t_0 <= t_end:
 
     #Perform the DDA Calculations and calculate forces
@@ -166,11 +179,9 @@ while t_0 <= t_end:
     #TimeRecordings=np.zeros([(Final_dpl-Initial_dpl),3])
     #CalculationTimes=np.zeros([(Final_dpl-Initial_dpl),2])
     print('Processing time: '+str(t_0))
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -beam barton5 1 "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field")
-    StartTime_ADDA=time.clock()
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field")
     subprocess.call(callString,shell=True)
-    EndTime_ADDA=time.clock()
     DipFiles, IntFFiles, BeamFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1] #File containing the paths to each DipPol, IntField file
     DipPolRaw=np.transpose(np.loadtxt(DipFiles, skiprows=1))
     IntFieldRaw=np.transpose(np.loadtxt(IntFFiles, skiprows=1))
@@ -189,6 +200,7 @@ while t_0 <= t_end:
     #This section is where we look at the ADDA Calculated Forces
     EstimatedParticleForce1=np.array([[np.sum(CalculatedForce[:,4])],[np.sum(CalculatedForce[:,5])],[np.sum(CalculatedForce[:,6])]])
     EstimatedParticleForce2=OurForceConversion(EstimatedParticleForce1,CorrectionFactor,ElectricFieldStrength) #Convert to ADDA and SI
+<<<<<<< Updated upstream
     v_x += deltavel(EstimatedParticleForce2[0],m,t_step)
     v_y += deltavel(EstimatedParticleForce2[1],m,t_step)
     v_z += deltavel(EstimatedParticleForce2[2],m,t_step)
@@ -203,6 +215,14 @@ while t_0 <= t_end:
     F_dragz = DragForce(nu, r, v_z)
     print(F_dragx,F_dragy,F_dragz)
     EstimatedParticleForce3 = np.array([[EstimatedParticleForce2[0]-F_dragx],[EstimatedParticleForce2[1]-F_dragy],[EstimatedParticleForce2[2]-F_dragz]])
+=======
+
+    #Generate the Brownian "Force"
+    Drag_Coefficient = DragCoef(nu,r)
+    B_x, B_y, B_z = BrownianForce(Drag_Coefficient, Temperature), BrownianForce(Drag_Coefficient, Temperature),BrownianForce(Drag_Coefficient, Temperature)
+
+    EstimatedParticleForce3 = np.array([[EstimatedParticleForce2[0]+B_x],[EstimatedParticleForce2[1]+B_y],[EstimatedParticleForce2[2]+B_z]])
+>>>>>>> Stashed changes
 #==============================================================================
 #         ADDADipoleForceFile = np.loadtxt(ForceFiles, skiprows=1) #Load the ADDA Dipole Forces File
 #         ADDAParticleForce = np.array([[np.sum(ADDADipoleForceFile[:,4])],[np.sum(ADDADipoleForceFile[:,5])],[np.sum(ADDADipoleForceFile[:,6])]]) #Save the ADDA Particle Forces to memory
@@ -219,12 +239,12 @@ while t_0 <= t_end:
 #==============================================================================
                     
     #Calculate the change in position of the particle
-    x = deltapos(EstimatedParticleForce3[0],m,t_step, v_x)
-    y = deltapos(EstimatedParticleForce3[1],m,t_step, v_y)
-    z = deltapos(EstimatedParticleForce3[2],m,t_step, v_z)
-    x_beam += -x
-    y_beam += -y
-    z_beam += -z
+    x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, t_step)
+    y = PositionChange(EstimatedParticleForce3[1], Drag_Coefficient, t_step)
+    z = PositionChange(EstimatedParticleForce3[2], Drag_Coefficient, t_step)
+    x_beam += -x[0,0]
+    y_beam += -y[0,0]
+    z_beam += -z[0,0]
     t_0 += t_step
     PPositionArray = np.append(PPositionArray, np.array([[t_0,-x_beam,-y_beam,-z_beam]]),axis=0)
                        
@@ -235,6 +255,14 @@ while t_0 <= t_end:
         print('Cannot Delete')
         
 np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
+EndTime=time.clock()
+TimeRecordings=np.zeros([1,1])
+TimeRecordings[0,0]=EndTime-StartTime
+TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
+with open(TimeLogPath, 'wb') as f:
+    f.write(b'Time Taken (s)\n')
+    np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
+
 #==============================================================================
 # ForceErrorPath = str(os.getcwd())+str(os.sep+'ForceError') #|(F_ADDA - F_Calc)|/F_ADDA	
 # with open(ForceErrorPath, 'wb') as f:
