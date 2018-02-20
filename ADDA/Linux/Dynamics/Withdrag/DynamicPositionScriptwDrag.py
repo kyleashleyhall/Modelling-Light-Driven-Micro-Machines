@@ -192,6 +192,11 @@ while t_0 <= t_end:
     v_x += deltavel(EstimatedParticleForce2[0],m,t_step)
     v_y += deltavel(EstimatedParticleForce2[1],m,t_step)
     v_z += deltavel(EstimatedParticleForce2[2],m,t_step)
+    """
+    v_x += BrownianMotion(D, sigma)
+    v_y += BrownianMotion(D, sigma)
+    v_z += BrownianMotion(D, sigma)
+    """
     print(v_x,v_y,v_z)
     F_dragx = DragForce(nu, r, v_x)
     F_dragy = DragForce(nu, r, v_y)
