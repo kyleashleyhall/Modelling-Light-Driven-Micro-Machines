@@ -134,7 +134,7 @@ refractiveIndexValue=1.5 #Calculates for Polystyrene
 
 particleDiameterValue=2
 
-iterations=100
+iterations=10
 
 #Perform the DDA Calculations and calculate forces
 DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')  
@@ -174,7 +174,7 @@ for iterator in range(iterations):
                 
     #Use to delete the files after processing
     try:
-        shutil.rmtree(FFiles.replace(os.sep+'CalculatedForces',''))
+        shutil.rmtree(DipFiles.replace(os.sep+'DipPol-Y',''))
     except:
         print('Cannot Delete')
                 

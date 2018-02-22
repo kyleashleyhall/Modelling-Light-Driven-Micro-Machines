@@ -168,9 +168,7 @@ def prop(l, w, dipsep):
     dipoles = np.vstack({tuple(row) for row in dipoles})
     return dipoles
 
-
-
-dipoleSeperation= 0.09955405125-0.03318468375
+dipoleSeperation= 0.08810352742-0.02936784247
 ConeRadius=1 #1 micro m
 ConeHeight=2 #2 micro m
 

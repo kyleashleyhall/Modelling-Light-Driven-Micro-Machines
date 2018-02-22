@@ -147,7 +147,7 @@ StartTime=time.clock()
                 
 for iterator in range(iterations):
 
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(particleDiameterValue)+" -dpl "+str(dpl)+" -lambda "+str(lambdaValue)+" -prop 0 0 1 -m "+str(refractiveIndexValue)+" 0 -store_beam -store_dip_pol -store_int_field -store_force" #The script for performing the DDA calculations
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(particleDiameterValue)+" -shape read propellorfile -lambda "+str(lambdaValue)+" -prop 0 0 1 -m "+str(refractiveIndexValue)+" 0 -store_beam -store_dip_pol -store_int_field -store_force" #The script for performing the DDA calculations
     subprocess.call(callString,shell=True)
     DipFiles, IntFFiles, BeamFiles, ForceFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1], sorted(glob.glob(ForcePathInput))[-1] #File containing the paths to each DipPol, IntField file
     FFiles = DipFiles.replace('DipPol-Y','CalculatedForces')
@@ -170,13 +170,14 @@ for iterator in range(iterations):
     CorrectionFactors[iterator,1] = lambdaValue
     CorrectionFactors[iterator,2] = refractiveIndexValue
     CorrectionFactors[iterator,3] = particleDiameterValue
-    CorrectionFactors[iterator,4] = ADDAParticleForce[2]/EstimatedParticleForce[2]
+    CorrectionFactors[iterator,4] = ((((ADDAParticleForce[0])**2)+((ADDAParticleForce[1])**2)+((ADDAParticleForce[2])**2))**0.5)/((((EstimatedParticleForce[0])**2)+((EstimatedParticleForce[1])**2)+((EstimatedParticleForce[2])**2))**0.5)
                 
     #Use to delete the files after processing
-    try:
-        shutil.rmtree(FFiles.replace(os.sep+'CalculatedForces',''))
-    except:
-        print('Cannot Delete')
+    if(iterator!=0):
+        try:
+            shutil.rmtree(FFiles.replace(os.sep+'CalculatedForces',''))
+        except:
+            print('Cannot Delete')
                 
 EndTime=time.clock()
 CalculationTimes[0,0] = dpl
