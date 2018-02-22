@@ -159,8 +159,8 @@ r = 1e-6
 
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 0.01
-t_step = 1e-4
+t_end = 2e-3
+t_step = 1e-3
 
 #Start point of beam 1
 x_beam1, y_beam1, z_beam1 = 0,-1,0
@@ -180,7 +180,7 @@ z_beam2 += -z_position
 
 #Array to track particle position
 N = (t_end - t_0) / t_step
-PPositionArray = np.zeros([1,4])
+PPositionArray = np.zeros([0,4])
 StartTime=time.clock()
 while t_0 <= t_end:
 
@@ -240,11 +240,11 @@ while t_0 <= t_end:
     EndTime_OurCalc=time.clock()
     
     
-    '''#SAVE CALCULATED FORCES
-    FFiles="Force"
+    #SAVE CALCULATED FORCES
+    FFiles=DipFiles.replace('DipPol-Y','CalculatedForces')
     with open(FFiles,'wb') as f:
         f.write(b'x y z |F|^2 Fx Fy Fz \n')
-        np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')'''
+        np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')
     
     #This section is where we look at the ADDA Calculated Forces
     EstimatedParticleForce1=np.array([[np.sum(CalculatedForce[:,4])],[np.sum(CalculatedForce[:,5])],[np.sum(CalculatedForce[:,6])]])
@@ -283,14 +283,16 @@ while t_0 <= t_end:
     x_position +=x[0,0]
     y_position +=y[0,0]
     z_position +=z[0,0]
+    print(y[0,0])
+    print(y_position)
     t_0 += t_step
     PPositionArray = np.append(PPositionArray, np.array([[t_0,x_position,y_position,z_position]]),axis=0)
                        
-    #Use to delete the files after processing
+    '''#Use to delete the files after processing
     try:
         shutil.rmtree(DipFiles.replace(os.sep+'DipPol-Y',''))
     except:
-        print('Cannot Delete')
+        print('Cannot Delete')'''
 
 EndTime=time.clock()
 TimeRecordings=np.array([[(EndTime-StartTime)]])        
