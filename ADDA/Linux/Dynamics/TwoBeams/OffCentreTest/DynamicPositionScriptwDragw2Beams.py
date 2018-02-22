@@ -19,7 +19,7 @@ def DragCoef(nu, r):
     
 def BrownianForce(Dragcoefficient, tempertature):
     Boltzmann=1.38064852e-23
-    return np.sqrt(2*Dragcoefficient*(Boltzmann)*(tempertature+273))*random.gauss(0,1)
+    return np.sqrt(2*(Boltzmann)*(tempertature+273)*Dragcoefficient)*random.gauss(0,1)
     
 def PositionChange(Force, Dragcoefficient, timestep):
     return (Force*timestep)/Dragcoefficient
