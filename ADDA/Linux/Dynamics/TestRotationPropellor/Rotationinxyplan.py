@@ -164,7 +164,7 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
     return Force
 
 #Preliminary Variables	
-CorrectionFactor=0.308310573308
+CorrectionFactor=0.109640101
 BeamWidth=0.5 #In micro m
 Temperature=20 #Degrees C
 Power=5e-3 #In Watts
@@ -199,8 +199,8 @@ while t_0 <= t_end:
     #TimeRecordings=np.zeros([(Final_dpl-Initial_dpl),3])
     #CalculationTimes=np.zeros([(Final_dpl-Initial_dpl),2])
     print('Processing time: '+str(t_0))
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" 0 0 1 -orient "+str(theta)+" 0 0 -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" 0 0 1 -orient "+str(theta)+" 0 0 -store_beam -store_dip_pol -store_int_field")
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -lambda 1.064 -shape read propellorfile -m 1.185951922 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" 0 0 1 -orient "+str(theta)+" 0 0 -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -lambda 1.064 -shape read propellorfile -m 1.185951922 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" 0 0 1 -orient "+str(theta)+" 0 0 -store_beam -store_dip_pol -store_int_field")
     subprocess.call(callString,shell=True)
     DipFiles, IntFFiles, BeamFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1] #File containing the paths to each DipPol, IntField file
     DipPolRaw=np.transpose(np.loadtxt(DipFiles, skiprows=1))
