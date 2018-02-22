@@ -210,12 +210,12 @@ while t_0 <= t_end:
     StartTime_OurCalc=time.clock()
     CalculatedForce=Forces(DipPolRaw,IntFieldRaw,IncBeamRaw,DipoleSeperation)
     EndTime_OurCalc=time.clock()
-    
+    FFiles=DipFiles.replace('DipPol-Y','CalculatedForces')
     
     #SAVE CALCULATED FORCES
-#    with open(FFiles,'wb') as f:
-#        f.write(b'x y z |F|^2 Fx Fy Fz \n')
-#        np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')
+    with open(FFiles,'wb') as f:
+        f.write(b'x y z |F|^2 Fx Fy Fz \n')
+        np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')
     
     #This section is where we look at the ADDA Calculated Forces
     EstimatedParticleForce1=np.array([[np.sum(CalculatedForce[:,4])],[np.sum(CalculatedForce[:,5])],[np.sum(CalculatedForce[:,6])]])
@@ -247,7 +247,7 @@ while t_0 <= t_end:
     theta += -Dtheta
     t_0 += t_step
     PPositionArray = np.append(PPositionArray, np.array([[t_0,-x_beam,-y_beam,-z_beam]]),axis=0)
-    AngleArray = np.append(AngleArray, np.arrray([[t_0, -theta]]),axis=0)
+    AngleArray = np.append(AngleArray, np.array([[t_0, -theta]]),axis=0)
                        
     #Use to delete the files after processing
     try:
