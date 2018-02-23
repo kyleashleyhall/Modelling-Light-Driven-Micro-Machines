@@ -162,7 +162,7 @@ DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')
 IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-Y')
 BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
 dpl=Initial_dpl
-TimeRecordings=np.zeros([0,5])
+TimeRecordings=np.zeros([0,4])
 while (Arbvalue == 0):
     iteration += 1
     print('Processing z: '+str(z))
@@ -187,7 +187,7 @@ while (Arbvalue == 0):
         f.write(b'x y z |F|^2 Fx Fy Fz \n')
         np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')
     
-    TimeRecordings = np.append(TimeRecordings, np.array([iteration,z,EndTime_ADDA-StartTime_ADDA,EndTime_OurCalc-StartTime_OurCalc]), axis=0)
+    TimeRecordings = np.append(TimeRecordings, np.array([[iteration,z,EndTime_ADDA-StartTime_ADDA,EndTime_OurCalc-StartTime_OurCalc]]), axis=0)
     
     #Use to delete the files after processing
     '''try:
