@@ -13,6 +13,13 @@ import time
 import shutil
 import scipy.constants as constants
 
+def ElectricFieldStrengthCalc(DielConstant,Power,BeamWidth): #Power in Watts, BeamWidth in micro m
+    
+    Impedence=((constants.mu_0)/((constants.epsilon_0)*(DielConstant)))**0.5
+    ElectricFieldStrength=((Impedence*Power)/((constants.pi)*(((BeamWidth*(1e-6))/2)**2)))**0.5
+    
+    return(ElectricFieldStrength)
+
 def ADDAForceConversion(Force,ElectricFieldStrength):
 
 	Force=Force*(((ElectricFieldStrength)**2)/((constants.c)**2))*(10**(-5))
@@ -139,7 +146,10 @@ Initial_z=-1
 Step_z=0.05
 Final_z=2
 
-ElectricFieldStrength=1e8 #V/m --We would rather the force be too large than too small for this test - Marius van Laar 12/02/2018 16:45
+BeamWidth = 0.2 #Micro m
+Temperature = 20 #20 degrees Celcius
+MediumDielectricConstant=87.740-(0.40008*Temperature)+(9.398e-4*(Temperature**2))-(1.410e-6*(Temperature**3))
+ElectricFieldStrength = ElectricFieldStrengthCalc(MediumDielectricConstant, 5e-3, BeamWidth)
 CorrectionFactor=0.0734357589
 
 z=Initial_z #Set the value of y to the initial value
@@ -153,8 +163,8 @@ TimeRecordings=np.zeros([(((Final_z-Initial_z)//Step_dpl)+1),5])
 while (dpl<Final_dpl):
     while (z<Final_z):
         print('Processing dpl: '+str(dpl))
-        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.2 "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-        print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.2 "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field")
+        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+        print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field")
         StartTime_ADDA=time.clock()
         subprocess.call(callString,shell=True)
         EndTime_ADDA=time.clock()
@@ -203,4 +213,4 @@ with open(TimeLogPath, 'wb') as f:
     f.write(b'x y z ADDATime OurCalcTime\n')
     np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
 AllForcesPath = str(os.getcwd())+str(os.sep+'TotalForce')
-np.savetxt(AllForcesPath,np.transpose(AllForces), fmt='%.10f',delimiter=' ')    
+np.savetxt(AllForcesPath,np.transpose(AllForces), fmt='%e',delimiter=' ')    

@@ -1,0 +1,5 @@
+../src/seq/adda: error while loading shared libraries: libfftw3.so.3: cannot open shared object file: No such file or directory
+Traceback (most recent call last):
+  File "CalculateDDAForces_Third.py", line 140, in <module>
+    DipFiles, IntFFiles, BeamFiles, ForceFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1], sorted(glob.glob(ForcePathInput))[-1] #File containing the paths to each DipPol, IntField file
+IndexError: list index out of range
