@@ -1,0 +1,2604 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+all data is saved in 'run000_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.6704177887E-01
+RE_001 = 4.1884541491E-01  + 
+RE_002 = 1.6112008548E-01  + 
+RE_003 = 9.8730630643E-02  + 
+RE_004 = 6.2912970696E-02  + 
+RE_005 = 4.3459819690E-02  + 
+RE_006 = 2.0294242226E-02  + 
+RE_007 = 9.3383289221E-03  + 
+RE_008 = 7.9591561432E-03  + 
+RE_009 = 3.2789033813E-03  + 
+RE_010 = 2.0337215523E-03  + 
+RE_011 = 7.5902750120E-04  + 
+RE_012 = 5.0428925853E-04  + 
+RE_013 = 5.2195749401E-04  - 
+RE_014 = 8.9717252788E-05  + 
+RE_015 = 6.7891717462E-05  + 
+RE_016 = 5.1714138252E-05  + 
+RE_017 = 6.2695424192E-06  + 
+Cext	= 0.3567379313
+Qext	= 0.1135532103
+Cabs	= -2.640650146e-19
+Qabs	= -8.405450473e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run001_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.6746123586E-01
+RE_001 = 4.8840125698E-01  + 
+RE_002 = 1.9484956638E-01  + 
+RE_003 = 8.6657650274E-02  + 
+RE_004 = 4.8925759072E-02  + 
+RE_005 = 4.3656575256E-02  + 
+RE_006 = 2.4281715761E-02  + 
+RE_007 = 1.3102268877E-02  + 
+RE_008 = 7.7592249526E-03  + 
+RE_009 = 3.5568150456E-03  + 
+RE_010 = 1.6700024314E-03  + 
+RE_011 = 7.5517117977E-04  + 
+RE_012 = 4.8880965229E-04  + 
+RE_013 = 5.3470555234E-04  - 
+RE_014 = 1.4354343762E-04  + 
+RE_015 = 4.0886741267E-05  + 
+RE_016 = 1.1928141362E-05  + 
+RE_017 = 6.5118516944E-06  + 
+Cext	= 0.4476077871
+Qext	= 0.1424779838
+Cabs	= -4.031757957e-19
+Qabs	= -1.283348417e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run002_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.7171341102E-01
+RE_001 = 4.9507861347E-01  + 
+RE_002 = 1.7001560349E-01  + 
+RE_003 = 9.3013305711E-02  + 
+RE_004 = 5.5495809600E-02  + 
+RE_005 = 3.2828402638E-02  + 
+RE_006 = 2.5020389279E-02  + 
+RE_007 = 2.0955183925E-02  + 
+RE_008 = 6.3074274658E-03  + 
+RE_009 = 5.4973668343E-03  + 
+RE_010 = 1.3492044972E-03  + 
+RE_011 = 3.6036640064E-04  + 
+RE_012 = 2.7166192834E-04  + 
+RE_013 = 1.9541750067E-04  + 
+RE_014 = 4.7298591768E-05  + 
+RE_015 = 4.0336777584E-05  + 
+RE_016 = 3.2449650443E-05  + 
+RE_017 = 3.3303353036E-05  - 
+RE_018 = 3.8449175001E-06  + 
+Cext	= 0.517068452
+Qext	= 0.1645880001
+Cabs	= -5.350792654e-19
+Qabs	= -1.703210201e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run003_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.6994266580E-01
+RE_001 = 4.1754234002E-01  + 
+RE_002 = 1.8807786506E-01  + 
+RE_003 = 1.5198536265E-01  + 
+RE_004 = 8.0721685874E-02  + 
+RE_005 = 6.6033797006E-02  + 
+RE_006 = 2.6396511775E-02  + 
+RE_007 = 1.3219100072E-02  + 
+RE_008 = 1.4069622628E-02  - 
+RE_009 = 9.4712789825E-03  + 
+RE_010 = 1.2391788474E-03  + 
+RE_011 = 1.0105636065E-03  + 
+RE_012 = 1.0461406229E-03  - 
+RE_013 = 1.8989037878E-04  + 
+RE_014 = 7.1650189012E-05  + 
+RE_015 = 6.8491523868E-05  + 
+RE_016 = 1.9879022752E-05  + 
+RE_017 = 1.9521827451E-05  + 
+RE_018 = 4.3877128614E-06  + 
+Cext	= 0.5667117158
+Qext	= 0.1803899418
+Cabs	= -6.400927177e-19
+Qabs	= -2.037478401e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run004_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.6706380808E-01
+RE_001 = 4.0523618262E-01  + 
+RE_002 = 2.2283169220E-01  + 
+RE_003 = 1.4650912783E-01  + 
+RE_004 = 7.3299390711E-02  + 
+RE_005 = 5.3691976283E-02  + 
+RE_006 = 1.8497306843E-02  + 
+RE_007 = 1.2134139965E-02  + 
+RE_008 = 3.6485541943E-03  + 
+RE_009 = 2.1812881323E-03  + 
+RE_010 = 1.9212606637E-03  + 
+RE_011 = 1.5016876532E-03  + 
+RE_012 = 4.3718572384E-04  + 
+RE_013 = 2.3795605489E-04  + 
+RE_014 = 1.0443696305E-04  + 
+RE_015 = 6.7255130497E-05  + 
+RE_016 = 4.0379960664E-05  + 
+RE_017 = 1.1579083935E-05  + 
+RE_018 = 1.0548803452E-05  + 
+RE_019 = 1.3072003141E-06  + 
+Cext	= 0.6130929318
+Qext	= 0.1951535413
+Cabs	= -7.179904367e-19
+Qabs	= -2.285434542e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run005_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.6110381263E-01
+RE_001 = 4.4247673972E-01  + 
+RE_002 = 2.2907623098E-01  + 
+RE_003 = 1.7782673245E-01  + 
+RE_004 = 9.4253208113E-02  + 
+RE_005 = 3.8097895527E-02  + 
+RE_006 = 1.9565733616E-02  + 
+RE_007 = 5.6814842242E-03  + 
+RE_008 = 4.7503051358E-03  + 
+RE_009 = 2.6471439138E-03  + 
+RE_010 = 1.9646987622E-03  + 
+RE_011 = 7.1391625938E-04  + 
+RE_012 = 2.8503665871E-04  + 
+RE_013 = 1.8431940904E-04  + 
+RE_014 = 4.0812254891E-05  + 
+RE_015 = 1.9827361138E-05  + 
+RE_016 = 1.1782338176E-05  + 
+RE_017 = 3.7690280838E-06  + 
+Cext	= 0.6532420901
+Qext	= 0.2079334153
+Cabs	= -7.764392429e-19
+Qabs	= -2.47148287e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run006_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.5578947263E-01
+RE_001 = 5.5699420027E-01  + 
+RE_002 = 1.7253935902E-01  + 
+RE_003 = 1.0080855428E-01  + 
+RE_004 = 7.8231830691E-02  + 
+RE_005 = 3.1636268192E-02  + 
+RE_006 = 1.4949129632E-02  + 
+RE_007 = 8.5305584770E-03  + 
+RE_008 = 7.0850942121E-03  + 
+RE_009 = 4.7418188676E-03  + 
+RE_010 = 4.7600469402E-03  - 
+RE_011 = 8.3242316682E-04  + 
+RE_012 = 3.2602412835E-04  + 
+RE_013 = 3.3306132360E-04  - 
+RE_014 = 3.7129213171E-05  + 
+RE_015 = 2.0719152060E-05  + 
+RE_016 = 1.3025779942E-05  + 
+RE_017 = 6.0008532328E-06  + 
+Cext	= 0.6806907133
+Qext	= 0.2166705835
+Cabs	= -8.12914392e-19
+Qabs	= -2.587586876e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run007_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.5064281134E-01
+RE_001 = 5.0610445481E-01  + 
+RE_002 = 1.8711071770E-01  + 
+RE_003 = 1.0360512768E-01  + 
+RE_004 = 7.3060934739E-02  + 
+RE_005 = 6.6131577436E-02  + 
+RE_006 = 1.7663913834E-02  + 
+RE_007 = 1.1675396491E-02  + 
+RE_008 = 5.1471981656E-03  + 
+RE_009 = 2.7635312956E-03  + 
+RE_010 = 2.8521069561E-03  - 
+RE_011 = 8.0432984005E-04  + 
+RE_012 = 6.9813318019E-04  + 
+RE_013 = 1.1754047475E-04  + 
+RE_014 = 5.6703779613E-05  + 
+RE_015 = 3.5402723671E-05  + 
+RE_016 = 1.4490276695E-05  + 
+RE_017 = 3.1060486580E-06  + 
+Cext	= 0.6989326766
+Qext	= 0.2224771807
+Cabs	= -8.344817852e-19
+Qabs	= -2.656238021e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run008_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.4393064750E-01
+RE_001 = 4.7181100309E-01  + 
+RE_002 = 1.9767515571E-01  + 
+RE_003 = 1.2390056350E-01  + 
+RE_004 = 5.1406536862E-02  + 
+RE_005 = 2.6051225119E-02  + 
+RE_006 = 1.1835933458E-02  + 
+RE_007 = 4.9257292712E-03  + 
+RE_008 = 2.6778780545E-03  + 
+RE_009 = 2.7802176495E-03  - 
+RE_010 = 2.1813009684E-03  + 
+RE_011 = 8.0582781839E-04  + 
+RE_012 = 5.0424802916E-04  + 
+RE_013 = 5.1886475350E-04  - 
+RE_014 = 3.4072043672E-04  + 
+RE_015 = 4.4343022529E-05  + 
+RE_016 = 1.3512321058E-05  + 
+RE_017 = 7.6352793915E-06  + 
+Cext	= 0.7113113114
+Qext	= 0.2264174226
+Cabs	= -8.423709944e-19
+Qabs	= -2.681350154e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run009_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.3718446814E-01
+RE_001 = 4.6017476809E-01  + 
+RE_002 = 2.0047545498E-01  + 
+RE_003 = 1.1407645764E-01  + 
+RE_004 = 4.3703796640E-02  + 
+RE_005 = 1.8539135553E-02  + 
+RE_006 = 1.1780831102E-02  + 
+RE_007 = 5.5356134324E-03  + 
+RE_008 = 2.4177287121E-03  + 
+RE_009 = 1.8437110207E-03  + 
+RE_010 = 1.7444653242E-03  + 
+RE_011 = 2.9055871803E-04  + 
+RE_012 = 2.1178835470E-04  + 
+RE_013 = 6.6458920017E-05  + 
+RE_014 = 6.3585067129E-05  + 
+RE_015 = 2.4437257507E-05  + 
+RE_016 = 1.3490762080E-05  + 
+RE_017 = 1.0837302330E-05  + 
+RE_018 = 1.9317999269E-06  + 
+Cext	= 0.7191113563
+Qext	= 0.228900254
+Cabs	= -8.406790457e-19
+Qabs	= -2.675964514e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run010_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.2795981825E-01
+RE_001 = 4.5562457110E-01  + 
+RE_002 = 1.9151314595E-01  + 
+RE_003 = 9.6132755293E-02  + 
+RE_004 = 3.9490589035E-02  + 
+RE_005 = 2.0027388937E-02  + 
+RE_006 = 1.1506459772E-02  + 
+RE_007 = 6.9659435290E-03  + 
+RE_008 = 2.2176273893E-03  + 
+RE_009 = 1.5788509131E-03  + 
+RE_010 = 1.4287368639E-03  + 
+RE_011 = 9.5898819610E-04  + 
+RE_012 = 4.8719274645E-04  + 
+RE_013 = 1.2858457785E-04  + 
+RE_014 = 7.3358939936E-05  + 
+RE_015 = 1.8745022058E-05  + 
+RE_016 = 1.0809737728E-05  + 
+RE_017 = 4.6015107588E-06  + 
+Cext	= 0.7239993502
+Qext	= 0.2304561507
+Cabs	= -8.332561107e-19
+Qabs	= -2.652336578e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run011_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.1711667317E-01
+RE_001 = 4.3393164446E-01  + 
+RE_002 = 1.7490988147E-01  + 
+RE_003 = 8.1377452530E-02  + 
+RE_004 = 4.5591495936E-02  + 
+RE_005 = 2.2321683131E-02  + 
+RE_006 = 9.5980142143E-03  + 
+RE_007 = 6.1675212360E-03  + 
+RE_008 = 4.0764570446E-03  + 
+RE_009 = 4.3148883618E-03  - 
+RE_010 = 3.8196785002E-03  + 
+RE_011 = 7.8131866420E-04  + 
+RE_012 = 2.8477158344E-04  + 
+RE_013 = 9.8382081955E-05  + 
+RE_014 = 7.8812940864E-05  + 
+RE_015 = 6.2338776607E-05  + 
+RE_016 = 1.6283221498E-05  + 
+RE_017 = 6.0332699843E-06  + 
+Cext	= 0.7191088553
+Qext	= 0.2288994579
+Cabs	= -8.129721292e-19
+Qabs	= -2.587770659e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run012_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.0434314679E-01
+RE_001 = 3.9625797344E-01  + 
+RE_002 = 1.6358687533E-01  + 
+RE_003 = 7.4766371292E-02  + 
+RE_004 = 4.4832889839E-02  + 
+RE_005 = 4.7194281748E-02  - 
+RE_006 = 1.8655104192E-02  + 
+RE_007 = 6.8089905598E-03  + 
+RE_008 = 4.4212333790E-03  + 
+RE_009 = 2.6237549803E-03  + 
+RE_010 = 1.5878609987E-03  + 
+RE_011 = 5.8184170270E-04  + 
+RE_012 = 2.1119887997E-04  + 
+RE_013 = 1.7853378592E-04  + 
+RE_014 = 7.5032675233E-05  + 
+RE_015 = 5.1519695444E-05  + 
+RE_016 = 2.1403995453E-05  + 
+RE_017 = 5.1435661362E-06  + 
+Cext	= 0.7113144068
+Qext	= 0.2264184079
+Cabs	= -7.866968018e-19
+Qabs	= -2.504133694e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run013_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 8.9046273201E-01
+RE_001 = 3.4110780048E-01  + 
+RE_002 = 2.0108310673E-01  + 
+RE_003 = 1.6595296902E-01  + 
+RE_004 = 4.6793713078E-02  + 
+RE_005 = 3.5886134249E-02  + 
+RE_006 = 2.9045953126E-02  + 
+RE_007 = 1.3703291637E-02  + 
+RE_008 = 4.0978407548E-03  + 
+RE_009 = 2.4164519567E-03  + 
+RE_010 = 9.8815444018E-04  + 
+RE_011 = 9.2926376587E-04  + 
+RE_012 = 6.6823033411E-04  + 
+RE_013 = 1.6595700848E-04  + 
+RE_014 = 7.9664443767E-05  + 
+RE_015 = 7.0415271221E-05  + 
+RE_016 = 3.7750065369E-05  + 
+RE_017 = 9.7189987999E-06  + 
+Cext	= 0.6989323393
+Qext	= 0.2224770734
+Cabs	= -7.516379764e-19
+Qabs	= -2.392537987e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run014_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 8.7646410559E-01
+RE_001 = 3.6029252462E-01  + 
+RE_002 = 3.6170954164E-01  - 
+RE_003 = 7.6581817470E-02  + 
+RE_004 = 3.9940562714E-02  + 
+RE_005 = 2.7096989754E-02  + 
+RE_006 = 2.0449127281E-02  + 
+RE_007 = 7.6172116892E-03  + 
+RE_008 = 6.5220348316E-03  + 
+RE_009 = 2.1925621824E-03  + 
+RE_010 = 1.7058850016E-03  + 
+RE_011 = 8.5277161532E-04  + 
+RE_012 = 7.3635216944E-04  + 
+RE_013 = 3.4222633072E-04  + 
+RE_014 = 4.9084060115E-05  + 
+RE_015 = 2.4956806808E-05  + 
+RE_016 = 2.2121836624E-05  + 
+RE_017 = 4.6757422295E-06  + 
+Cext	= 0.6806862617
+Qext	= 0.2166691665
+Cabs	= -7.089487979e-19
+Qabs	= -2.256654112e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run015_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 8.6209154262E-01
+RE_001 = 5.6844865133E-01  + 
+RE_002 = 1.7702410142E-01  + 
+RE_003 = 6.9244459663E-02  + 
+RE_004 = 4.1468303612E-02  + 
+RE_005 = 2.2904890477E-02  + 
+RE_006 = 1.3999871190E-02  + 
+RE_007 = 7.4714321677E-03  + 
+RE_008 = 5.3004616411E-03  + 
+RE_009 = 2.5256911866E-03  + 
+RE_010 = 1.6381769312E-03  + 
+RE_011 = 6.3483339062E-04  + 
+RE_012 = 6.7150956668E-04  - 
+RE_013 = 2.3724590264E-04  + 
+RE_014 = 4.4024312298E-05  + 
+RE_015 = 2.2930960073E-05  + 
+RE_016 = 9.0061552469E-06  + 
+Cext	= 0.6532445655
+Qext	= 0.2079342033
+Cabs	= -6.5554668e-19
+Qabs	= -2.086669891e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run016_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 8.5330530939E-01
+RE_001 = 3.1047148297E-01  + 
+RE_002 = 2.3395553611E-01  + 
+RE_003 = 1.1904888999E-01  + 
+RE_004 = 9.8883097355E-02  + 
+RE_005 = 2.4416824717E-02  + 
+RE_006 = 1.5622530722E-02  + 
+RE_007 = 7.3940808404E-03  + 
+RE_008 = 5.5810591359E-03  + 
+RE_009 = 3.8805539100E-03  + 
+RE_010 = 1.5141774007E-03  + 
+RE_011 = 4.9498295379E-04  + 
+RE_012 = 4.6564210565E-04  + 
+RE_013 = 1.5630447720E-04  + 
+RE_014 = 3.3159451772E-05  + 
+RE_015 = 1.4835036835E-05  + 
+RE_016 = 8.8167150650E-06  + 
+Cext	= 0.6130963536
+Qext	= 0.1951546305
+Cabs	= -5.868553812e-19
+Qabs	= -1.868018696e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run017_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 8.5021337701E-01
+RE_001 = 2.4030149936E-01  + 
+RE_002 = 1.6776301995E-01  + 
+RE_003 = 1.5808251392E-01  + 
+RE_004 = 1.0651675606E-01  + 
+RE_005 = 5.5753005782E-02  + 
+RE_006 = 1.7967820831E-02  + 
+RE_007 = 6.0548906038E-03  + 
+RE_008 = 4.3070423585E-03  + 
+RE_009 = 4.8310791884E-03  - 
+RE_010 = 3.9517936642E-03  + 
+RE_011 = 8.0841659902E-04  + 
+RE_012 = 5.2536627270E-04  + 
+RE_013 = 1.8595416599E-04  + 
+RE_014 = 4.1271539573E-05  + 
+RE_015 = 3.9314085078E-05  + 
+RE_016 = 6.0113402481E-06  + 
+Cext	= 0.566709678
+Qext	= 0.1803892931
+Cabs	= -5.103419797e-19
+Qabs	= -1.624468975e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run018_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 8.5446576845E-01
+RE_001 = 4.1967891200E-01  + 
+RE_002 = 1.9324730437E-01  + 
+RE_003 = 7.9520264256E-02  + 
+RE_004 = 4.6036410826E-02  + 
+RE_005 = 4.1434132193E-02  + 
+RE_006 = 3.1246616407E-02  + 
+RE_007 = 8.6121027041E-03  + 
+RE_008 = 4.0809315468E-03  + 
+RE_009 = 3.5145399403E-03  + 
+RE_010 = 1.4684543925E-03  + 
+RE_011 = 1.2042301777E-03  + 
+RE_012 = 6.7112549233E-04  + 
+RE_013 = 7.1163385454E-04  - 
+RE_014 = 8.8118736176E-05  + 
+RE_015 = 2.1036356798E-05  + 
+RE_016 = 7.7368099965E-06  + 
+Cext	= 0.5170671716
+Qext	= 0.1645875926
+Cabs	= -4.26810543e-19
+Qabs	= -1.358580154e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run019_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 8.8038897651E-01
+RE_001 = 8.9381550985E-01  - 
+RE_002 = 2.0959508413E-01  + 
+RE_003 = 1.3035934464E-01  + 
+RE_004 = 6.1977192554E-02  + 
+RE_005 = 4.0755098197E-02  + 
+RE_006 = 3.2478791288E-02  + 
+RE_007 = 1.0711252070E-02  + 
+RE_008 = 5.4542204866E-03  + 
+RE_009 = 3.6289712159E-03  + 
+RE_010 = 2.1101229416E-03  + 
+RE_011 = 1.6265525629E-03  + 
+RE_012 = 3.4299899656E-04  + 
+RE_013 = 1.9456638440E-04  + 
+RE_014 = 5.8111998477E-05  + 
+RE_015 = 2.5030533996E-05  + 
+RE_016 = 9.0887898427E-06  + 
+Cext	= 0.4476080063
+Qext	= 0.1424780535
+Cabs	= -3.402307187e-19
+Qabs	= -1.082988014e-19
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run020_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 9.7348014042E-01
+RE_001 = 4.3196651849E-01  + 
+RE_002 = 2.9377375028E-01  + 
+RE_003 = 2.6129314000E-01  + 
+RE_004 = 7.7955817694E-02  + 
+RE_005 = 3.9460931021E-02  + 
+RE_006 = 3.5287991258E-02  + 
+RE_007 = 1.4059198176E-02  + 
+RE_008 = 5.7322461161E-03  + 
+RE_009 = 2.0862260778E-03  + 
+RE_010 = 1.1381948714E-03  + 
+RE_011 = 1.1497081311E-03  - 
+RE_012 = 3.0980977105E-04  + 
+RE_013 = 2.0304138841E-04  + 
+RE_014 = 1.4005373743E-04  + 
+RE_015 = 4.8901506163E-05  + 
+RE_016 = 1.4536576460E-05  + 
+RE_017 = 9.4908444426E-06  + 
+Cext	= 0.3567377219
+Qext	= 0.1135531437
+Cabs	= -2.559377801e-19
+Qabs	= -8.146752564e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run021_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 8.6287167298E-01  + 
+RE_002 = 4.9755881021E-01  + 
+RE_003 = 3.5404537880E-01  + 
+RE_004 = 2.9869996266E-01  + 
+RE_005 = 9.4516174459E-02  + 
+RE_006 = 4.9001762258E-02  + 
+RE_007 = 3.5159439446E-02  + 
+RE_008 = 1.0657503244E-02  + 
+RE_009 = 5.4110117836E-03  + 
+RE_010 = 2.2290786129E-03  + 
+RE_011 = 1.5315251614E-03  + 
+RE_012 = 1.0756749829E-03  + 
+RE_013 = 2.8200026718E-04  + 
+RE_014 = 2.4336120806E-04  + 
+RE_015 = 1.9975099028E-04  + 
+RE_016 = 5.2285007068E-05  + 
+RE_017 = 1.7891159138E-05  + 
+RE_018 = 8.9906620974E-06  + 
+Cext	= 0.274602593
+Qext	= 0.08740872012
+Cabs	= -1.81875983e-19
+Qabs	= -5.789292344e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run022_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 9.2348999906E-01  + 
+RE_002 = 5.0064636205E-01  + 
+RE_003 = 3.5488600623E-01  + 
+RE_004 = 2.9996882240E-01  + 
+RE_005 = 8.3146973595E-02  + 
+RE_006 = 5.6162104251E-02  + 
+RE_007 = 4.9274933358E-02  + 
+RE_008 = 8.4573144265E-03  + 
+RE_009 = 5.8147157456E-03  + 
+RE_010 = 2.2665550667E-03  + 
+RE_011 = 1.7722019603E-03  + 
+RE_012 = 6.3149132958E-04  + 
+RE_013 = 2.1419461511E-04  + 
+RE_014 = 1.9312382415E-04  + 
+RE_015 = 9.1519698313E-05  + 
+RE_016 = 4.8178915785E-05  + 
+RE_017 = 2.2219344101E-05  + 
+RE_018 = 5.6498339579E-06  + 
+Cext	= 0.2239763528
+Qext	= 0.07129388738
+Cabs	= -1.372088307e-19
+Qabs	= -4.367492729e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run023_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 9.5714189305E-01  + 
+RE_002 = 4.3179844687E-01  + 
+RE_003 = 3.4183802814E-01  + 
+RE_004 = 3.2297459265E-01  + 
+RE_005 = 8.6728772219E-02  + 
+RE_006 = 5.5353899735E-02  + 
+RE_007 = 4.2812659131E-02  + 
+RE_008 = 7.8105968131E-03  + 
+RE_009 = 5.0132278310E-03  + 
+RE_010 = 2.4310243982E-03  + 
+RE_011 = 1.8614342513E-03  + 
+RE_012 = 5.3182760636E-04  + 
+RE_013 = 2.0088957590E-04  + 
+RE_014 = 1.6146466983E-04  + 
+RE_015 = 9.9874295032E-05  + 
+RE_016 = 3.9889306351E-05  + 
+RE_017 = 1.9985683569E-05  + 
+RE_018 = 5.5424068078E-06  + 
+Cext	= 0.1949436675
+Qext	= 0.06205249663
+Cabs	= -1.160691667e-19
+Qabs	= -3.694596324e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 1 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 0.9 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 0.8 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 0.7 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 0.6 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 0.5 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 0.4 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 0.3 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 0.2 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 0.1 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 1.38777878078e-16 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -0.1 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -0.2 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -0.3 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -0.4 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -0.5 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -0.6 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -0.7 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -0.8 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -0.9 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -1.0 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -1.1 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -1.2 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -1.3 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -1.4 -store_beam -sall data is saved in 'run024_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 9.7681545950E-01  + 
+RE_002 = 3.6870076142E-01  + 
+RE_003 = 3.1788574880E-01  + 
+RE_004 = 3.3449284921E-01  - 
+RE_005 = 9.6849376101E-02  + 
+RE_006 = 5.1225523908E-02  + 
+RE_007 = 4.1095691132E-02  + 
+RE_008 = 7.4506687126E-03  + 
+RE_009 = 4.6024589677E-03  + 
+RE_010 = 2.5841904605E-03  + 
+RE_011 = 1.9226423190E-03  + 
+RE_012 = 5.4057193441E-04  + 
+RE_013 = 1.9402015118E-04  + 
+RE_014 = 1.3307888939E-04  + 
+RE_015 = 1.0869818274E-04  + 
+RE_016 = 3.9871377119E-05  + 
+RE_017 = 1.8483356559E-05  + 
+RE_018 = 5.5409774816E-06  + 
+Cext	= 0.1730303575
+Qext	= 0.05507727341
+Cabs	= -1.027682755e-19
+Qabs	= -3.271215807e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run025_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 9.8767468030E-01  + 
+RE_002 = 3.2704878329E-01  + 
+RE_003 = 2.9216683625E-01  + 
+RE_004 = 3.1457493907E-01  - 
+RE_005 = 1.0121335920E-01  + 
+RE_006 = 4.7757481191E-02  + 
+RE_007 = 3.8956661283E-02  + 
+RE_008 = 7.2394840848E-03  + 
+RE_009 = 4.3695196902E-03  + 
+RE_010 = 2.7575877664E-03  + 
+RE_011 = 1.9886606050E-03  + 
+RE_012 = 5.6204418849E-04  + 
+RE_013 = 1.9930591068E-04  + 
+RE_014 = 1.2100715409E-04  + 
+RE_015 = 1.0045689949E-04  + 
+RE_016 = 4.2016907956E-05  + 
+RE_017 = 1.6606676455E-05  + 
+RE_018 = 5.5497877471E-06  + 
+Cext	= 0.1542320345
+Qext	= 0.04909358133
+Cabs	= -9.193985159e-20
+Qabs	= -2.92653637e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run026_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 9.9388306212E-01  + 
+RE_002 = 3.0443162546E-01  + 
+RE_003 = 2.7124233773E-01  + 
+RE_004 = 2.8458144860E-01  - 
+RE_005 = 9.8815660730E-02  + 
+RE_006 = 4.5169120050E-02  + 
+RE_007 = 3.6728348131E-02  + 
+RE_008 = 7.1927758124E-03  + 
+RE_009 = 4.2281672894E-03  + 
+RE_010 = 2.9362047107E-03  + 
+RE_011 = 2.0628919586E-03  + 
+RE_012 = 5.8032830530E-04  + 
+RE_013 = 2.1490842407E-04  + 
+RE_014 = 1.2024020472E-04  + 
+RE_015 = 9.9004653190E-05  + 
+RE_016 = 4.3706240897E-05  + 
+RE_017 = 1.5303319835E-05  + 
+RE_018 = 5.7923562450E-06  + 
+Cext	= 0.1378705689
+Qext	= 0.0438855651
+Cabs	= -8.251845467e-20
+Qabs	= -2.626643991e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run027_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 9.9753902264E-01  + 
+RE_002 = 2.9416987307E-01  + 
+RE_003 = 2.5648167947E-01  + 
+RE_004 = 2.5866877269E-01  - 
+RE_005 = 9.4012310889E-02  + 
+RE_006 = 4.3467179035E-02  + 
+RE_007 = 3.5006418406E-02  + 
+RE_008 = 7.3062708836E-03  + 
+RE_009 = 4.1500956046E-03  + 
+RE_010 = 3.1129953976E-03  + 
+RE_011 = 2.1561098635E-03  + 
+RE_012 = 6.0017159996E-04  + 
+RE_013 = 2.3573514364E-04  + 
+RE_014 = 1.2118310648E-04  + 
+RE_015 = 1.0365910568E-04  + 
+RE_016 = 4.4607700458E-05  + 
+RE_017 = 1.4640822704E-05  + 
+RE_018 = 6.3727782868E-06  + 
+Cext	= 0.1236937311
+Qext	= 0.03937293748
+Cabs	= -7.428040735e-20
+Qabs	= -2.364418801e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run028_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 9.9999327073E-01  + 
+RE_002 = 2.9085952249E-01  + 
+RE_003 = 2.4821107091E-01  + 
+RE_004 = 2.3898156283E-01  + 
+RE_005 = 8.9159580453E-02  + 
+RE_006 = 4.2431067916E-02  + 
+RE_007 = 3.3764684072E-02  + 
+RE_008 = 7.5639717930E-03  + 
+RE_009 = 4.1184652641E-03  + 
+RE_010 = 3.2874938510E-03  + 
+RE_011 = 2.2782055703E-03  + 
+RE_012 = 6.2495148446E-04  + 
+RE_013 = 2.5894736227E-04  + 
+RE_014 = 1.2199946052E-04  + 
+RE_015 = 1.0272662569E-04  + 
+RE_016 = 4.5192909481E-05  + 
+RE_017 = 1.4548172159E-05  + 
+RE_018 = 7.2303521839E-06  + 
+Cext	= 0.1114359922
+Qext	= 0.03547117801
+Cabs	= -6.709599495e-20
+Qabs	= -2.135731852e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run029_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0020584845E+00  - 
+RE_002 = 2.9132661062E-01  + 
+RE_003 = 2.4841838731E-01  + 
+RE_004 = 2.2472543015E-01  + 
+RE_005 = 8.4998196144E-02  + 
+RE_006 = 4.1800829279E-02  + 
+RE_007 = 3.2822175909E-02  + 
+RE_008 = 7.9537265757E-03  + 
+RE_009 = 4.1204281940E-03  + 
+RE_010 = 3.4609934170E-03  + 
+RE_011 = 2.4333929723E-03  + 
+RE_012 = 6.5559867213E-04  + 
+RE_013 = 2.8294466955E-04  + 
+RE_014 = 1.2292187792E-04  + 
+RE_015 = 9.7816652946E-05  + 
+RE_016 = 4.5946984932E-05  + 
+RE_017 = 1.5117623966E-05  + 
+RE_018 = 8.1574813484E-06  + 
+Cext	= 0.1008232536
+Qext	= 0.03209303838
+Cabs	= -6.083376731e-20
+Qabs	= -1.936398955e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run030_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0041347689E+00  - 
+RE_002 = 2.9392402048E-01  + 
+RE_003 = 2.5809047391E-01  + 
+RE_004 = 2.1565210050E-01  + 
+RE_005 = 8.1721168010E-02  + 
+RE_006 = 4.1376932083E-02  + 
+RE_007 = 3.2034459767E-02  + 
+RE_008 = 8.4692369854E-03  + 
+RE_009 = 4.1469437667E-03  + 
+RE_010 = 3.6355683025E-03  + 
+RE_011 = 2.6185665052E-03  + 
+RE_012 = 6.9184462981E-04  + 
+RE_013 = 3.0647973087E-04  + 
+RE_014 = 1.2417811914E-04  + 
+RE_015 = 9.2199599906E-05  + 
+RE_016 = 4.7263818588E-05  + 
+RE_017 = 1.6562015227E-05  + 
+RE_018 = 8.8184135097E-06  + 
+Cext	= 0.0916034312
+Qext	= 0.02915827776
+Cabs	= -5.536548243e-20
+Qabs	= -1.762338041e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run031_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0063702535E+00  - 
+RE_002 = 2.9775900806E-01  + 
+RE_003 = 2.7289063159E-01  + 
+RE_004 = 2.1156954312E-01  + 
+RE_005 = 7.9330440440E-02  + 
+RE_006 = 4.1031170159E-02  + 
+RE_007 = 3.1315693493E-02  + 
+RE_008 = 9.1090505503E-03  + 
+RE_009 = 4.1927620874E-03  + 
+RE_010 = 3.8141382768E-03  + 
+RE_011 = 2.8238010355E-03  + 
+RE_012 = 7.3274172600E-04  + 
+RE_013 = 3.2837784111E-04  + 
+RE_014 = 1.2577983718E-04  + 
+RE_015 = 8.7314730273E-05  + 
+RE_016 = 4.9475697301E-05  + 
+RE_017 = 1.9184691383E-05  + 
+RE_018 = 8.9090170727E-06  + 
+Cext	= 0.08355871229
+Qext	= 0.0265975642
+Cabs	= -5.057514503e-20
+Qabs	= -1.609856866e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run032_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0087830224E+00  - 
+RE_002 = 3.0227009194E-01  + 
+RE_003 = 2.8620423442E-01  + 
+RE_004 = 2.1153498940E-01  + 
+RE_005 = 7.7728633902E-02  + 
+RE_006 = 4.0694230271E-02  + 
+RE_007 = 3.0621415077E-02  + 
+RE_008 = 9.8743584582E-03  + 
+RE_009 = 4.2559937094E-03  + 
+RE_010 = 4.0006194957E-03  + 
+RE_011 = 3.0355760484E-03  + 
+RE_012 = 7.7684478136E-04  + 
+RE_013 = 3.4757772459E-04  + 
+RE_014 = 1.2762146523E-04  + 
+RE_015 = 8.3491896461E-05  + 
+RE_016 = 5.2842395123E-05  + 
+RE_017 = 2.3375486492E-05  + 
+RE_018 = 8.4495823826E-06  + 
+Cext	= 0.07650627742
+Qext	= 0.02435270446
+Cabs	= -4.636236664e-20
+Qabs	= -1.475759965e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run033_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0113334750E+00  - 
+RE_002 = 3.0706326342E-01  + 
+RE_003 = 2.9465029043E-01  + 
+RE_004 = 2.1418918831E-01  + 
+RE_005 = 7.6790461688E-02  + 
+RE_006 = 4.0337165393E-02  + 
+RE_007 = 2.9932442980E-02  + 
+RE_008 = 1.0765029514E-02  + 
+RE_009 = 4.3374656127E-03  + 
+RE_010 = 4.1999661195E-03  + 
+RE_011 = 3.2413111295E-03  + 
+RE_012 = 8.2236553678E-04  + 
+RE_013 = 3.6331750752E-04  + 
+RE_014 = 1.2957059111E-04  + 
+RE_015 = 8.0675345921E-05  + 
+RE_016 = 5.7475553155E-05  + 
+RE_017 = 2.9589766083E-05  + 
+RE_018 = 7.8454030514E-06  + 
+Cext	= 0.07029450084
+Qext	= 0.02237543456
+Cabs	= -4.264215939e-20
+Qabs	= -1.35734209e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run034_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0139625098E+00  - 
+RE_002 = 3.1186062842E-01  + 
+RE_003 = 2.9832882142E-01  + 
+RE_004 = 2.1840491464E-01  + 
+RE_005 = 7.6419912623E-02  + 
+RE_006 = 3.9953420298E-02  + 
+RE_007 = 2.9245335034E-02  + 
+RE_008 = 1.1774150972E-02  + 
+RE_009 = 4.4400807358E-03  + 
+RE_010 = 4.4180745609E-03  + 
+RE_011 = 3.4326359078E-03  + 
+RE_012 = 8.6738236234E-04  + 
+RE_013 = 3.7533603655E-04  + 
+RE_014 = 1.3151747403E-04  + 
+RE_015 = 7.8743000947E-05  + 
+RE_016 = 6.3193108846E-05  + 
+RE_017 = 3.8176819719E-05  + 
+RE_018 = 7.4365328889E-06  + 
+Cext	= 0.06479805318
+Qext	= 0.02062586093
+Cabs	= -3.934325938e-20
+Qabs	= -1.252334842e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run035_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0166101559E+00  - 
+RE_002 = 3.1647940542E-01  + 
+RE_003 = 2.9863091254E-01  + 
+RE_004 = 2.2351256925E-01  + 
+RE_005 = 7.6571628651E-02  + 
+RE_006 = 3.9545955042E-02  + 
+RE_007 = 2.8566865986E-02  + 
+RE_008 = 1.2882430536E-02  + 
+RE_009 = 4.5682853179E-03  + 
+RE_010 = 4.6615617189E-03  - 
+RE_011 = 3.6060365206E-03  + 
+RE_012 = 9.1007012419E-04  + 
+RE_013 = 3.8397046162E-04  + 
+RE_014 = 1.3339451215E-04  + 
+RE_015 = 7.7613563483E-05  + 
+RE_016 = 6.9298340661E-05  + 
+RE_017 = 4.8756985789E-05  + 
+RE_018 = 7.2417990418E-06  + 
+Cext	= 0.05991323802
+Qext	= 0.01907097597
+Cabs	= -3.640607848e-20
+Qabs	= -1.15884147e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run036_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0192237877E+00  - 
+RE_002 = 3.2081341763E-01  + 
+RE_003 = 2.9690038769E-01  + 
+RE_004 = 2.2920876655E-01  + 
+RE_005 = 7.7246187560E-02  + 
+RE_006 = 3.9120092881E-02  + 
+RE_007 = 2.7910038932E-02  + 
+RE_008 = 1.4054807445E-02  + 
+RE_009 = 4.7276450542E-03  + 
+RE_010 = 4.9374261861E-03  - 
+RE_011 = 3.7614327428E-03  + 
+RE_012 = 9.4888533666E-04  + 
+RE_013 = 3.9008498871E-04  + 
+RE_014 = 1.3517878314E-04  + 
+RE_015 = 7.7270383760E-05  + 
+RE_016 = 7.4382747989E-05  + 
+RE_017 = 5.8869788420E-05  + 
+RE_018 = 7.1719096579E-06  + 
+Cext	= 0.05555397576
+Qext	= 0.0176833797
+Cabs	= -3.378075552e-20
+Qabs	= -1.075274844e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run037_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0217609906E+00  - 
+RE_002 = 3.2481345219E-01  + 
+RE_003 = 2.9408811252E-01  + 
+RE_004 = 2.3540556130E-01  + 
+RE_005 = 7.8475956415E-02  + 
+RE_006 = 3.8680462745E-02  + 
+RE_007 = 2.7290417889E-02  + 
+RE_008 = 1.5241918471E-02  + 
+RE_009 = 4.9245168978E-03  + 
+RE_010 = 5.2525863805E-03  - 
+RE_011 = 3.9000840821E-03  + 
+RE_012 = 9.8267058529E-04  + 
+RE_013 = 3.9485369390E-04  + 
+RE_014 = 1.3688722118E-04  + 
+RE_015 = 7.7757635254E-05  + 
+RE_016 = 7.6596555229E-05  + 
+RE_017 = 6.3150499991E-05  + 
+RE_018 = 7.1707324160E-06  + 
+Cext	= 0.05164849643
+Qext	= 0.01644022702
+Cabs	= -3.14254609e-20
+Qabs	= -1.000303488e-20
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run038_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0241897828E+00  - 
+RE_002 = 3.2846899729E-01  + 
+RE_003 = 2.9079803484E-01  + 
+RE_004 = 2.4211737600E-01  + 
+RE_005 = 8.0309737836E-02  + 
+RE_006 = 3.8230315487E-02  + 
+RE_007 = 2.6722576925E-02  + 
+RE_008 = 1.6387417319E-02  + 
+RE_009 = 5.1658463742E-03  + 
+RE_010 = 5.6132689257E-03  - 
+RE_011 = 4.0229245818E-03  + 
+RE_012 = 1.0106857837E-03  + 
+RE_013 = 3.9948478224E-04  + 
+RE_014 = 1.3857016608E-04  + 
+RE_015 = 7.9169504758E-05  + 
+RE_016 = 7.4861263425E-05  + 
+RE_017 = 5.7342542438E-05  + 
+RE_018 = 7.2033246721E-06  + 
+Cext	= 0.04813667048
+Qext	= 0.0153223781
+Cabs	= -2.930497708e-20
+Qabs	= -9.328063919e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run039_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0264876283E+00  - 
+RE_002 = 3.3179342088E-01  + 
+RE_003 = 2.8740224284E-01  + 
+RE_004 = 2.4938470661E-01  + 
+RE_005 = 8.2797125794E-02  + 
+RE_006 = 3.7772052817E-02  + 
+RE_007 = 2.6217143396E-02  + 
+RE_008 = 1.7438896176E-02  + 
+RE_009 = 5.4591510436E-03  + 
+RE_010 = 6.0241894977E-03  - 
+RE_011 = 4.1297817577E-03  + 
+RE_012 = 1.0325956570E-03  + 
+RE_013 = 4.0498171405E-04  + 
+RE_014 = 1.4030612203E-04  + 
+RE_015 = 8.1638737573E-05  + 
+RE_016 = 7.0077010547E-05  + 
+RE_017 = 4.5145491087E-05  + 
+RE_018 = 7.2387257866E-06  + 
+Cext	= 0.04496786984
+Qext	= 0.01431371753
+Cabs	= -2.738953186e-20
+Qabs	= -8.718358768e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run040_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0286399915E+00  - 
+RE_002 = 3.3481313185E-01  + 
+RE_003 = 2.8413179061E-01  + 
+RE_004 = 2.5721264315E-01  + 
+RE_005 = 8.5970398748E-02  + 
+RE_006 = 3.7308174355E-02  + 
+RE_007 = 2.5779130310E-02  + 
+RE_008 = 1.8357948847E-02  + 
+RE_009 = 5.8127159742E-03  + 
+RE_010 = 6.4873988853E-03  - 
+RE_011 = 4.2194519907E-03  + 
+RE_012 = 1.0484360235E-03  + 
+RE_013 = 4.1200198011E-04  + 
+RE_014 = 1.4219875108E-04  + 
+RE_015 = 8.5325375858E-05  + 
+RE_016 = 6.4536815054E-05  + 
+RE_017 = 3.4912600126E-05  + 
+RE_018 = 7.2572121996E-06  + 
+Cext	= 0.04209925534
+Qext	= 0.01340060918
+Cabs	= -2.565384775e-20
+Qabs	= -8.165873358e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run041_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0306388182E+00  - 
+RE_002 = 3.3756028011E-01  + 
+RE_003 = 2.8113381217E-01  + 
+RE_004 = 2.6550934735E-01  + 
+RE_005 = 8.9821528886E-02  + 
+RE_006 = 3.6841975916E-02  + 
+RE_007 = 2.5407894153E-02  + 
+RE_008 = 1.9125807994E-02  + 
+RE_009 = 6.2359304412E-03  + 
+RE_010 = 7.0005430642E-03  - 
+RE_011 = 4.2903435959E-03  + 
+RE_012 = 1.0585642697E-03  + 
+RE_013 = 4.2082866518E-04  + 
+RE_014 = 1.4437613253E-04  + 
+RE_015 = 9.0404865663E-05  + 
+RE_016 = 6.0255860347E-05  + 
+RE_017 = 3.0547400472E-05  + 
+RE_018 = 7.2550802414E-06  + 
+Cext	= 0.03949440316
+Qext	= 0.01257145898
+Cabs	= -2.407637001e-20
+Qabs	= -7.663746597e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run042_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0324811246E+00  - 
+RE_002 = 3.4006818993E-01  + 
+RE_003 = 2.7850430748E-01  + 
+RE_004 = 2.7402462127E-01  + 
+RE_005 = 9.4274013856E-02  + 
+RE_006 = 3.6377498455E-02  + 
+RE_007 = 2.5098422132E-02  + 
+RE_008 = 1.9743828855E-02  + 
+RE_009 = 6.7396019449E-03  + 
+RE_010 = 7.5541850760E-03  - 
+RE_011 = 4.3413014291E-03  + 
+RE_012 = 1.0635920284E-03  + 
+RE_013 = 4.3143461031E-04  + 
+RE_014 = 1.4699178096E-04  + 
+RE_015 = 9.7054824848E-05  + 
+RE_016 = 5.8160397230E-05  + 
+RE_017 = 3.0191896306E-05  + 
+RE_018 = 7.2382000637E-06  + 
+Cext	= 0.03712219988
+Qext	= 0.01181636322
+Cabs	= -2.263863965e-20
+Qabs	= -7.206102809e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run043_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0341677707E+00  - 
+RE_002 = 3.4236872577E-01  + 
+RE_003 = 2.7630615662E-01  + 
+RE_004 = 2.8230656363E-01  - 
+RE_005 = 9.9154447089E-02  + 
+RE_006 = 3.5918664905E-02  + 
+RE_007 = 2.4843266462E-02  + 
+RE_008 = 2.0230215744E-02  + 
+RE_009 = 7.3360506842E-03  + 
+RE_010 = 8.1279846361E-03  - 
+RE_011 = 4.3722671165E-03  + 
+RE_012 = 1.0643038360E-03  + 
+RE_013 = 4.4360006356E-04  + 
+RE_014 = 1.5022646667E-04  + 
+RE_015 = 1.0544082157E-04  + 
+RE_016 = 5.8273212180E-05  + 
+RE_017 = 3.1070669603E-05  + 
+RE_018 = 7.2140404526E-06  + 
+Cext	= 0.03495594975
+Qext	= 0.01112682439
+Cabs	= -2.132478316e-20
+Qabs	= -6.787889301e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run044_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0357024381E+00  - 
+RE_002 = 3.4449093762E-01  + 
+RE_003 = 2.7457884824E-01  + 
+RE_004 = 2.8970824324E-01  - 
+RE_005 = 1.0417677048E-01  + 
+RE_006 = 3.5468140922E-02  + 
+RE_007 = 2.4634488211E-02  + 
+RE_008 = 2.0614795448E-02  + 
+RE_009 = 8.0387920379E-03  + 
+RE_010 = 8.6862939928E-03  - 
+RE_011 = 4.3845688329E-03  + 
+RE_012 = 1.0615734277E-03  + 
+RE_013 = 4.5704079834E-04  + 
+RE_014 = 1.5428932973E-04  + 
+RE_015 = 1.1570307667E-04  + 
+RE_016 = 6.0164483469E-05  + 
+RE_017 = 3.1892573707E-05  + 
+RE_018 = 7.1879900011E-06  + 
+Cext	= 0.03297264991
+Qext	= 0.01049552044
+Cabs	= -2.012109562e-20
+Qabs	= -6.404743655e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run045_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0370908016E+00  - 
+RE_002 = 3.4646050832E-01  + 
+RE_003 = 2.7334382282E-01  + 
+RE_004 = 2.9547278231E-01  - 
+RE_005 = 1.0895827095E-01  + 
+RE_006 = 3.5026734997E-02  + 
+RE_007 = 2.4465200711E-02  + 
+RE_008 = 2.0933135256E-02  + 
+RE_009 = 8.8615800471E-03  + 
+RE_010 = 9.1754638634E-03  - 
+RE_011 = 4.3808036310E-03  + 
+RE_012 = 1.0562898031E-03  + 
+RE_013 = 4.7151190379E-04  + 
+RE_014 = 1.5941614671E-04  + 
+RE_015 = 1.2794717781E-04  + 
+RE_016 = 6.3289721866E-05  + 
+RE_017 = 3.2324195278E-05  + 
+RE_018 = 7.1629737300E-06  + 
+Cext	= 0.03115239904
+Qext	= 0.009916116591
+Cabs	= -1.901569874e-20
+Qabs	= -6.0528849e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run046_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0383398736E+00  - 
+RE_002 = 3.4829967588E-01  + 
+RE_003 = 2.7260765639E-01  + 
+RE_004 = 2.9889366447E-01  - 
+RE_005 = 1.1308069440E-01  + 
+RE_006 = 3.4593777709E-02  + 
+RE_007 = 2.4330474645E-02  + 
+RE_008 = 2.1220751607E-02  + 
+RE_009 = 9.8164693388E-03  + 
+RE_010 = 9.5275449629E-03  + 
+RE_011 = 4.3644091375E-03  + 
+RE_012 = 1.0492988425E-03  + 
+RE_013 = 4.8686840512E-04  + 
+RE_014 = 1.6586220860E-04  + 
+RE_015 = 1.4224074693E-04  + 
+RE_016 = 6.7154980967E-05  + 
+RE_017 = 3.2368475466E-05  + 
+RE_018 = 7.1401670323E-06  + 
+Cext	= 0.02947791243
+Qext	= 0.009383110952
+Cabs	= -1.799825935e-20
+Qabs	= -5.729023884e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run047_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0394574948E+00  - 
+RE_002 = 3.5002741709E-01  + 
+RE_003 = 2.7236430235E-01  + 
+RE_004 = 2.9949869309E-01  - 
+RE_005 = 1.1618629658E-01  + 
+RE_006 = 3.4168183814E-02  + 
+RE_007 = 2.4227494583E-02  + 
+RE_008 = 2.1507808934E-02  + 
+RE_009 = 1.0910415077E-02  + 
+RE_010 = 9.6756704926E-03  + 
+RE_011 = 4.3390841798E-03  + 
+RE_012 = 1.0413591578E-03  + 
+RE_013 = 5.0308071892E-04  + 
+RE_014 = 1.7388750447E-04  + 
+RE_015 = 1.5861231361E-04  + 
+RE_016 = 7.1363706427E-05  + 
+RE_017 = 3.2115136393E-05  + 
+RE_018 = 7.1197083611E-06  + 
+Cext	= 0.02793412263
+Qext	= 0.008891707396
+Cabs	= -1.705975654e-20
+Qabs	= -5.430289164e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run048_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0404519463E+00  - 
+RE_002 = 3.5165975834E-01  + 
+RE_003 = 2.7259701534E-01  + 
+RE_004 = 2.9717755727E-01  - 
+RE_005 = 1.1806989230E-01  + 
+RE_006 = 3.3749463560E-02  + 
+RE_007 = 2.4155017673E-02  + 
+RE_008 = 2.1814584380E-02  + 
+RE_009 = 1.2139977035E-02  + 
+RE_010 = 9.5805151776E-03  + 
+RE_011 = 4.3082032308E-03  + 
+RE_012 = 1.0331075325E-03  + 
+RE_013 = 5.2021455796E-04  + 
+RE_014 = 1.8373306568E-04  + 
+RE_015 = 1.7703867232E-04  + 
+RE_016 = 7.5610422626E-05  + 
+RE_017 = 3.1660771496E-05  + 
+RE_018 = 7.1011716283E-06  + 
+Cext	= 0.02650784875
+Qext	= 0.008437710319
+Cabs	= -1.619228835e-20
+Qabs	= -5.154165461e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+tore_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -1.5 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -1.6 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -1.7 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -1.8 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -1.9 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -2.0 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -2.1 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -2.2 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -2.3 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -2.4 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -2.5 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -2.6 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -2.7 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -2.8 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -2.9 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -3.0 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -3.1 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -3.2 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -3.3 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -3.4 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -3.5 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -3.6 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -3.7 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -3.8 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5all data is saved in 'run049_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0413316601E+00  - 
+RE_002 = 3.5321013407E-01  + 
+RE_003 = 2.7328023235E-01  + 
+RE_004 = 2.9219554604E-01  - 
+RE_005 = 1.1872190120E-01  + 
+RE_006 = 3.3338108206E-02  + 
+RE_007 = 2.4112351235E-02  + 
+RE_008 = 2.2148096406E-02  + 
+RE_009 = 1.3484290246E-02  + 
+RE_010 = 9.2543799839E-03  + 
+RE_011 = 4.2743112047E-03  + 
+RE_012 = 1.0250312658E-03  + 
+RE_013 = 5.3838959721E-04  + 
+RE_014 = 1.9558931804E-04  + 
+RE_015 = 1.9739773403E-04  - 
+RE_016 = 7.9660437095E-05  + 
+RE_017 = 3.1085990881E-05  + 
+RE_018 = 7.0838658714E-06  + 
+Cext	= 0.02518752162
+Qext	= 0.008017437139
+Cabs	= -1.538891049e-20
+Qabs	= -4.898442345e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run050_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0421050063E+00  - 
+RE_002 = 3.5468974611E-01  + 
+RE_003 = 2.7438148459E-01  + 
+RE_004 = 2.8509714846E-01  - 
+RE_005 = 1.1830540422E-01  + 
+RE_006 = 3.2935249013E-02  + 
+RE_007 = 2.4098159915E-02  + 
+RE_008 = 2.2500550376E-02  + 
+RE_009 = 1.4897891069E-02  + 
+RE_010 = 8.7627737976E-03  + 
+RE_011 = 4.2387547397E-03  + 
+RE_012 = 1.0174516307E-03  + 
+RE_013 = 5.5773173717E-04  + 
+RE_014 = 2.0955952201E-04  + 
+RE_015 = 2.1936291628E-04  - 
+RE_016 = 8.3332286878E-05  + 
+RE_017 = 3.0451176221E-05  + 
+RE_018 = 7.0670481698E-06  + 
+Cext	= 0.02396295422
+Qext	= 0.007627645231
+Cabs	= -1.464350141e-20
+Qabs	= -4.661171266e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run051_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0427801424E+00  - 
+RE_002 = 3.5610790030E-01  + 
+RE_003 = 2.7586330889E-01  + 
+RE_004 = 2.7655530279E-01  - 
+RE_005 = 1.1708833143E-01  + 
+RE_006 = 3.2541859412E-02  + 
+RE_007 = 2.4109409976E-02  + 
+RE_008 = 2.2850311102E-02  + 
+RE_009 = 1.6306718278E-02  + 
+RE_010 = 8.1981351516E-03  + 
+RE_011 = 4.2015509341E-03  + 
+RE_012 = 1.0105304756E-03  + 
+RE_013 = 5.7833342599E-04  + 
+RE_014 = 2.2562304493E-04  + 
+RE_015 = 2.4222829859E-04  - 
+RE_016 = 8.6488178765E-05  + 
+RE_017 = 2.9798427413E-05  + 
+RE_018 = 7.0500811599E-06  + 
+Cext	= 0.0228251492
+Qext	= 0.007265470645
+Cabs	= -1.395064881e-20
+Qabs	= -4.440629433e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run052_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0433649089E+00  - 
+RE_002 = 3.5747230808E-01  + 
+RE_003 = 2.7768508143E-01  + 
+RE_004 = 2.6723105655E-01  + 
+RE_005 = 1.1536827278E-01  + 
+RE_006 = 3.2157878738E-02  + 
+RE_007 = 2.4140694675E-02  + 
+RE_008 = 2.3165706425E-02  + 
+RE_009 = 1.7610897977E-02  + 
+RE_010 = 7.6442685142E-03  + 
+RE_011 = 4.1616452683E-03  + 
+RE_012 = 1.0043111302E-03  + 
+RE_013 = 6.0023461255E-04  + 
+RE_014 = 2.4360378869E-04  + 
+RE_015 = 2.6468611996E-04  - 
+RE_016 = 8.9031792519E-05  + 
+RE_017 = 2.9155332555E-05  + 
+RE_018 = 7.0325271225E-06  + 
+Cext	= 0.02176613675
+Qext	= 0.006928376511
+Cabs	= -1.330555387e-20
+Qabs	= -4.235289338e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run053_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0438667626E+00  - 
+RE_002 = 3.5878935093E-01  + 
+RE_003 = 2.7980469322E-01  + 
+RE_004 = 2.5768193054E-01  + 
+RE_005 = 1.1341703004E-01  + 
+RE_006 = 3.1781560475E-02  + 
+RE_007 = 2.4184097394E-02  + 
+RE_008 = 2.3411206571E-02  + 
+RE_009 = 1.8695533701E-02  + 
+RE_010 = 7.1541584110E-03  + 
+RE_011 = 4.1175921438E-03  + 
+RE_012 = 9.9878599371E-04  + 
+RE_013 = 6.2342839265E-04  + 
+RE_014 = 2.6314850006E-04  + 
+RE_015 = 2.8463775293E-04  - 
+RE_016 = 9.0909579734E-05  + 
+RE_017 = 2.8538827738E-05  + 
+RE_018 = 7.0141739189E-06  + 
+Cext	= 0.02077883755
+Qext	= 0.006614109416
+Cabs	= -1.270395017e-20
+Qabs	= -4.043792933e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run054_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0442927351E+00  - 
+RE_002 = 3.6006430648E-01  + 
+RE_003 = 2.8218000071E-01  + 
+RE_004 = 2.4832429506E-01  + 
+RE_005 = 1.1145247359E-01  + 
+RE_006 = 3.1409217568E-02  + 
+RE_007 = 2.4229657354E-02  + 
+RE_008 = 2.3554668321E-02  + 
+RE_009 = 1.9447597360E-02  + 
+RE_010 = 6.7475147520E-03  + 
+RE_011 = 4.0683861123E-03  + 
+RE_012 = 9.9395874802E-04  + 
+RE_013 = 6.4788091684E-04  + 
+RE_014 = 2.8371866617E-04  + 
+RE_015 = 2.9920558457E-04  - 
+RE_016 = 9.2111050535E-05  + 
+RE_017 = 2.7958460478E-05  + 
+RE_018 = 6.9950044805E-06  + 
+Cext	= 0.01985694655
+Qext	= 0.006320662396
+Cabs	= -1.214203473e-20
+Qabs	= -3.864929693e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run055_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0446494136E+00  - 
+RE_002 = 3.6130154064E-01  + 
+RE_003 = 2.8477001383E-01  + 
+RE_004 = 2.3943535860E-01  + 
+RE_005 = 1.0963210959E-01  + 
+RE_006 = 3.1035421644E-02  + 
+RE_007 = 2.4266402787E-02  + 
+RE_008 = 2.3573603798E-02  + 
+RE_009 = 1.9776035601E-02  + 
+RE_010 = 6.4205260764E-03  + 
+RE_011 = 4.0139912850E-03  + 
+RE_012 = 9.8986766763E-04  + 
+RE_013 = 6.7354619774E-04  + 
+RE_014 = 3.0459869520E-04  + 
+RE_015 = 3.0517157947E-04  - 
+RE_016 = 9.2665269661E-05  + 
+RE_017 = 2.7418870023E-05  + 
+RE_018 = 6.9751378062E-06  + 
+Cext	= 0.0189948339
+Qext	= 0.006046243418
+Cabs	= -1.161640921e-20
+Qabs	= -3.697617893e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run056_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0449429357E+00  - 
+RE_002 = 3.6250466851E-01  + 
+RE_003 = 2.8753580905E-01  + 
+RE_004 = 2.3117603960E-01  + 
+RE_005 = 1.0805904160E-01  + 
+RE_006 = 3.0653624873E-02  + 
+RE_007 = 2.4283809620E-02  + 
+RE_008 = 2.3458479922E-02  + 
+RE_009 = 1.9631995704E-02  + 
+RE_010 = 6.1582156274E-03  + 
+RE_011 = 3.9553347788E-03  + 
+RE_012 = 9.8656764218E-04  + 
+RE_013 = 7.0036475766E-04  + 
+RE_014 = 3.2492359886E-04  + 
+RE_015 = 2.9995538991E-04  + 
+RE_016 = 9.2633346077E-05  + 
+RE_017 = 2.6921554779E-05  + 
+RE_018 = 6.9547662295E-06  + 
+Cext	= 0.01818746039
+Qext	= 0.005789248446
+Cabs	= -1.112402958e-20
+Qabs	= -3.540888591e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run057_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0451789950E+00  - 
+RE_002 = 3.6367668869E-01  + 
+RE_003 = 2.9044117855E-01  + 
+RE_004 = 2.2362022833E-01  + 
+RE_005 = 1.0679277338E-01  + 
+RE_006 = 3.0257102201E-02  + 
+RE_007 = 2.4273442070E-02  + 
+RE_008 = 2.3212402567E-02  + 
+RE_009 = 1.9023733962E-02  + 
+RE_010 = 5.9436886560E-03  + 
+RE_011 = 3.8939182573E-03  + 
+RE_012 = 9.8409639931E-04  + 
+RE_013 = 7.2825016786E-04  + 
+RE_014 = 3.4372970241E-04  + 
+RE_015 = 2.8284462193E-04  + 
+RE_016 = 9.2098629948E-05  + 
+RE_017 = 2.6466075540E-05  + 
+RE_018 = 6.9341050447E-06  + 
+Cext	= 0.01743030485
+Qext	= 0.005548238353
+Cabs	= -1.066216294e-20
+Qabs	= -3.393871873e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run058_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0453628541E+00  - 
+RE_002 = 3.6482009451E-01  + 
+RE_003 = 2.9345304256E-01  + 
+RE_004 = 2.1678213964E-01  + 
+RE_005 = 1.0586041502E-01  + 
+RE_006 = 2.9840058886E-02  + 
+RE_007 = 2.4230457533E-02  + 
+RE_008 = 2.2848266537E-02  + 
+RE_009 = 1.8018847387E-02  + 
+RE_010 = 5.7628239393E-03  + 
+RE_011 = 3.8313649976E-03  + 
+RE_012 = 9.8245075849E-04  + 
+RE_013 = 7.5707441192E-04  + 
+RE_014 = 3.6003055830E-04  + 
+RE_015 = 2.5574117808E-04  + 
+RE_016 = 9.1156754046E-05  + 
+RE_017 = 2.6050851056E-05  + 
+RE_018 = 6.9133595369E-06  + 
+Cext	= 0.01671930181
+Qext	= 0.005321919056
+Cabs	= -1.022835027e-20
+Qabs	= -3.255785011e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run059_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0454993635E+00  - 
+RE_002 = 3.6593696588E-01  + 
+RE_003 = 2.9654166088E-01  + 
+RE_004 = 2.1063833591E-01  + 
+RE_005 = 1.0526632172E-01  + 
+RE_006 = 2.9398714489E-02  + 
+RE_007 = 2.4154641703E-02  + 
+RE_008 = 2.2385110640E-02  + 
+RE_009 = 1.6730124496E-02  + 
+RE_010 = 5.6055118717E-03  + 
+RE_011 = 3.7691074856E-03  + 
+RE_012 = 9.8158109142E-04  + 
+RE_013 = 7.8665909654E-04  + 
+RE_014 = 3.7291496488E-04  + 
+RE_015 = 2.2279350031E-04  + 
+RE_016 = 8.9907137109E-05  + 
+RE_017 = 2.5673671156E-05  + 
+RE_018 = 6.8927070283E-06  + 
+Cext	= 0.01605078763
+Qext	= 0.005109124385
+Cabs	= -9.820374295e-21
+Qabs	= -3.125922224e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+all data is saved in 'run060_sphere_g34_m1.186'
+box dimensions: 34x34x34
+lambda: 0.9   Dipoles/lambda: 15.3229
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 20672
+Memory usage for MatVec matrices: 12.7 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 20.9 MB
+
+here we go, calc Y
+
+CoupleConstant:5.818596288e-06+7.679943507e-09i
+Incident beam saved to file
+x_0 = 0
+RE_000 = 1.0000000000E+00
+RE_001 = 1.0455929821E+00  - 
+RE_002 = 3.6702904514E-01  + 
+RE_003 = 2.9968068358E-01  + 
+RE_004 = 2.0514387889E-01  + 
+RE_005 = 1.0499964090E-01  + 
+RE_006 = 2.8932172509E-02  + 
+RE_007 = 2.4050704821E-02  + 
+RE_008 = 2.1844880517E-02  + 
+RE_009 = 1.5289654223E-02  + 
+RE_010 = 5.4651575329E-03  + 
+RE_011 = 3.7082509958E-03  + 
+RE_012 = 9.8139906359E-04  + 
+RE_013 = 8.1677362714E-04  + 
+RE_014 = 3.8165596277E-04  + 
+RE_015 = 1.8908753740E-04  + 
+RE_016 = 8.8446661682E-05  + 
+RE_017 = 2.5332023680E-05  + 
+RE_018 = 6.8722910077E-06  + 
+Cext	= 0.01542145395
+Qext	= 0.004908801252
+Cabs	= -9.436231648e-21
+Qabs	= -3.003645822e-21
+Internal fields saved to file
+Dipole polarizations saved to file
+ 0.25 0 0 -3.9 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -4.0 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -4.1 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -4.2 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -4.3 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -4.4 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -4.5 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -4.6 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -4.7 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -4.8 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -4.9 -store_beam -store_dip_pol -store_int_field
+Processing dpl: 15
+../src/seq/adda -size 2 -dpl 15 -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 0.25 0 0 -5.0 -store_beam -store_dip_pol -store_int_field

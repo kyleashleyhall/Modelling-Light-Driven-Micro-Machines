@@ -1,5 +1,5 @@
-#PBS -N Varying_zGaussianExtremeFocus
+#PBS -N zGaussian_0_001
 # The working directory
-cd /usersc/kh13490/Project/Varying_zGaussianExtremeFocus
+cd /usersc/kh13490/Project/zGaussian_0_001
 # Script goes below here
 python CalculateDDAForces_Third_MovingBeam.py
