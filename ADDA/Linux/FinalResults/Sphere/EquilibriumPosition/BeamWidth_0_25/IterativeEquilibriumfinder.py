@@ -148,12 +148,12 @@ x=0
 y=0
 Initial_z=-0.05
 Step_z=0.05
-BeamWidth = 0.3
+BeamWidth = 0.25
 Arbvalue = 0 #Dummy variable to help terminate the loop
 Temperature = 20 #20 degrees Celcius
 MediumDielectricConstant=87.740-(0.40008*Temperature)+(9.398e-4*(Temperature**2))-(1.410e-6*(Temperature**3))
 ElectricFieldStrength = ElectricFieldStrengthCalc(MediumDielectricConstant, 5e-3, BeamWidth)  
-CorrectionFactor=0.083861067
+CorrectionFactor=0.0838610668
 
 z=Initial_z #Set the value of y to the initial value
 
@@ -166,8 +166,8 @@ TimeRecordings=np.zeros([0,4])
 while (Arbvalue == 0):
     iteration += 1
     print('Processing z: '+str(z))
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 0.9 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field")
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1.064 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1.064 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field")
     StartTime_ADDA=time.clock()
     subprocess.call(callString,shell=True)
     EndTime_ADDA=time.clock()
@@ -200,12 +200,13 @@ while (Arbvalue == 0):
         z -= Step_z
         Step_z *= 0.5
         z += Step_z
-        print('Moved beam down, halved increment')
-    if -1e-15 <= Force_z <= 1e-15:
+        print('Moved beam down, the increment is '+str(Step_z))
+    if -1e-17 <= Force_z <= 1e-17:
         Arbvalue += 1
+        print('Done')
 
 
-TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
+TimeLogPath = str(os.getcwd())+str(os.sep+'EquilibriumPosition')	
 with open(TimeLogPath, 'wb') as f:
     f.write(b'Iteration# z ADDATime OurCalcTime\n')
     np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
