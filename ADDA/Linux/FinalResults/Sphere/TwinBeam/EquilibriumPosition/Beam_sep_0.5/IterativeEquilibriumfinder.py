@@ -243,7 +243,7 @@ while (Arbvalue == 0):
         z -= Step_z
         Step_z *= 0.5
         z += Step_z
-        print('Moved beam down, the z increment is '+str(Step_z))
+        print('Moved beam down, the z incrqement is '+str(Step_z))
     
     if Force_y > 0:
         y += Step_y
