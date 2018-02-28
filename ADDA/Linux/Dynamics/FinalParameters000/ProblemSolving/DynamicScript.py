@@ -159,7 +159,7 @@ r = 1e-6
 
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 1e-3
+t_end = 1e-2
 t_step = 1e-4
 x_beam, y_beam, z_beam = 0,0,0
 
@@ -216,11 +216,11 @@ while t_0 <= t_end:
     t_0 += t_step
     PPositionArray = np.append(PPositionArray, np.array([[t_0,-x_beam,-y_beam,-z_beam, EstimatedParticleForce3[0], EstimatedParticleForce3[1], EstimatedParticleForce3[2]]]),axis=0)
                        
-    """#Use to delete the files after processing
+    #Use to delete the files after processing
     try:
         shutil.rmtree(DipFiles.replace(os.sep+'DipPol-Y',''))
     except:
-        print('Cannot Delete')"""
+        print('Cannot Delete')
         
 np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
 #==============================================================================
