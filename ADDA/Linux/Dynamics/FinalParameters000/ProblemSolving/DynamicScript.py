@@ -159,14 +159,14 @@ r = 1e-6
 
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 0.01
+t_end = 1e-3
 t_step = 1e-4
-x_beam, y_beam, z_beam = 0,0,-0.12348
+x_beam, y_beam, z_beam = 0,0,0
 
 
 #Array to track particle position
 
-PPositionArray = np.zeros([1,4])
+PPositionArray = np.zeros([1,7])
 while t_0 <= t_end:
 
     #Perform the DDA Calculations and calculate forces
@@ -189,12 +189,12 @@ while t_0 <= t_end:
     StartTime_OurCalc=time.clock()
     CalculatedForce=Forces(DipPolRaw,IntFieldRaw,IncBeamRaw,DipoleSeperation)
     EndTime_OurCalc=time.clock()
-    
+    FFiles=DipFiles.replace('DipPol-Y','CalculaedForces')
     
     #SAVE CALCULATED FORCES
-#    with open(FFiles,'wb') as f:
-#        f.write(b'x y z |F|^2 Fx Fy Fz \n')
-#        np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')
+    with open(FFiles,'wb') as f:
+        f.write(b'x y z |F|^2 Fx Fy Fz \n')
+        np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')
     
     #This section is where we look at the ADDA Calculated Forces
     EstimatedParticleForce1=np.array([[np.sum(CalculatedForce[:,4])],[np.sum(CalculatedForce[:,5])],[np.sum(CalculatedForce[:,6])]])
@@ -205,7 +205,6 @@ while t_0 <= t_end:
     B_x, B_y, B_z = BrownianForce(Drag_Coefficient, Temperature), BrownianForce(Drag_Coefficient, Temperature),BrownianForce(Drag_Coefficient, Temperature)
 
     EstimatedParticleForce3 = np.array([[EstimatedParticleForce2[0]+B_x],[EstimatedParticleForce2[1]+B_y],[EstimatedParticleForce2[2]+B_z]])
-
                     
     #Calculate the change in position of the particle
     x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, t_step)
@@ -215,13 +214,13 @@ while t_0 <= t_end:
     y_beam += -y[0,0]
     z_beam += -z[0,0]
     t_0 += t_step
-    PPositionArray = np.append(PPositionArray, np.array([[t_0,-x_beam,-y_beam,-z_beam]]),axis=0)
+    PPositionArray = np.append(PPositionArray, np.array([[t_0,-x_beam,-y_beam,-z_beam, EstimatedParticleForce3[0], EstimatedParticleForce3[1], EstimatedParticleForce3[2]]]),axis=0)
                        
-    #Use to delete the files after processing
+    """#Use to delete the files after processing
     try:
         shutil.rmtree(DipFiles.replace(os.sep+'DipPol-Y',''))
     except:
-        print('Cannot Delete')
+        print('Cannot Delete')"""
         
 np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
 #==============================================================================

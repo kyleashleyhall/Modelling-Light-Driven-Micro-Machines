@@ -166,8 +166,8 @@ TimeRecordings=np.zeros([0,4])
 while (Arbvalue == 0):
     iteration += 1
     print('Processing z: '+str(z))
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1.064 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1.064 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field")
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1.064 -m 1.18339034696 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1.064 -m 1.18339034696 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field")
     StartTime_ADDA=time.clock()
     subprocess.call(callString,shell=True)
     EndTime_ADDA=time.clock()

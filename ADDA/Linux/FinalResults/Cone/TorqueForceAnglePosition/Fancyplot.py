@@ -147,7 +147,7 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
     return Force
 
 #Preliminary Variables	
-CorrectionFactor=0.0838610668
+"""CorrectionFactor=0.083861067"""
 BeamWidth=0.25 #In micro m
 Temperature=20 #Degrees C
 Power=5e-3 #In Watts
@@ -161,7 +161,7 @@ r = 1e-6
 t_0 = 0
 t_end = 0.01
 t_step = 1e-4
-x_beam, y_beam, z_beam = 0,0,-0.12348
+x_beam, y_beam, z_beam = 0,0,-0.1234802246
 
 
 #Array to track particle position
@@ -175,9 +175,11 @@ while t_0 <= t_end:
     IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-Y')
     BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
     ForcePathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'RadForce-Y')
+    #TimeRecordings=np.zeros([(Final_dpl-Initial_dpl),3])
+    #CalculationTimes=np.zeros([(Final_dpl-Initial_dpl),2])
     print('Processing time: '+str(t_0))
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field")
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field")
     StartTime_ADDA=time.clock()
     subprocess.call(callString,shell=True)
     EndTime_ADDA=time.clock()
