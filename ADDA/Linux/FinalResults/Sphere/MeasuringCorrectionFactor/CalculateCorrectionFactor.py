@@ -136,7 +136,7 @@ refractiveIndexValue=PolystyreneRefractiveIndex(lambdaValue,MediumRefractiveInde
 
 particleDiameterValue=2 #Varies the Electric Field strength
 
-iterations=100
+iterations=1
 
 #Perform the DDA Calculations and calculate forces
 DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')  

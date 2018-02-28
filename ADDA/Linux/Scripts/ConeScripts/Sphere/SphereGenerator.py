@@ -30,7 +30,7 @@ def Sphere(R, dipsep):
     return dipoles
 #Radius 1, dipsep 0.05 gives 33401 dipoles
 #Radius 1 dipsep 0.1 gives 4169 dipoles
-DipoleArray = Sphere(1, 0.1)
+DipoleArray = Sphere(1, (0.09955405125-0.03318468375))
 np.savetxt('spherefile', DipoleArray, fmt='%d')
 xyzrows = np.transpose([DipoleArray])
 fig = plt.figure()

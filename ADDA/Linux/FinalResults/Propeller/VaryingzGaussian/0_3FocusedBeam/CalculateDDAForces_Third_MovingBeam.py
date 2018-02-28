@@ -150,7 +150,7 @@ BeamWidth = 0.3 #Micro m
 Temperature = 20 #20 degrees Celcius
 MediumDielectricConstant=87.740-(0.40008*Temperature)+(9.398e-4*(Temperature**2))-(1.410e-6*(Temperature**3))
 ElectricFieldStrength = ElectricFieldStrengthCalc(MediumDielectricConstant, 5e-3, BeamWidth)
-CorrectionFactor=0.0838610668
+CorrectionFactor=0.109640101
 
 z=Initial_z #Set the value of y to the initial value
 
@@ -163,8 +163,8 @@ TimeRecordings=np.zeros([(((Final_z-Initial_z)//Step_dpl)+1),5])
 while (dpl<Final_dpl):
     while (z<Final_z):
         print('Processing dpl: '+str(dpl))
-        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -shape read propellorfile -lambda 1.064 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-        print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1.064 -m 1.1859519224 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field")
+        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -shape read propellorfile -lambda 1.064 -m 1.183390347 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+        print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 1.064 -m 1.183390347 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field")
         StartTime_ADDA=time.clock()
         subprocess.call(callString,shell=True)
         EndTime_ADDA=time.clock()
