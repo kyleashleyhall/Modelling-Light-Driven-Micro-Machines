@@ -1,0 +1,138 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+all data is saved in 'run000_sphere_g30_m1.183'
+box dimensions: 30x30x30
+lambda: 1.064   Dipoles/lambda: 16.0315
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 14328
+Memory usage for MatVec matrices: 8.1 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 13.8 MB
+
+here we go, calc Y
+
+CoupleConstant:8.277814238e-06+9.407091653e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 4.9135118369E-01
+RE_001 = 2.7829815010E-01  + 
+RE_002 = 1.2718321599E-01  + 
+RE_003 = 3.9471806244E-02  + 
+RE_004 = 2.5191294725E-02  + 
+RE_005 = 1.8316384127E-02  + 
+RE_006 = 8.7799891237E-03  + 
+RE_007 = 3.0632562788E-03  + 
+RE_008 = 1.0806616346E-03  + 
+RE_009 = 4.9565316982E-04  + 
+RE_010 = 1.4971290906E-04  + 
+RE_011 = 8.1393657289E-05  + 
+RE_012 = 6.6185533554E-05  + 
+RE_013 = 1.6151660321E-05  + 
+RE_014 = 1.2716494580E-05  + 
+RE_015 = 2.9277746535E-06  + 
+Cext	= 0.6847645346
+Qext	= 0.2179673211
+Cabs	= 1.204308015e-18
+Qabs	= 3.833431473e-19
+all data is saved in 'run001_sphere_g30_m1.183'
+box dimensions: 30x30x30
+lambda: 1.064   Dipoles/lambda: 16.0315
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 14328
+Memory usage for MatVec matrices: 8.1 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 13.8 MB
+
+here we go, calc Y
+
+CoupleConstant:8.277814238e-06+9.407091653e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 3.4420590773E-01
+RE_001 = 1.3933398308E-01  + 
+RE_002 = 6.3668795967E-02  + 
+RE_003 = 5.2218515665E-02  + 
+RE_004 = 2.6434111393E-02  + 
+RE_005 = 1.4826763078E-02  + 
+RE_006 = 1.1416743679E-02  + 
+RE_007 = 1.5802784211E-03  + 
+RE_008 = 1.3416293208E-03  + 
+RE_009 = 3.4908183118E-04  + 
+RE_010 = 1.7516184099E-04  + 
+RE_011 = 7.6790955626E-05  + 
+RE_012 = 3.8960627252E-05  + 
+RE_013 = 3.1710454156E-05  + 
+RE_014 = 1.4516718349E-05  + 
+RE_015 = 1.8684363759E-06  + 
+Cext	= 0.6142647408
+Qext	= 0.1955265397
+Cabs	= 1.943760816e-18
+Qabs	= 6.187182841e-19
+
+here we go, calc X
+
+CoupleConstant:8.277814238e-06+9.407091653e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 4.1464186696E-01
+RE_001 = 1.5404354784E-01  + 
+RE_002 = 1.5018267040E-01  + 
+RE_003 = 7.6100805929E-02  + 
+RE_004 = 3.2616535639E-02  + 
+RE_005 = 2.2169237882E-02  + 
+RE_006 = 1.4206453755E-02  + 
+RE_007 = 2.5339418486E-03  + 
+RE_008 = 2.2302919182E-03  + 
+RE_009 = 1.8765845600E-03  + 
+RE_010 = 7.2527171019E-04  + 
+RE_011 = 1.3965627109E-04  + 
+RE_012 = 5.2641957767E-05  + 
+RE_013 = 3.0772277211E-05  + 
+RE_014 = 1.0055443392E-05  + 
+RE_015 = 8.5274710232E-06  + 
+Cext	= 0.5964028251
+Qext	= 0.1898409154
+Cabs	= 1.388262556e-18
+Qabs	= 4.418976961e-19
+all data is saved in 'run002_sphere_g30_m1.183'
+box dimensions: 30x30x30
+lambda: 1.064   Dipoles/lambda: 16.0315
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 14328
+Memory usage for MatVec matrices: 8.1 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 13.8 MB
+
+here we go, calc Y
+
+CoupleConstant:8.277814238e-06+9.407091653e-09i
+x_0 = E_inc
+RE_000 = 3.8351734525E-01
+RE_001 = 2.3128240604E-01  + 
+RE_002 = 1.3539828885E-01  + 
+RE_003 = 4.3000828224E-02  + 
+RE_004 = 3.2176594036E-02  + 
+RE_005 = 1.7332111683E-02  + 
+RE_006 = 3.7439300700E-03  + 
+RE_007 = 3.4192966361E-03  + 
+RE_008 = 1.9574256623E-03  + 
+RE_009 = 7.3085261147E-04  + 
+RE_010 = 3.5478356623E-04  + 
+RE_011 = 5.3642033443E-05  + 
+RE_012 = 4.2044778403E-05  + 
+RE_013 = 1.1756295532E-05  + 
+RE_014 = 4.6185915331E-06  + 
+Cext	= 1.147745999
+Qext	= 0.3653388983
+Cabs	= 3.264909561e-18
+Qabs	= 1.039252991e-18
+Internal fields saved to file
+Dipole polarizations saved to file
+Processing z: -0.05
+../src/seq/adda -size 2 -dpl 15 -lambda 1.064 -prop 0 0 1 -m 1.183390347 0 -sym enf -beam read DualBeam -store_dip_pol -store_int_field

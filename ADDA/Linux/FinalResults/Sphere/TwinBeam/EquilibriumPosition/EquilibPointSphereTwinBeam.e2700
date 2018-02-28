@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "IterativeEquilibriumfinder.py", line 218, in <module>
+    DipFiles, IntFFiles, BeamFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1] #File containing the paths to each DipPol, IntField file
+IndexError: list index out of range
