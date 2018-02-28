@@ -1,0 +1,82 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+all data is saved in 'run000_read_g32_m1.185'
+box dimensions: 32x32x32
+lambda: 1.064   Dipoles/lambda: 17.024
+Required relative residual norm: 1e-05
+Total number of occupied dipoles: 14147
+Memory usage for MatVec matrices: 9.8 MB
+Calculating Green's function (Dmatrix)
+Fourier transform of Dmatrix......
+Initializing FFTW3
+Total memory usage: 15.4 MB
+
+here we go, calc Y
+
+CoupleConstant:6.971790413e-06+6.672867566e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 8.6870379322E-01
+RE_001 = 4.9736543674E-01  + 
+RE_002 = 1.4991830384E-01  + 
+RE_003 = 5.1510738772E-02  + 
+RE_004 = 2.7948596527E-02  + 
+RE_005 = 1.3550988240E-02  + 
+RE_006 = 6.0226308899E-03  + 
+RE_007 = 2.0302991186E-03  + 
+RE_008 = 1.2916256749E-03  + 
+RE_009 = 6.6992846745E-04  + 
+RE_010 = 3.4125558433E-04  + 
+RE_011 = 7.2368271236E-05  + 
+RE_012 = 4.7627016395E-05  + 
+RE_013 = 8.4440026527E-06  + 
+Cext	= 5.081384992
+Qext	= 1.839451594
+Cabs	= 2.056907093e-18
+Qabs	= 7.445964116e-19
+Calculating the force per dipole
+Additional memory usage for radiation forces: 0.3 MB
+
+Based on radiation forces:
+Cext.a	= (0,0,5.081384992)
+Csca.g	= (-3.922827563e-17,1.227966703e-17,4.595617194)
+Cpr	= (3.922827563e-17,-1.227966703e-17,0.485767798)
+Qpr	= (1.420056033e-17,-4.445215847e-18,0.1758470086)
+Radiation forces saved to file
+Internal fields saved to file
+Dipole polarizations saved to file
+
+here we go, calc X
+
+CoupleConstant:6.971790413e-06+6.672867566e-09i
+Incident beam saved to file
+x_0 = E_inc
+RE_000 = 8.6870379322E-01
+RE_001 = 4.9736543674E-01  + 
+RE_002 = 1.4991830384E-01  + 
+RE_003 = 5.1510738772E-02  + 
+RE_004 = 2.7948596527E-02  + 
+RE_005 = 1.3550988240E-02  + 
+RE_006 = 6.0226308899E-03  + 
+RE_007 = 2.0302991186E-03  + 
+RE_008 = 1.2916256749E-03  + 
+RE_009 = 6.6992846745E-04  + 
+RE_010 = 3.4125558433E-04  + 
+RE_011 = 7.2368271236E-05  + 
+RE_012 = 4.7627016395E-05  + 
+RE_013 = 8.4440026527E-06  + 
+Cext	= 5.081384992
+Qext	= 1.839451594
+Cabs	= 2.056907093e-18
+Qabs	= 7.445964116e-19
+Calculating the force per dipole
+Additional memory usage for radiation forces: 0.3 MB
+
+Based on radiation forces:
+Cext.a	= (0,0,5.081384992)
+Csca.g	= (-1.943235603e-17,-3.456697829e-17,4.595617194)
+Cpr	= (1.943235603e-17,3.456697829e-17,0.485767798)
+Qpr	= (7.034475509e-18,1.251317966e-17,0.1758470086)
+Radiation forces saved to file
+Internal fields saved to file
+Dipole polarizations saved to file
