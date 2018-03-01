@@ -22,8 +22,8 @@ def BrownianForce(Dragcoefficient, tempertature):
     Boltzmann=1.38064852e-23
     return np.sqrt(2*Dragcoefficient*(Boltzmann)*(tempertature+273))*random.gauss(0,1)
     
-def PositionChange(Force, Dragcoefficient, timestep):
-    return (Force*timestep)/Dragcoefficient
+def PositionChange(Force, Dragcoefficient, timestep): #Outputs in Micrometres
+    return (((Force*timestep)/Dragcoefficient)*(1e-6))
         
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
@@ -152,7 +152,6 @@ BeamWidth=0.25 #In micro m
 Temperature=20 #Degrees C
 Power=5e-3 #In Watts
 MediumDielectricConstant=87.740-(0.40008*Temperature)+(9.398e-4*(Temperature**2))-(1.410e-6*(Temperature**3))
-print(MediumDielectricConstant)
 ElectricFieldStrength=ElectricFieldStrengthCalc(MediumDielectricConstant,Power,BeamWidth) #V/m
 nu = 8.891e-4
 r = 1e-6
@@ -166,7 +165,7 @@ x_beam, y_beam, z_beam = 0,0,0
 
 #Array to track particle position
 
-PPositionArray = np.zeros([1,4])
+PPositionArray = np.zeros([1,7])
 while t_0 <= t_end:
 
     #Perform the DDA Calculations and calculate forces
@@ -215,7 +214,7 @@ while t_0 <= t_end:
     y_beam += -y[0,0]
     z_beam += -z[0,0]
     t_0 += t_step
-    PPositionArray = np.append(PPositionArray, np.array([[t_0,-x_beam,-y_beam,-z_beam]]),axis=0)
+    PPositionArray = np.append(PPositionArray, np.array([[t_0,-x_beam,-y_beam,-z_beam, EstimatedParticleForce3[0], EstimatedParticleForce3[1], EstimatedParticleForce3[2]]]),axis=0)
                        
     #Use to delete the files after processing
     try:
