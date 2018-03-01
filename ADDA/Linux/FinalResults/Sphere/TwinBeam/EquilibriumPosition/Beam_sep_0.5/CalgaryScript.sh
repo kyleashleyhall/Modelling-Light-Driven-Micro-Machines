@@ -1,5 +1,5 @@
-#PBS -N EquilibPointSphereTwinBeam
+#PBS -N EquilibPointSphereTwinBeamNew
 # The working directory
-cd /usersc/mv15885/Project/EquilibriumPositionTwinBeam
+cd /usersc/mv15885/Project/NewEquilibTB
 # Script goes below here
 python IterativeEquilibriumfinder.py

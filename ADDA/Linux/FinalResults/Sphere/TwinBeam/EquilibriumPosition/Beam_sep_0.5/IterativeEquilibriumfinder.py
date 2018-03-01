@@ -243,7 +243,7 @@ while (Arbvalue == 0):
         z -= Step_z
         Step_z *= 0.5
         z += Step_z
-        print('Moved beam down, the z incrqement is '+str(Step_z))
+        print('Moved beam down, the z increment is '+str(Step_z))
     
     if Force_y > 0:
         y += Step_y
@@ -261,11 +261,9 @@ while (Arbvalue == 0):
     z_beam1 += -z
     y_beam2 += -y
     z_beam2 += -z
-    ParticlePositions = np.append(ParticlePositions, np.array([[iteration,y,z, y_beam1, z_beam2, y_beam2, z_beam2]]), axis=0)
-    if iteration >= 10000:
-        break
+    ParticlePositions = np.append(ParticlePositions, np.array([[iteration,y,z, y_beam1, z_beam1, y_beam2, z_beam2]]), axis=0)
 
-TimeLogPath = str(os.getcwd())+str(os.sep+'EquilibriumPosition')	
-with open(TimeLogPath, 'wb') as f:
-    f.write(b'Iteration# y z y_beam1 z_beam2 y_beam2 z_beam2\n')
-    np.savetxt(f, ParticlePositions, fmt='%.10f', delimiter=' ')
+    TimeLogPath = str(os.getcwd())+str(os.sep+'EquilibriumPosition')	
+    with open(TimeLogPath, 'wb') as f:
+        f.write(b'Iteration# y z y_beam1 z_beam1 y_beam2 z_beam2\n')
+        np.savetxt(f, ParticlePositions, fmt='%.10f', delimiter=' ')
