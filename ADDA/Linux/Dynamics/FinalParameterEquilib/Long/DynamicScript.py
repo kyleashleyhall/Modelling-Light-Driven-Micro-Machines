@@ -22,7 +22,7 @@ def BrownianForce(Dragcoefficient, tempertature):
     Boltzmann=1.38064852e-23
     return np.sqrt(2*Dragcoefficient*(Boltzmann)*(tempertature+273))*random.gauss(0,1)
     
-def PositionChange(Force, Dragcoefficient, timestep): #Outputs in Micrometres
+def PositionChange(Force, Dragcoefficient, timestep):
     return (((Force*timestep)/Dragcoefficient)*(1e-6))
         
 def DipSep(Singleaxis):
@@ -158,9 +158,9 @@ r = 1e-6
 
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 0.001
+t_end = 0.01
 t_step = 1e-4
-x_beam, y_beam, z_beam = 0,0,0
+x_beam, y_beam, z_beam = 0,0,-0.12348
 
 
 #Array to track particle position
@@ -204,6 +204,7 @@ while t_0 <= t_end:
     B_x, B_y, B_z = BrownianForce(Drag_Coefficient, Temperature), BrownianForce(Drag_Coefficient, Temperature),BrownianForce(Drag_Coefficient, Temperature)
 
     EstimatedParticleForce3 = np.array([[EstimatedParticleForce2[0]+B_x],[EstimatedParticleForce2[1]+B_y],[EstimatedParticleForce2[2]+B_z]])
+    print(EstimatedParticleForce3)
 
                     
     #Calculate the change in position of the particle
