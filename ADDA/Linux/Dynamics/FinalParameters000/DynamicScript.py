@@ -158,7 +158,7 @@ r = 1e-6
 
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 0.01
+t_end = 0.001
 t_step = 1e-4
 x_beam, y_beam, z_beam = 0,0,0
 
