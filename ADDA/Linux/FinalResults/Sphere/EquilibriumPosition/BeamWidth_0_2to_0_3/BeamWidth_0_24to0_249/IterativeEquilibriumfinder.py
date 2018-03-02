@@ -211,7 +211,10 @@ while(BeamWidth<0.25):
             Arbvalue +=1
             print('Equilibirum Not Found')
 
-    TimeLogPath = str(os.getcwd())+str(os.sep+'BeamWidth_'+str(BeamWidth)+os.sep+'EquilibriumPosition')	
+    directory=str(os.getcwd())+str(os.sep+'BeamWidth_'+str(BeamWidth))
+    TimeLogPath = directory+os.sep+'EquilibriumPosition'
+    if not os.path.exists(directory):
+        os.makedirs(directory)
     with open(TimeLogPath, 'wb') as f:
         f.write(b'Iteration# z ADDATime OurCalcTime\n')
         np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')

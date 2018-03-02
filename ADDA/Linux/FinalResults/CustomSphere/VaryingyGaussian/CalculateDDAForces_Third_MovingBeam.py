@@ -142,9 +142,9 @@ Final_dpl=16
 Step_dpl=1
 x=0
 z=0
-Initial_y=-1
-Step_y=0.05
-Final_y=2
+Initial_y=-5
+Step_y=0.1
+Final_y=5
 
 BeamWidth = 0.25 #Micro m
 Temperature = 20 #20 degrees Celcius
