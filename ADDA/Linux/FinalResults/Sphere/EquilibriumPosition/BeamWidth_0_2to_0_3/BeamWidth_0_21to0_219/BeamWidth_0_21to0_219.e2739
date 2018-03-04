@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "IterativeEquilibriumfinder.py", line 215, in <module>
+    with open(TimeLogPath, 'wb') as f:
+IOError: [Errno 2] No such file or directory: '/usersc/kh13490/Project/BeamWidth_0_21to0_219/BeamWidth_0.21/EquilibriumPosition'

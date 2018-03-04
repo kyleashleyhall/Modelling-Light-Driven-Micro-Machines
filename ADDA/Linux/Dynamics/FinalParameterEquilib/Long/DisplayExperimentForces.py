@@ -8,7 +8,7 @@ Created on Fri Nov 10 13:57:26 2017
 import matplotlib.pyplot as plt
 import numpy as np
 
-Forces = np.transpose(np.loadtxt('ParticlePositions'))
+Forces = np.transpose(np.loadtxt('ParticlePositions',skiprows=1))
 
 plt.figure(1)
 plt.title('Positions in time')

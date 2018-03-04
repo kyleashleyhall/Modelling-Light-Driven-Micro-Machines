@@ -21,9 +21,7 @@ plt.plot(Forces[0],Forces[2])
 plt.subplot(313)
 plt.plot(Forces[0],Forces[3])
 
-plt.show()
-
-plt.figure(1)
+plt.figure(2)
 plt.title('Forces in Time')
 plt.subplot(311)
 plt.plot(Forces[0],Forces[4])
