@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jan 22 15:03:01 2018
+Created on Tue Feb 27 15:05:39 2018
 
-@author: Marius and Kyle
+@author: Marius
 """
+
 
 import numpy as np
 import glob
@@ -21,8 +22,8 @@ def BrownianForce(Dragcoefficient, tempertature):
     Boltzmann=1.38064852e-23
     return np.sqrt(2*Dragcoefficient*(Boltzmann)*(tempertature+273))*random.gauss(0,1)
     
-def PositionChange(Force, Dragcoefficient, timestep):
-    return ((Force*timestep)/Dragcoefficient)*(1e6)
+def PositionChange(Force, Dragcoefficient, timestep): #Outputs in Micrometres
+    return (((Force*timestep)/Dragcoefficient)*(1e6))
         
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
@@ -146,9 +147,9 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
     return Force
 
 #Preliminary Variables	
-CorrectionFactor=0.308310573308
-BeamWidth=0.5 #In micro m
-Temperature=40 #Degrees C
+CorrectionFactor=0.0838610668
+BeamWidth=0.25 #In micro m
+Temperature=20 #Degrees C
 Power=5e-3 #In Watts
 MediumDielectricConstant=87.740-(0.40008*Temperature)+(9.398e-4*(Temperature**2))-(1.410e-6*(Temperature**3))
 ElectricFieldStrength=ElectricFieldStrengthCalc(MediumDielectricConstant,Power,BeamWidth) #V/m
@@ -157,28 +158,14 @@ r = 1e-6
 
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 0.1
+t_end = 0.0025
 t_step = 1e-4
+x_beam, y_beam, z_beam = 0,0,0
 
-#Start point of beam 1
-x_beam1, y_beam1, z_beam1 = 0,0,0
-
-#Start point of beam 2
-x_beam2, y_beam2, z_beam2 = 0,0.5,0
-
-#Particle start point start point
-x_position, y_position, z_position = 0,0,0.01238
-
-x_beam1 += -x_position
-y_beam1 += -y_position
-z_beam1 += -z_position
-x_beam2 += -x_position
-y_beam2 += -y_position
-z_beam2 += -z_position
 
 #Array to track particle position
+
 PPositionArray = np.zeros([1,7])
-StartTime=time.clock()
 while t_0 <= t_end:
 
     #Perform the DDA Calculations and calculate forces
@@ -188,58 +175,25 @@ while t_0 <= t_end:
     BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
     ForcePathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'RadForce-Y')
     print('Processing time: '+str(t_0))
-    
-    #Calculate incident beam due to first beam
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam1)+" "+str(y_beam1)+" "+str(z_beam1)+" -store_beam" #The script for performing the DDA calculations
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam)+" "+str(y_beam)+" "+str(z_beam)+" -store_beam -store_dip_pol -store_int_field")
+    StartTime_ADDA=time.clock()
     subprocess.call(callString,shell=True)
-    Beam1File = sorted(glob.glob(BeamPathInput))[-1]
-    Beam1Raw=np.transpose(np.loadtxt(Beam1File, skiprows=1))
-    try:
-        shutil.rmtree(Beam1File.replace(os.sep+'IncBeam-Y',''))
-    except:
-        print('Cannot Delete')
-        
-    #Calculate incident beam due to second beam
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam2)+" "+str(y_beam2)+" "+str(z_beam2)+" -store_beam" #The script for performing the DDA calculations
-    subprocess.call(callString,shell=True)
-    Beam2File = sorted(glob.glob(BeamPathInput))[-1]
-    Beam2Raw=np.transpose(np.loadtxt(Beam2File, skiprows=1))
-    try:
-        shutil.rmtree(Beam2File.replace(os.sep+'IncBeam-Y',''))
-    except:
-        print('Cannot Delete')
-        
-    #Calculate the new beam file
-    IncBeamRaw=np.zeros([np.size(Beam1Raw,axis=0),np.size(Beam1Raw,axis=1)])
-    for i in range(0,3): #Bring across the x,y,z positions
-        IncBeamRaw[i,:]=Beam1Raw[i,:]
-    for i in range(4,10): #Bring across the total E_inc beam
-        IncBeamRaw[i,:]=np.add(Beam1Raw[i,:],Beam2Raw[i,:])
-        
-    IncBeamRaw[3,:]=np.add((np.add((np.power((np.abs(np.add(IncBeamRaw[4,:],(1j*IncBeamRaw[5,:])))),2)),(np.power((np.abs(np.add(IncBeamRaw[6,:],(1j*IncBeamRaw[7,:])))),2)))),(np.power((np.abs(np.add(IncBeamRaw[8,:],(1j*IncBeamRaw[9,:])))),2)))
-    DualBeamPath = str(os.getcwd())+str(os.sep+'DualBeam')	
-    with open(DualBeamPath, 'wb') as f:
-        f.write(b'x y z |Einc|^2 Eincx.r Eincx.i Eincy.r Eincy.i Eincz.r Eincz.i\n')
-        np.savetxt(f, np.transpose(IncBeamRaw), fmt='%.11f', delimiter=' ')
-    
-    
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -sym enf -beam read DualBeam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -sym enf -beam read DualBeam -store_dip_pol -store_int_field")
-    subprocess.call(callString,shell=True)
-    DipFiles, IntFFiles= sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1] #File containing the paths to each DipPol, IntField file
+    EndTime_ADDA=time.clock()
+    DipFiles, IntFFiles, BeamFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1] #File containing the paths to each DipPol, IntField file
     DipPolRaw=np.transpose(np.loadtxt(DipFiles, skiprows=1))
     IntFieldRaw=np.transpose(np.loadtxt(IntFFiles, skiprows=1))
+    IncBeamRaw=np.transpose(np.loadtxt(BeamFiles, skiprows=1))
     DipoleSeperation=DipSep(DipPolRaw[0,:])
     StartTime_OurCalc=time.clock()
     CalculatedForce=Forces(DipPolRaw,IntFieldRaw,IncBeamRaw,DipoleSeperation)
     EndTime_OurCalc=time.clock()
     
     
-    '''#SAVE CALCULATED FORCES
-    FFiles="Force"
-    with open(FFiles,'wb') as f:
-        f.write(b'x y z |F|^2 Fx Fy Fz \n')
-        np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')'''
+    #SAVE CALCULATED FORCES
+#    with open(FFiles,'wb') as f:
+#        f.write(b'x y z |F|^2 Fx Fy Fz \n')
+#        np.savetxt(f,CalculatedForce, fmt='%e',delimiter=' ')
     
     #This section is where we look at the ADDA Calculated Forces
     EstimatedParticleForce1=np.array([[np.sum(CalculatedForce[:,4])],[np.sum(CalculatedForce[:,5])],[np.sum(CalculatedForce[:,6])]])
@@ -250,22 +204,17 @@ while t_0 <= t_end:
     B_x, B_y, B_z = BrownianForce(Drag_Coefficient, Temperature), BrownianForce(Drag_Coefficient, Temperature),BrownianForce(Drag_Coefficient, Temperature)
 
     EstimatedParticleForce3 = np.array([[EstimatedParticleForce2[0]+B_x],[EstimatedParticleForce2[1]+B_y],[EstimatedParticleForce2[2]+B_z]])
+
                     
     #Calculate the change in position of the particle
     x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, t_step)
     y = PositionChange(EstimatedParticleForce3[1], Drag_Coefficient, t_step)
     z = PositionChange(EstimatedParticleForce3[2], Drag_Coefficient, t_step)
-    x_beam1 += -x[0,0]
-    y_beam1 += -y[0,0]
-    z_beam1 += -z[0,0]
-    x_beam2 += -x[0,0]
-    y_beam2 += -y[0,0]
-    z_beam2 += -z[0,0]
-    x_position +=x[0,0]
-    y_position +=y[0,0]
-    z_position +=z[0,0]
+    x_beam += -x[0,0]
+    y_beam += -y[0,0]
+    z_beam += -z[0,0]
     t_0 += t_step
-    PPositionArray = np.append(PPositionArray, np.array([[t_0,x_position,y_position,z_position,EstimatedParticleForce3[0],EstimatedParticleForce3[1],EstimatedParticleForce3[2]]]),axis=0)
+    PPositionArray = np.append(PPositionArray, np.array([[t_0,-x_beam,-y_beam,-z_beam, EstimatedParticleForce3[0], EstimatedParticleForce3[1], EstimatedParticleForce3[2]]]),axis=0)
                        
     #Use to delete the files after processing
     try:
@@ -273,12 +222,14 @@ while t_0 <= t_end:
     except:
         print('Cannot Delete')
         
-    np.savetxt('ParticlePositionsT40', PPositionArray, fmt='%e', delimiter=' ')
-
-EndTime=time.clock()
-TimeRecordings=np.array([[(EndTime-StartTime)]])        
-TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
-with open(TimeLogPath, 'wb') as f:
-    f.write(b'Time(s)\n')
-    np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
-
+np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
+#==============================================================================
+# ForceErrorPath = str(os.getcwd())+str(os.sep+'ForceError') #|(F_ADDA - F_Calc)|/F_ADDA	
+# with open(ForceErrorPath, 'wb') as f:
+#     f.write(b'dpl |F_ADDA(x)-F_Calc(x)| |F_ADDA(y)-F_Calc(y)| |F_ADDA(z)-F_Calc(z)| |F_ADDA(x)-F_Calc(x)|/F_ADDA(x) |F_ADDA(y)-F_Calc(y)|/F_ADDA(y) |F_ADDA(z)-F_Calc(z)|/F_ADDA(z)\n')
+#     np.savetxt(f, ForceError, fmt='%.10f', delimiter=' ')
+# TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
+# with open(TimeLogPath, 'wb') as f:
+#     f.write(b'dpl ADDATime OurCalcTime\n')
+#     np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
+#==============================================================================

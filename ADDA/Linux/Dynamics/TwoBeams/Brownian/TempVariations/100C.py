@@ -22,7 +22,7 @@ def BrownianForce(Dragcoefficient, tempertature):
     return np.sqrt(2*Dragcoefficient*(Boltzmann)*(tempertature+273))*random.gauss(0,1)
     
 def PositionChange(Force, Dragcoefficient, timestep):
-    return ((Force*timestep)/Dragcoefficient)*(1e-6)
+    return ((Force*timestep)/Dragcoefficient)*(1e6)
         
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
