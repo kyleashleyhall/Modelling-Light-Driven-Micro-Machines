@@ -134,37 +134,37 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
     
     return Force
 
-#60 runs at the lambda =0.9 m is correct and beam width is 0.5 microns
+#WRONG CORRECTION FACTOR AS DIFFERENT WAVELENGTH AND DPL
 
 #Preliminary Variables
-Initial_dpl=15
-Final_dpl=16
+Initial_dpl=10
+Final_dpl=11
 Step_dpl=1
 x=0
-z=0
-Initial_y=-5
-Step_y=0.1
-Final_y=5
+y=0
+Initial_z=-1
+Step_z=0.05
+Final_z=2
 
-BeamWidth = 0.25 #Micro m
+BeamWidth = 0.4 #Micro m
 Temperature = 20 #20 degrees Celcius
 MediumDielectricConstant=87.740-(0.40008*Temperature)+(9.398e-4*(Temperature**2))-(1.410e-6*(Temperature**3))
 ElectricFieldStrength = ElectricFieldStrengthCalc(MediumDielectricConstant, 5e-3, BeamWidth)
-CorrectionFactor=0.0896471424
+CorrectionFactor=0.0838610668
 
-y=Initial_y #Set the value of y to the initial value
+z=Initial_z #Set the value of y to the initial value
 
 #Perform the DDA Calculations and calculate forces
 DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')  
 IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-Y')
 BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
 dpl=Initial_dpl
-TimeRecordings=np.zeros([(((Final_y-Initial_y)//Step_dpl)+1),5])
+TimeRecordings=np.zeros([(((Final_z-Initial_z)//Step_dpl)+1),5])
 while (dpl<Final_dpl):
-    while (y<Final_y):
+    while (z<Final_z):
         print('Processing dpl: '+str(dpl))
-        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1.064 -m 1.183390347 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(-y)+" "+str(z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-        print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl 15 -lambda 1.064 -m 1.183390347 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(-y)+" "+str(z)+" -store_beam -store_dip_pol -store_int_field")
+        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 0.5 -m 1.183390347 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+        print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -dpl "+str(dpl)+" -lambda 0.5 -m 1.183390347 0 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x)+" "+str(y)+" "+str(-z)+" -store_beam -store_dip_pol -store_int_field")
         StartTime_ADDA=time.clock()
         subprocess.call(callString,shell=True)
         EndTime_ADDA=time.clock()
@@ -194,18 +194,18 @@ while (dpl<Final_dpl):
         except:
             AllForces = EstimatedParticleForce
     
-        TimeRecordings[(((y-Initial_y)//Step_dpl)),0] = x
-        TimeRecordings[(((y-Initial_y)//Step_dpl)),1] = y
-        TimeRecordings[(((y-Initial_y)//Step_dpl)),2] = z
-        TimeRecordings[(((y-Initial_y)//Step_dpl)),3] = EndTime_ADDA-StartTime_ADDA
-        TimeRecordings[(((y-Initial_y)//Step_dpl)),4] = EndTime_OurCalc-StartTime_OurCalc
+        TimeRecordings[(((z-Initial_z)//Step_dpl)),0] = x
+        TimeRecordings[(((z-Initial_z)//Step_dpl)),1] = y
+        TimeRecordings[(((z-Initial_z)//Step_dpl)),2] = z
+        TimeRecordings[(((z-Initial_z)//Step_dpl)),3] = EndTime_ADDA-StartTime_ADDA
+        TimeRecordings[(((z-Initial_z)//Step_dpl)),4] = EndTime_OurCalc-StartTime_OurCalc
     
         #Use to delete the files after processing
-        '''try:
+        try:
             shutil.rmtree(FFiles.replace(os.sep+'CalculatedForces',''))
         except:
-            print('Cannot Delete')'''
-        y=y+Step_y
+            print('Cannot Delete')
+        z=z+Step_z
     dpl=dpl+Step_dpl
 
 TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	

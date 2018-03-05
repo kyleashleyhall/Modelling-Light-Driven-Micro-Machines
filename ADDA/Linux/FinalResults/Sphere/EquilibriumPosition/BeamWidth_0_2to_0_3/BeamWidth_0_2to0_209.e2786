@@ -1,0 +1,4 @@
+  File "IterativeEquilibriumfinder.py", line 166
+    Arbvalue = 0 #Dummy variable to help terminate the loop
+    ^
+IndentationError: unexpected indent
