@@ -201,10 +201,10 @@ while (dpl<Final_dpl):
         TimeRecordings[(((y-Initial_y)//Step_dpl)),4] = EndTime_OurCalc-StartTime_OurCalc
     
         #Use to delete the files after processing
-        '''try:
+        try:
             shutil.rmtree(FFiles.replace(os.sep+'CalculatedForces',''))
         except:
-            print('Cannot Delete')'''
+            print('Cannot Delete')
         y=y+Step_y
     dpl=dpl+Step_dpl
 
