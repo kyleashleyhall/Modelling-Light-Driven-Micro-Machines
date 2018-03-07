@@ -148,7 +148,7 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
 
 #Preliminary Variables	
 CorrectionFactor=0.0838
-BeamWidth=1 #In micro m
+BeamWidth=0.6 #In micro m
 Temperature=20 #Degrees C
 Power=5e-3 #In Watts
 MediumDielectricConstant=87.740-(0.40008*Temperature)+(9.398e-4*(Temperature**2))-(1.410e-6*(Temperature**3))
@@ -159,7 +159,7 @@ r = 1e-6
 #Preliminary Dynamic variables
 t_0 = 0
 t_end = 1
-t_step = 1e-4
+t_step = 5e-4
 
 #Start point of beam 1
 x_beam1, y_beam1, z_beam1 = 0,0,0
@@ -274,11 +274,11 @@ while t_0 <= t_end:
     except:
         print('Cannot Delete')
 
-EndTime=time.clock()
-TimeRecordings=np.array([[(EndTime-StartTime)]])        
-np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
-TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
-with open(TimeLogPath, 'wb') as f:
-    f.write(b'Time(s)\n')
-    np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
+    EndTime=time.clock()
+    TimeRecordings=np.array([[(EndTime-StartTime)]])        
+    np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
+    TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
+    with open(TimeLogPath, 'wb') as f:
+        f.write(b'Time(s)\n')
+        np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
 

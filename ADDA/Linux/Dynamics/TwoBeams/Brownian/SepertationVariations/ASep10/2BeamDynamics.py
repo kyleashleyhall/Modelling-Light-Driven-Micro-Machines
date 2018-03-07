@@ -159,7 +159,7 @@ r = 1e-6
 #Preliminary Dynamic variables
 t_0 = 0
 t_end = 1
-t_step = 1e-4
+t_step = 5e-4
 
 #Start point of beam 1
 x_beam1, y_beam1, z_beam1 = 0,0,0
@@ -274,11 +274,11 @@ while t_0 <= t_end:
     except:
         print('Cannot Delete')
 
-EndTime=time.clock()
-TimeRecordings=np.array([[(EndTime-StartTime)]])        
-np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
-TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
-with open(TimeLogPath, 'wb') as f:
-    f.write(b'Time(s)\n')
-    np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
+    EndTime=time.clock()
+    TimeRecordings=np.array([[(EndTime-StartTime)]])        
+    np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
+    TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
+    with open(TimeLogPath, 'wb') as f:
+        f.write(b'Time(s)\n')
+        np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
 
