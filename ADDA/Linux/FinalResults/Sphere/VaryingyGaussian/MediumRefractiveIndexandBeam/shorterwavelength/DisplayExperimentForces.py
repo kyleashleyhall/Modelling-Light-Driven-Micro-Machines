@@ -13,12 +13,12 @@ Forces = np.transpose(np.loadtxt('TotalForce'))
 plt.figure(1)
 
 plt.subplot(311)
-plt.plot(Forces[1],Forces[3])
+plt.plot(Forces[2],Forces[3])
 
 plt.subplot(312)
-plt.plot(Forces[1],Forces[4])
+plt.plot(Forces[2],Forces[4])
 
 plt.subplot(313)
-plt.plot(Forces[1],Forces[5])
+plt.plot(Forces[2],Forces[5])
 
 plt.show()
