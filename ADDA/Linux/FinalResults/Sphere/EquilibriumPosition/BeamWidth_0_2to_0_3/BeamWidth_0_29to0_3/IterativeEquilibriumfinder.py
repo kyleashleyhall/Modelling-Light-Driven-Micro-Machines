@@ -147,7 +147,6 @@ x=0
 y=0
 Initial_z=-0.05
 Step_z=0.05
-Arbvalue = 0 #Dummy variable to help terminate the loop
 Temperature = 20 #20 degrees Celcius
 MediumDielectricConstant=87.740-(0.40008*Temperature)+(9.398e-4*(Temperature**2))-(1.410e-6*(Temperature**3))
 CorrectionFactor=0.0838610668
@@ -163,6 +162,7 @@ TimeRecordings=np.zeros([0,4])
 BeamWidth=0.29
 while(BeamWidth<0.301):
     iteration = 0
+    Arbvalue = 0 #Dummy variable to help terminate the loop
     while (Arbvalue == 0):
         iteration += 1
         print('Processing z: '+str(z))

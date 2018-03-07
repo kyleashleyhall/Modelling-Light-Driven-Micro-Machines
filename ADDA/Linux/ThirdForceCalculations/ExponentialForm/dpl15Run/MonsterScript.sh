@@ -1,3 +1,4 @@
+#!/bin/bash
 #PBS -N dpl15test
 # The working directory
 cd /home/kh13490/Project/dpl15test

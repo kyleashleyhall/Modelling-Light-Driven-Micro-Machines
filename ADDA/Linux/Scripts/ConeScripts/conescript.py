@@ -172,17 +172,19 @@ dipoleSeperation= 0.08810352742-0.02936784247
 ConeRadius=1 #1 micro m
 ConeHeight=2 #2 micro m
 
-#CONE FILE
-dipolearray = cone(ConeRadius,ConeHeight,dipoleSeperation) #cone, with dimensions and increment
-np.savetxt('conefile', dipolearray, fmt='%d')
-xyzrows = np.transpose([dipolearray])
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-ax.scatter(xyzrows[0], xyzrows[1], xyzrows[2])
-ax.set_xlabel('0 Column')
-ax.set_ylabel('1 Column')
-ax.set_zlabel('2 Column')
-plt.show()
+#==============================================================================
+# #CONE FILE
+# dipolearray = cone(ConeRadius,ConeHeight,dipoleSeperation) #cone, with dimensions and increment
+# np.savetxt('conefile', dipolearray, fmt='%d')
+# xyzrows = np.transpose([dipolearray])
+# fig = plt.figure()
+# ax = fig.add_subplot(111, projection='3d')
+# ax.scatter(xyzrows[0], xyzrows[1], xyzrows[2])
+# ax.set_xlabel('0 Column')
+# ax.set_ylabel('1 Column')
+# ax.set_zlabel('2 Column')
+# plt.show()
+#==============================================================================
 
 #PROPELLOR FILE
 dipolearray2 = prop(1,1,dipoleSeperation)
