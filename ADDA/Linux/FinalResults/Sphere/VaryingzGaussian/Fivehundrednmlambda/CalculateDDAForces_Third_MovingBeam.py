@@ -146,7 +146,7 @@ Initial_z=-1
 Step_z=0.05
 Final_z=2
 
-BeamWidth = 0.4 #Micro m
+BeamWidth = 0.25 #Micro m
 Temperature = 20 #20 degrees Celcius
 MediumDielectricConstant=87.740-(0.40008*Temperature)+(9.398e-4*(Temperature**2))-(1.410e-6*(Temperature**3))
 ElectricFieldStrength = ElectricFieldStrengthCalc(MediumDielectricConstant, 5e-3, BeamWidth)
