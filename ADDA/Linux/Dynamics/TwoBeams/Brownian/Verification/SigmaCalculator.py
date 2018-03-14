@@ -41,11 +41,12 @@ def DipSep(Singleaxis):
 #Preliminary Variables	
 
 BeamWidth=1 #In micro m
+Size = 2
 Temperature=20 #Degrees C
 
 
 nu = 8.891e-4
-r = 1e-7
+r = Size/(2e6)
 
 #Preliminary Dynamic variables
 t_end = 1
@@ -107,6 +108,8 @@ while arbvalue == 0:
         f.write(b'Time(s)\n')
         np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
         
+        
+print('The value of sigma is '+str(sigma))
 File = np.loadtxt('ParticlePositions', skiprows=1)
 plt.plot(File[:,0], File[:,3], 'k', label='mean square displacement')
 plt.plot(File[:,0], (2*File[:,0]*File[:,1]), 'b', label='2Dt')
