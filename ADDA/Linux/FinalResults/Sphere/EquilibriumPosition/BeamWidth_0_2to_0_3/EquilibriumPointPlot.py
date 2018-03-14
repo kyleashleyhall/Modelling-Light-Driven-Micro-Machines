@@ -93,5 +93,7 @@ for i in range(11):
     EPositionsArray = np.append(EPositionsArray, np.array([[BeamWidth[i], EquilibriumValue]]),axis=0)
     
 plt.plot(EPositionsArray[:,0], EPositionsArray[:,1])
+plt.xlabel('Beamwidth')
+plt.ylabel('Equilibrium position in z')
 plt.show()
     

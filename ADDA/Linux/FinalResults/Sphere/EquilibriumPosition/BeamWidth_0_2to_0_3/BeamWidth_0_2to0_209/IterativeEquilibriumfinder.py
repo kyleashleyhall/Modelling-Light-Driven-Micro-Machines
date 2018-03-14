@@ -204,7 +204,7 @@ while(BeamWidth<0.21):
             Step_z *= 0.5
             z += Step_z
             print('Moved beam down, the increment is '+str(Step_z))
-        if -1e-17 <= Force_z <= 1e-17:
+        if -1e-16 <= Force_z <= 1e-16:
             Arbvalue += 1
             print('Done')
     

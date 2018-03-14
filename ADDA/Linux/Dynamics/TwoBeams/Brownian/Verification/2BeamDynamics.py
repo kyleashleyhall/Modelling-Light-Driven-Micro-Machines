@@ -21,9 +21,9 @@ def DiffusionCoefficient(temperature, viscosity, radius):
     Boltzmann=1.38064852e-23
     return (Boltzmann*(temperature+273)) / (6*np.pi*viscosity*radius)
     
-def BrownianForce(Dragcoefficient,temperature):
+def BrownianForce(Dragcoefficient,temperature, sigma):
     Boltzmann=1.38064852e-23
-    return np.sqrt(2*Dragcoefficient*(Boltzmann)*(temperature+273))*random.gauss(0,1)
+    return np.sqrt(2*Dragcoefficient*(Boltzmann)*(temperature+273))*random.gauss(0,sigma)
     
 def PositionChange(Force, Dragcoefficient, timestep):
     return ((Force*timestep)/Dragcoefficient)*(1e-6)
@@ -76,7 +76,8 @@ while t_0 <= t_end:
     PPositionArray = np.append(PPositionArray, np.array([[t_0, D, x_position, x_positionsquare, EstimatedParticleForce3[0]]]),axis=0)
          
 
-
+np.gradju
+np.mean(
 
         
 EndTime=time.clock()

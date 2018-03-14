@@ -13,6 +13,7 @@ import time
 import shutil
 import random
 import scipy.constants as constants
+import matplotlib.pyplot as plt
 
 def DragCoef(nu, r):
     return 6*np.pi*nu*r
@@ -21,8 +22,8 @@ def DiffusionCoefficient(temperature, viscosity, radius):
     Boltzmann=1.38064852e-23
     return (Boltzmann*(temperature+273)) / (6*np.pi*viscosity*radius)
     
-def BrownianForce(DiffusionCoef):
-    return np.sqrt(2*DiffusionCoef)*random.gauss(0,1)
+def BrownianForce(DiffusionCoef, sigma):
+    return np.sqrt(2*DiffusionCoef)*random.gauss(0,sigma)
     
 def PositionChange(Force, Dragcoefficient, timestep):
     return ((Force*timestep)/Dragcoefficient)*(1e-6)
@@ -44,46 +45,79 @@ Temperature=20 #Degrees C
 
 
 nu = 8.891e-4
-r = 1e-6
+r = 1e-7
 
 #Preliminary Dynamic variables
-t_0 = 0
 t_end = 1
 t_step = 1e-4
 
 
 
-#Particle start point start point
-x_position = 0
-x_positionsquare = 0
+
 
 #Array to track particle position
-PPositionArray = np.zeros([1,5])
 StartTime=time.clock()
-while t_0 < t_end:
-    #Generate the Brownian "Force"
-    Drag_Coefficient = DragCoef(nu,r)
-    D = DiffusionCoefficient(Temperature, nu, r)
-    B_x = BrownianForce(D)
 
-    EstimatedParticleForce3 = np.array([[B_x]])
+Drag_Coefficient = DragCoef(nu,r)
+D = DiffusionCoefficient(Temperature, nu, r)
+arbvalue = 0
+sigma = 1
+sigma_step = 1
+while arbvalue == 0: 
+    PPositionArray = np.zeros([1,5])
+    t_0 = 0
+    #Particle start point start point
+    x_position = 0
+    x_positionsquare = 0
+    
+    while t_0 < t_end:      
+        
+        #Generate the Brownian "Force"
+        B_x = BrownianForce(D, sigma)
+
+        EstimatedParticleForce3 = np.array([[B_x]])
                     
-    #Calculate the change in position of the particle
-    x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, t_step)
-    x_position += x[0]
-    x_positionsquare += x[0]**2
-    t_0 += t_step  
-    PPositionArray = np.append(PPositionArray, np.array([[t_0, D, x_position, x_positionsquare, EstimatedParticleForce3[0]]]),axis=0)
-         
+        #Calculate the change in position of the particle
+        x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, t_step)
+        x_position += x[0]
+        x_positionsquare += x[0]**2
+        t_0 += t_step  
+        PPositionArray = np.append(PPositionArray, np.array([[t_0, D, x_position, x_positionsquare, EstimatedParticleForce3[0]]]),axis=0)
+    
+    gradient = np.mean(np.gradient(PPositionArray[:,3], t_step))
+    if gradient < (2*D):
+        sigma += sigma_step
+    if gradient > (2*D):
+        sigma -= sigma_step
+        sigma_step *= 0.6
+        sigma += sigma_step
+
+    if -1e-15 < (gradient - (2*D)) < 1e-15:
+        arbvalue += 1
+        
+    if sigma_step <= 1e-10:
+        arbvalue += 1
+        print('This value of sigma is accurate to 9 decimal places')
+        
+    EndTime=time.clock()
+    TimeRecordings=np.array([[(EndTime-StartTime)]])        
+    np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
+    TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
+    with open(TimeLogPath, 'wb') as f:
+        f.write(b'Time(s)\n')
+        np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
+        
+File = np.loadtxt('ParticlePositions', skiprows=1)
+plt.plot(File[:,0], File[:,3], 'k', label='mean square displacement')
+plt.plot(File[:,0], (2*File[:,0]*File[:,1]), 'b', label='2Dt')
+plt.legend(loc='upper left')
+plt.show()
+        
+        
+    
 
 
 
         
-EndTime=time.clock()
-TimeRecordings=np.array([[(EndTime-StartTime)]])        
-np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
-TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
-with open(TimeLogPath, 'wb') as f:
-    f.write(b'Time(s)\n')
-    np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
+
 
