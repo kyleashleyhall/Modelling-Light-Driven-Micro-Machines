@@ -249,10 +249,10 @@ while (x<(Final_x+Step_x)):
         
         #Calculate the new beam file
         IncBeamRaw=np.zeros([np.size(Beam1Raw,axis=0),np.size(Beam1Raw,axis=1)])
-        for i in range(0,3): #Bring across the x,y,z positions
-            IncBeamRaw[i,:]=Beam1Raw[i,:]
-        for i in range(4,10): #Bring across the total E_inc beam
-            IncBeamRaw[i,:]=np.add(Beam1Raw[i,:],Beam2Raw[i,:])
+        for iterator in range(0,3): #Bring across the x,y,z positions
+            IncBeamRaw[iterator,:]=Beam1Raw[iterator,:]
+        for iterator in range(4,10): #Bring across the total E_inc beam
+            IncBeamRaw[iterator,:]=np.add(Beam1Raw[iterator,:],Beam2Raw[iterator,:])
         
         IncBeamRaw[3,:]=np.add((np.add((np.power((np.abs(np.add(IncBeamRaw[4,:],(1j*IncBeamRaw[5,:])))),2)),(np.power((np.abs(np.add(IncBeamRaw[6,:],(1j*IncBeamRaw[7,:])))),2)))),(np.power((np.abs(np.add(IncBeamRaw[8,:],(1j*IncBeamRaw[9,:])))),2)))
         DualBeamPath = str(os.getcwd())+str(os.sep+'DualBeam')	
@@ -270,9 +270,9 @@ while (x<(Final_x+Step_x)):
         DipoleSeperation=DipSep(DipPolRaw[0,:])
         StartTime_OurCalc=time.clock()
         CalculatedForce=Forces(DipPolRaw,IntFieldRaw,IncBeamRaw,DipoleSeperation)
-        Force_x=OurForceConversion(np.sum(CalculatedForce[:,4]),CorrectionFactor,ElectricFieldStrength)
-        Force_y=OurForceConversion(np.sum(CalculatedForce[:,5]),CorrectionFactor,ElectricFieldStrength)
-        Force_z=OurForceConversion(np.sum(CalculatedForce[:,6]),CorrectionFactor,ElectricFieldStrength)
+        Force_x=OurForceConversion(CalculatedForce[:,4],CorrectionFactor,ElectricFieldStrength)
+        Force_y=OurForceConversion(CalculatedForce[:,5],CorrectionFactor,ElectricFieldStrength)
+        Force_z=OurForceConversion(CalculatedForce[:,6],CorrectionFactor,ElectricFieldStrength)
         Torque=CalculateTorque(CalculatedForce[:,0],CalculatedForce[:,1],CalculatedForce[:,2],Force_x,Force_y,Force_z)
         xTorque_Grid[j,i]=np.sum(Torque[:,3])
         yTorque_Grid[j,i]=np.sum(Torque[:,4])
