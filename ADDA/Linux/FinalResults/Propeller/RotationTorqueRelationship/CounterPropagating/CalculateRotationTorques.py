@@ -195,7 +195,7 @@ while (dpl<Final_dpl):
         #CalculationTimes=np.zeros([(Final_dpl-Initial_dpl),2])
     
         #Calculate incident beam due to first beam
-        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -shape read propellorfile -lambda 1.064 -prop 0 0 1 -m 1.183390347 0 -beam barton5 "+str(BeamWidth)+" "+str(x_beam1)+" "+str(y_beam1)+" "+str(z_beam1)+" -store_beam" #The script for performing the DDA calculations
+        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -shape read propellorfile -lambda 1.064 -orient "+str(alpha)+" 0 0 -prop 0 0 1 -m 1.183390347 0 -beam barton5 "+str(BeamWidth)+" "+str(x_beam1)+" "+str(y_beam1)+" "+str(z_beam1)+" -store_beam" #The script for performing the DDA calculations
         subprocess.call(callString,shell=True)
         Beam1File = sorted(glob.glob(BeamPathInput))[-1]
         Beam1Raw=np.transpose(np.loadtxt(Beam1File, skiprows=1))
@@ -205,7 +205,7 @@ while (dpl<Final_dpl):
             print('Cannot Delete')
         
         #Calculate incident beam due to second beam
-        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -shape read propellorfile -lambda 1.064 -prop 0 0 -1 -m 1.183390347 0 -beam barton5 "+str(BeamWidth)+" "+str(x_beam2)+" "+str(y_beam2)+" "+str(z_beam2)+" -store_beam" #The script for performing the DDA calculations
+        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -shape read propellorfile -lambda 1.064 -orient "+str(alpha)+" 0 0 -prop 0 0 -1 -m 1.183390347 0 -beam barton5 "+str(BeamWidth)+" "+str(x_beam2)+" "+str(y_beam2)+" "+str(z_beam2)+" -store_beam" #The script for performing the DDA calculations
         subprocess.call(callString,shell=True)
         Beam2File = sorted(glob.glob(BeamPathInput))[-1]
         Beam2Raw=np.transpose(np.loadtxt(Beam2File, skiprows=1))
@@ -228,8 +228,8 @@ while (dpl<Final_dpl):
             np.savetxt(f, np.transpose(IncBeamRaw), fmt='%.11f', delimiter=' ')
     
     
-        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -shape read propellorfile -lambda 1.064 -prop 0 0 1 -m 1.183390347 0 -sym enf -beam read DualBeam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-        print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -shape read propellorfile -lambda 1.064 -prop 0 0 1 -m 1.183390347 0 -sym enf -beam read DualBeam -store_dip_pol -store_int_field")
+        callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -shape read propellorfile -lambda 1.064 -prop 0 0 1 -orient "+str(alpha)+" 0 0 -m 1.183390347 0 -sym enf -beam read DualBeam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+        print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size 2 -shape read propellorfile -lambda 1.064 -prop 0 0 1 -orient "+str(alpha)+" 0 0 -m 1.183390347 0 -sym enf -beam read DualBeam -store_dip_pol -store_int_field")
         StartTime_ADDA=time.clock()
         subprocess.call(callString,shell=True)
         EndTime_ADDA=time.clock()

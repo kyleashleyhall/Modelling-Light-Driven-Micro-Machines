@@ -1,0 +1,5 @@
+ERROR: (../make_particle.c:1047) Failed to open file 'propellorfile'
+Traceback (most recent call last):
+  File "CalculateGridForces.py", line 178, in <module>
+    DipFiles, IntFFiles, BeamFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1] #File containing the paths to each DipPol, IntField file
+IndexError: list index out of range

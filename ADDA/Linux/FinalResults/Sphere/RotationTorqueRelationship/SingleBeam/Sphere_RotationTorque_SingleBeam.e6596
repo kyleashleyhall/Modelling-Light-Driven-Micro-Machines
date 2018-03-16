@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "CalculateRotationTorques.py", line 189, in <module>
+    DipPolRaw=np.transpose(np.loadtxt(DipFiles, skiprows=1))
+  File "/home/kh13490/anaconda2/lib/python2.7/site-packages/numpy/lib/npyio.py", line 1037, in loadtxt
+    next(fh)
+StopIteration

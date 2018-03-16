@@ -235,10 +235,10 @@ while (BeamSeperation<(Final_BeamSeperation+Step_BeamSeperation)):
         
         #Calculate the new beam file
         IncBeamRaw=np.zeros([np.size(Beam1Raw,axis=0),np.size(Beam1Raw,axis=1)])
-        for i in range(0,3): #Bring across the x,y,z positions
-            IncBeamRaw[i,:]=Beam1Raw[i,:]
-        for i in range(4,10): #Bring across the total E_inc beam
-            IncBeamRaw[i,:]=np.add(Beam1Raw[i,:],Beam2Raw[i,:])
+        for iterator in range(0,3): #Bring across the x,y,z positions
+            IncBeamRaw[iterator,:]=Beam1Raw[iterator,:]
+        for iterator in range(4,10): #Bring across the total E_inc beam
+            IncBeamRaw[iterator,:]=np.add(Beam1Raw[iterator,:],Beam2Raw[iterator,:])
         
         IncBeamRaw[3,:]=np.add((np.add((np.power((np.abs(np.add(IncBeamRaw[4,:],(1j*IncBeamRaw[5,:])))),2)),(np.power((np.abs(np.add(IncBeamRaw[6,:],(1j*IncBeamRaw[7,:])))),2)))),(np.power((np.abs(np.add(IncBeamRaw[8,:],(1j*IncBeamRaw[9,:])))),2)))
         DualBeamPath = str(os.getcwd())+str(os.sep+'DualBeam')	
