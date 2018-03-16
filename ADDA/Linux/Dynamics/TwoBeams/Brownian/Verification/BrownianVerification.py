@@ -22,11 +22,13 @@ def DiffusionCoefficient(temperature, viscosity, radius):
     Boltzmann=1.38064852e-23
     return (Boltzmann*(temperature+273)) / (6*np.pi*viscosity*radius)
     
-def BrownianForce(DiffusionCoef, sigma):
-    return np.sqrt(2*DiffusionCoef)*random.gauss(0,sigma)
+def BrownianForce(Dragcoefficient,temperature, sigma):
+    Boltzmann=1.38064852e-23
+    return np.sqrt(2*Dragcoefficient*(Boltzmann)*(temperature+273))*random.gauss(0,sigma)
+
     
 def PositionChange(Force, Dragcoefficient, timestep):
-    return ((Force*timestep)/Dragcoefficient)*(1e-6)
+    return ((Force*timestep)/Dragcoefficient)
         
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
@@ -45,7 +47,7 @@ Temperature=20 #Degrees C
 
 
 nu = 8.891e-4
-r = 1e-7
+r = 1e-6
 
 #Preliminary Dynamic variables
 t_end = 1
@@ -61,10 +63,10 @@ StartTime=time.clock()
 Drag_Coefficient = DragCoef(nu,r)
 D = DiffusionCoefficient(Temperature, nu, r)
 arbvalue = 0
-sigma = 1
+sigma = 100
 sigma_step = 1
 while arbvalue == 0: 
-    PPositionArray = np.zeros([1,5])
+    PPositionArray = np.zeros([0,5])
     t_0 = 0
     #Particle start point start point
     x_position = 0
@@ -73,7 +75,7 @@ while arbvalue == 0:
     while t_0 < t_end:      
         
         #Generate the Brownian "Force"
-        B_x = BrownianForce(D, sigma)
+        B_x = BrownianForce(Drag_Coefficient, Temperature, sigma)
 
         EstimatedParticleForce3 = np.array([[B_x]])
                     
@@ -87,9 +89,10 @@ while arbvalue == 0:
     gradient = np.mean(np.gradient(PPositionArray[:,3], t_step))
     if gradient < (2*D):
         sigma += sigma_step
+        
     if gradient > (2*D):
         sigma -= sigma_step
-        sigma_step *= 0.6
+        sigma_step *= 0.5
         sigma += sigma_step
 
     if -1e-15 < (gradient - (2*D)) < 1e-15:
@@ -107,11 +110,13 @@ while arbvalue == 0:
         f.write(b'Time(s)\n')
         np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
         
-File = np.loadtxt('ParticlePositions', skiprows=1)
-plt.plot(File[:,0], File[:,3], 'k', label='mean square displacement')
-plt.plot(File[:,0], (2*File[:,0]*File[:,1]), 'b', label='2Dt')
-plt.legend(loc='upper left')
-plt.show()
+    File = np.loadtxt('ParticlePositions', skiprows=1)
+    plt.plot(File[:,0], File[:,3], 'k', label='mean square displacement')
+    plt.plot(File[:,0], (2*File[:,0]*File[:,1]), 'b', label='2Dt')
+    plt.legend(loc='upper left')
+    plt.show()
+    plt.plot(File[:,0], File[:,2])
+    plt.show()
         
         
     
