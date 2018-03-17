@@ -9,6 +9,7 @@ import numpy as np
 import glob
 import os
 import subprocess
+import matplotlib.pyplot as plt
 import time
 import shutil
 import random
@@ -26,7 +27,7 @@ def BrownianForce(Dragcoefficient,temperature, sigma):
     return np.sqrt(2*Dragcoefficient*(Boltzmann)*(temperature+273))*random.gauss(0,sigma)
     
 def PositionChange(Force, Dragcoefficient, timestep):
-    return ((Force*timestep)/Dragcoefficient)*(1e-6)
+    return ((Force*timestep)/Dragcoefficient)
         
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
@@ -49,14 +50,14 @@ r = 1e-6
 
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 1
+t_end = 4
 t_step = 1e-4
 
-
+sigma = 7
 
 #Particle start point start point
 x_position = 0
-
+x_positionsquare = 0
 #Array to track particle position
 PPositionArray = np.zeros([1,5])
 StartTime=time.clock()
@@ -64,20 +65,16 @@ while t_0 <= t_end:
     #Generate the Brownian "Force"
     Drag_Coefficient = DragCoef(nu,r)
     D = DiffusionCoefficient(Temperature, nu, r)
-    B_x = BrownianForce(Drag_Coefficient, Temperature)
-
+    B_x = BrownianForce(Drag_Coefficient, Temperature, sigma)
     EstimatedParticleForce3 = np.array([[B_x]])
                     
     #Calculate the change in position of the particle
     x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, t_step)
-    x_position +=x[0]
-    x_positionsquare = x_position**2
+    x_position += x[0]
+    x_positionsquare += (x[0]**2)
     t_0 += t_step  
     PPositionArray = np.append(PPositionArray, np.array([[t_0, D, x_position, x_positionsquare, EstimatedParticleForce3[0]]]),axis=0)
          
-
-np.gradju
-np.mean(
 
         
 EndTime=time.clock()
@@ -87,4 +84,10 @@ TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')
 with open(TimeLogPath, 'wb') as f:
     f.write(b'Time(s)\n')
     np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
-
+File = np.loadtxt('ParticlePositions', skiprows=1)
+plt.plot(File[:,0], File[:,3], 'k', label='mean square displacement')
+plt.plot(File[:,0], (2*File[:,0]*File[:,1]), 'b', label='2Dt')
+plt.legend(loc='upper left')
+plt.show()
+plt.plot(File[:,0], File[:,2])
+plt.show()
