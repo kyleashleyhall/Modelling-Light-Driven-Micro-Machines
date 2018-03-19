@@ -22,11 +22,13 @@ def DiffusionCoefficient(temperature, viscosity, radius):
     Boltzmann=1.38064852e-23
     return (Boltzmann*(temperature+273)) / (6*np.pi*viscosity*radius)
     
-def BrownianForce(DiffusionCoef, sigma):
-    return np.sqrt(2*DiffusionCoef)*random.gauss(0,sigma)
+def BrownianForce(Dragcoefficient,temperature, sigma):
+    Boltzmann=1.38064852e-23
+    return np.sqrt(2*Dragcoefficient*(Boltzmann)*(temperature+273))*random.gauss(0,sigma)
+
     
 def PositionChange(Force, Dragcoefficient, timestep):
-    return ((Force*timestep)/Dragcoefficient)*(1e6)
+    return ((Force*timestep)/Dragcoefficient)
         
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
@@ -165,8 +167,8 @@ r = particleDiameterValue*(5e-7)
 
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 10
-t_step = 1e-3
+t_end = 1
+t_step = 1e-4
 x_beam, y_beam, z_beam = 0,0,0
 
 DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')  
@@ -176,7 +178,7 @@ ForcePathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'RadForce-Y')
 
 #Calculate the Correction Factor
 
-'''callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(particleDiameterValue)+" -grid 30 -lambda "+str(lambdaValue)+" -prop 0 0 1 -m "+str(refractiveIndexValue)+" 0 -store_beam -store_dip_pol -store_int_field -store_force" #The script for performing the DDA calculations
+callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(particleDiameterValue)+" -grid 30 -lambda "+str(lambdaValue)+" -prop 0 0 1 -m "+str(refractiveIndexValue)+" 0 -store_beam -store_dip_pol -store_int_field -store_force" #The script for performing the DDA calculations
 subprocess.call(callString,shell=True)
 DipFiles, IntFFiles, BeamFiles, ForceFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1], sorted(glob.glob(ForcePathInput))[-1] #File containing the paths to each DipPol, IntField file
 FFiles = DipFiles.replace('DipPol-Y','CalculatedForces')
@@ -201,7 +203,7 @@ CorrectionFactor=((((ADDAParticleForce[0])**2)+((ADDAParticleForce[1])**2)+((ADD
 try:
     shutil.rmtree(FFiles.replace(os.sep+'CalculatedForces',''))
 except:
-    print('Cannot Delete')'''
+    print('Cannot Delete')
 
 #Calculate the sigma value for borwnian motion
 
@@ -211,10 +213,9 @@ Drag_Coefficient = DragCoef(nu,r)
 D = DiffusionCoefficient(Temperature, nu, r)
 
 arbvalue = 0
-sigma = 1
+sigma = 100
 sigma_step = 1
 while arbvalue == 0: 
-    print("Sigma: "+str(sigma))
     PPositionArray = np.zeros([1,5])
     Brownian_t_0 = 0
     #Particle start point start point
@@ -224,7 +225,7 @@ while arbvalue == 0:
     while Brownian_t_0 < Brownian_t_end:      
         
         #Generate the Brownian "Force"
-        B_x = BrownianForce(D,sigma)
+        B_x = BrownianForce(Drag_Coefficient,Temperature,sigma)
 
         EstimatedParticleForce3 = np.array([[B_x]])
                     
@@ -236,10 +237,9 @@ while arbvalue == 0:
         PPositionArray = np.append(PPositionArray, np.array([[Brownian_t_0, D, Brownian_x_position, Brownian_x_positionsquare, EstimatedParticleForce3[0]]]),axis=0)
     
     gradient = np.mean(np.gradient(PPositionArray[:,3], Brownian_t_step))
-    print("Gradient: "+str(gradient))
-    print("2D: "+str(2*D))
     if gradient < (2*D):
         sigma += sigma_step
+        
     if gradient > (2*D):
         sigma -= sigma_step
         sigma_step *= 0.5
@@ -252,7 +252,6 @@ while arbvalue == 0:
         arbvalue += 1
 
 #Array to track particle position
-input()
 
 PPositionArray = np.array([[t_0,-x_beam,-y_beam,-z_beam,0,0,0,0]])
 while t_0 <= t_end:
@@ -294,7 +293,7 @@ while t_0 <= t_end:
     #Calculate the change in position of the particle
     '''x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, t_step)
     y = PositionChange(EstimatedParticleForce3[1], Drag_Coefficient, t_step)'''
-    z = PositionChange(EstimatedParticleForce3[2], Drag_Coefficient, t_step)
+    z = (PositionChange(EstimatedParticleForce3[2], Drag_Coefficient, t_step))*(1e6)
     '''x_beam += -x[0,0]
     y_beam += -y[0,0]'''
     z_beam += -z[0,0]

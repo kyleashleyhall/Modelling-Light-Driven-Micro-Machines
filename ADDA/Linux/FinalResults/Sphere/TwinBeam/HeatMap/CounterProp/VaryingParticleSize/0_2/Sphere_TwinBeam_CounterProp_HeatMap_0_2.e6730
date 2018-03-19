@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "CalculateForceVaryingBeamSeperation.py", line 313, in <module>
+    CalculatedForce=Forces(DipPolRaw,IntFieldRaw,IncBeamRaw,DipoleSeperation)
+  File "CalculateForceVaryingBeamSeperation.py", line 134, in Forces
+    dEx_dz=((((IncBeam[4,linePositionAbove_IncBeam]+IntField[4,linePositionAbove_IntField])-(IncBeam[4,linePositionCurrent_IncBeam]+IntField[4,linePositionCurrent_IntField]))/(DipoleSep))-(1j*(((IncBeam[5,linePositionAbove_IncBeam]+IntField[5,linePositionAbove_IntField])-(IncBeam[5,linePositionCurrent_IncBeam]+IntField[5,linePositionCurrent_IntField]))/(DipoleSep)))) #Complex conjugate already implemented
+ValueError: operands could not be broadcast together with shapes (2,1) (0,1) 

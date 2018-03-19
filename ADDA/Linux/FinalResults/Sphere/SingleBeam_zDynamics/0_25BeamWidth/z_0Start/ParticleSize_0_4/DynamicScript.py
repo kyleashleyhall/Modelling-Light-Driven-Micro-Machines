@@ -22,11 +22,13 @@ def DiffusionCoefficient(temperature, viscosity, radius):
     Boltzmann=1.38064852e-23
     return (Boltzmann*(temperature+273)) / (6*np.pi*viscosity*radius)
     
-def BrownianForce(DiffusionCoef, sigma):
-    return np.sqrt(2*DiffusionCoef)*random.gauss(0,sigma)
+def BrownianForce(Dragcoefficient,temperature, sigma):
+    Boltzmann=1.38064852e-23
+    return np.sqrt(2*Dragcoefficient*(Boltzmann)*(temperature+273))*random.gauss(0,sigma)
+
     
 def PositionChange(Force, Dragcoefficient, timestep):
-    return ((Force*timestep)/Dragcoefficient)*(1e6)
+    return ((Force*timestep)/Dragcoefficient)
         
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
@@ -153,7 +155,6 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
 
 #Preliminary Variables	
 particleDiameterValue=(float(os.getcwd()[-3]))+((float(os.getcwd()[-1]))/10)
-print(particleDiameterValue)
 lambdaValue=1.064
 refractiveIndexValue=1.18339034696
 BeamWidth=0.25 #In micro m
@@ -166,8 +167,8 @@ r = particleDiameterValue*(5e-7)
 
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 10
-t_step = 1e-3
+t_end = 1
+t_step = 1e-4
 x_beam, y_beam, z_beam = 0,0,0
 
 DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')  
@@ -212,7 +213,7 @@ Drag_Coefficient = DragCoef(nu,r)
 D = DiffusionCoefficient(Temperature, nu, r)
 
 arbvalue = 0
-sigma = 1
+sigma = 100
 sigma_step = 1
 while arbvalue == 0: 
     PPositionArray = np.zeros([1,5])
@@ -224,20 +225,21 @@ while arbvalue == 0:
     while Brownian_t_0 < Brownian_t_end:      
         
         #Generate the Brownian "Force"
-        B_x = BrownianForce(D, sigma)
+        B_x = BrownianForce(Drag_Coefficient,Temperature,sigma)
 
         EstimatedParticleForce3 = np.array([[B_x]])
                     
         #Calculate the change in position of the particle
-        Brownian_x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, t_step)
+        Brownian_x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, Brownian_t_step)
         Brownian_x_position += Brownian_x[0]
         Brownian_x_positionsquare += Brownian_x[0]**2
-        t_0 += t_step  
-        PPositionArray = np.append(PPositionArray, np.array([[t_0, D, Brownian_x_position, Brownian_x_positionsquare, EstimatedParticleForce3[0]]]),axis=0)
+        Brownian_t_0 += Brownian_t_step  
+        PPositionArray = np.append(PPositionArray, np.array([[Brownian_t_0, D, Brownian_x_position, Brownian_x_positionsquare, EstimatedParticleForce3[0]]]),axis=0)
     
-    gradient = np.mean(np.gradient(PPositionArray[:,3], t_step))
+    gradient = np.mean(np.gradient(PPositionArray[:,3], Brownian_t_step))
     if gradient < (2*D):
         sigma += sigma_step
+        
     if gradient > (2*D):
         sigma -= sigma_step
         sigma_step *= 0.5
@@ -282,7 +284,7 @@ while t_0 <= t_end:
     EstimatedParticleForce2=OurForceConversion(EstimatedParticleForce1,CorrectionFactor,ElectricFieldStrength) #Convert to ADDA and SI
 
     #Generate the Brownian "Force"
-    B_z = BrownianForce(Drag_Coefficient, Temperature)
+    B_z = BrownianForce(Drag_Coefficient,Temperature,sigma)
 
     EstimatedParticleForce3 = np.array([[EstimatedParticleForce2[0]],[EstimatedParticleForce2[1]],[EstimatedParticleForce2[2]+B_z]])
     print(EstimatedParticleForce3)
@@ -291,7 +293,7 @@ while t_0 <= t_end:
     #Calculate the change in position of the particle
     '''x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, t_step)
     y = PositionChange(EstimatedParticleForce3[1], Drag_Coefficient, t_step)'''
-    z = PositionChange(EstimatedParticleForce3[2], Drag_Coefficient, t_step)
+    z = (PositionChange(EstimatedParticleForce3[2], Drag_Coefficient, t_step))*(1e6)
     '''x_beam += -x[0,0]
     y_beam += -y[0,0]'''
     z_beam += -z[0,0]
