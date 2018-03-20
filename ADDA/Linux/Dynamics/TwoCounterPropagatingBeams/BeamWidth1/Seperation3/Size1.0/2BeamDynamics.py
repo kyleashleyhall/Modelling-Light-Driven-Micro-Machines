@@ -21,8 +21,12 @@ def BrownianForce(Dragcoefficient, tempertature,sigma):
     Boltzmann=1.38064852e-23
     return np.sqrt(2*Dragcoefficient*(Boltzmann)*(tempertature+273))*random.gauss(0,sigma)
     
+def DiffusionCoefficient(temperature, viscosity, radius):
+    Boltzmann=1.38064852e-23
+    return (Boltzmann*(temperature+273)) / (6*np.pi*viscosity*radius)
+    
 def PositionChange(Force, Dragcoefficient, timestep):
-    return ((Force*timestep)/Dragcoefficient)*(1e6)
+    return ((Force*timestep)/Dragcoefficient)
         
 def DipSep(Singleaxis):
     dx = np.zeros([len(Singleaxis)-1])
@@ -58,7 +62,7 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
         Force[i,2]=DipPol[2,i] #Assign the ith z variable from DipPol to the Force file
         
         #Calculate the force in x direction
-        linePositionBelow_IncBeam=np.argwhere(((DipPol[0,i]-((3*DipoleSep)/2))<IncBeam[0,:])&(IncBeam[0,:]<(DipPol[0,i]-((1*DipoleSep)/2)))&((DipPol[1,i]-((1*DipoleSep)/2))<IncBeam[1,:])&(IncBeam[1,:]<(DipPol[1,i]+((1*DipoleSep)/2)))&((DipPol[2,i]-((1*DipoleSep)/2))<IncBeam[2,:])&(IncBeam[2,:]<(DipPol[2,i]+((1*DipoleSep)/2))))
+        """linePositionBelow_IncBeam=np.argwhere(((DipPol[0,i]-((3*DipoleSep)/2))<IncBeam[0,:])&(IncBeam[0,:]<(DipPol[0,i]-((1*DipoleSep)/2)))&((DipPol[1,i]-((1*DipoleSep)/2))<IncBeam[1,:])&(IncBeam[1,:]<(DipPol[1,i]+((1*DipoleSep)/2)))&((DipPol[2,i]-((1*DipoleSep)/2))<IncBeam[2,:])&(IncBeam[2,:]<(DipPol[2,i]+((1*DipoleSep)/2))))
         linePositionCurrent_IncBeam=np.argwhere(((DipPol[0,i]-((1*DipoleSep)/2))<IncBeam[0,:])&(IncBeam[0,:]<(DipPol[0,i]+((1*DipoleSep)/2)))&((DipPol[1,i]-((1*DipoleSep)/2))<IncBeam[1,:])&(IncBeam[1,:]<(DipPol[1,i]+((1*DipoleSep)/2)))&((DipPol[2,i]-((1*DipoleSep)/2))<IncBeam[2,:])&(IncBeam[2,:]<(DipPol[2,i]+((1*DipoleSep)/2))))
         linePositionAbove_IncBeam=np.argwhere(((DipPol[0,i]+((1*DipoleSep)/2))<IncBeam[0,:])&(IncBeam[0,:]<(DipPol[0,i]+((3*DipoleSep)/2)))&((DipPol[1,i]-((1*DipoleSep)/2))<IncBeam[1,:])&(IncBeam[1,:]<(DipPol[1,i]+((1*DipoleSep)/2)))&((DipPol[2,i]-((1*DipoleSep)/2))<IncBeam[2,:])&(IncBeam[2,:]<(DipPol[2,i]+((1*DipoleSep)/2))))
         linePositionBelow_IntField=np.argwhere(((DipPol[0,i]-((3*DipoleSep)/2))<IntField[0,:])&(IntField[0,:]<(DipPol[0,i]-((1*DipoleSep)/2)))&((DipPol[1,i]-((1*DipoleSep)/2))<IntField[1,:])&(IntField[1,:]<(DipPol[1,i]+((1*DipoleSep)/2)))&((DipPol[2,i]-((1*DipoleSep)/2))<IntField[2,:])&(IntField[2,:]<(DipPol[2,i]+((1*DipoleSep)/2))))
@@ -83,7 +87,8 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
             dEx_dx=((((IncBeam[4,linePositionCurrent_IncBeam]+IntField[4,linePositionCurrent_IntField])-(IncBeam[4,linePositionBelow_IncBeam]+IntField[4,linePositionBelow_IntField]))/(DipoleSep))-(1j*(((IncBeam[5,linePositionCurrent_IncBeam]+IntField[5,linePositionCurrent_IntField])-(IncBeam[5,linePositionBelow_IncBeam]+IntField[5,linePositionBelow_IntField]))/(DipoleSep)))) #Complex conjugate already implemented
             dEy_dx=((((IncBeam[6,linePositionCurrent_IncBeam]+IntField[6,linePositionCurrent_IntField])-(IncBeam[6,linePositionBelow_IncBeam]+IntField[6,linePositionBelow_IntField]))/(DipoleSep))-(1j*(((IncBeam[7,linePositionCurrent_IncBeam]+IntField[7,linePositionCurrent_IntField])-(IncBeam[7,linePositionBelow_IncBeam]+IntField[7,linePositionBelow_IntField]))/(DipoleSep)))) #Complex conjugate already implemented
             dEz_dx=((((IncBeam[8,linePositionCurrent_IncBeam]+IntField[8,linePositionCurrent_IntField])-(IncBeam[8,linePositionBelow_IncBeam]+IntField[8,linePositionBelow_IntField]))/(DipoleSep))-(1j*(((IncBeam[9,linePositionCurrent_IncBeam]+IntField[9,linePositionCurrent_IntField])-(IncBeam[9,linePositionBelow_IncBeam]+IntField[9,linePositionBelow_IntField]))/(DipoleSep)))) #Complex conjugate already implemented
-            Force[i,4]=0.5*np.real(((DipPol[4,i]+(1j*DipPol[5,i]))*dEx_dx)+((DipPol[6,i]+(1j*DipPol[7,i]))*dEy_dx)+((DipPol[8,i]+(1j*DipPol[9,i]))*dEz_dx))
+            Force[i,4]=0.5*np.real(((DipPol[4,i]+(1j*DipPol[5,i]))*dEx_dx)+((DipPol[6,i]+(1j*DipPol[7,i]))*dEy_dx)+((DipPol[8,i]+(1j*DipPol[9,i]))*dEz_dx))"""
+        Force[i,4] = 0
             
         #Calculate the force in y direction
         linePositionBelow_IncBeam=np.argwhere(((DipPol[0,i]-((1*DipoleSep)/2))<IncBeam[0,:])&(IncBeam[0,:]<(DipPol[0,i]+((1*DipoleSep)/2)))&((DipPol[1,i]-((3*DipoleSep)/2))<IncBeam[1,:])&(IncBeam[1,:]<(DipPol[1,i]-((1*DipoleSep)/2)))&((DipPol[2,i]-((1*DipoleSep)/2))<IncBeam[2,:])&(IncBeam[2,:]<(DipPol[2,i]+((1*DipoleSep)/2))))
@@ -113,7 +118,7 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
             dEz_dy=((((IncBeam[8,linePositionCurrent_IncBeam]+IntField[8,linePositionCurrent_IntField])-(IncBeam[8,linePositionBelow_IncBeam]+IntField[8,linePositionBelow_IntField]))/(DipoleSep))-(1j*(((IncBeam[9,linePositionCurrent_IncBeam]+IntField[9,linePositionCurrent_IntField])-(IncBeam[9,linePositionBelow_IncBeam]+IntField[9,linePositionBelow_IntField]))/(DipoleSep)))) #Complex conjugate already implemented
             Force[i,5]=0.5*np.real(((DipPol[4,i]+(1j*DipPol[5,i]))*dEx_dy)+((DipPol[6,i]+(1j*DipPol[7,i]))*dEy_dy)+((DipPol[8,i]+(1j*DipPol[9,i]))*dEz_dy))
         
-        #Calculate the force in z direction
+        '''#Calculate the force in z direction
         linePositionBelow_IncBeam=np.argwhere(((DipPol[0,i]-((1*DipoleSep)/2))<IncBeam[0,:])&(IncBeam[0,:]<(DipPol[0,i]+((1*DipoleSep)/2)))&((DipPol[1,i]-((1*DipoleSep)/2))<IncBeam[1,:])&(IncBeam[1,:]<(DipPol[1,i]+((1*DipoleSep)/2)))&((DipPol[2,i]-((3*DipoleSep)/2))<IncBeam[2,:])&(IncBeam[2,:]<(DipPol[2,i]-((1*DipoleSep)/2))))
         linePositionCurrent_IncBeam=np.argwhere(((DipPol[0,i]-((1*DipoleSep)/2))<IncBeam[0,:])&(IncBeam[0,:]<(DipPol[0,i]+((1*DipoleSep)/2)))&((DipPol[1,i]-((1*DipoleSep)/2))<IncBeam[1,:])&(IncBeam[1,:]<(DipPol[1,i]+((1*DipoleSep)/2)))&((DipPol[2,i]-((1*DipoleSep)/2))<IncBeam[2,:])&(IncBeam[2,:]<(DipPol[2,i]+((1*DipoleSep)/2))))
         linePositionAbove_IncBeam=np.argwhere(((DipPol[0,i]-((1*DipoleSep)/2))<IncBeam[0,:])&(IncBeam[0,:]<(DipPol[0,i]+((1*DipoleSep)/2)))&((DipPol[1,i]-((1*DipoleSep)/2))<IncBeam[1,:])&(IncBeam[1,:]<(DipPol[1,i]+((1*DipoleSep)/2)))&((DipPol[2,i]+((1*DipoleSep)/2))<IncBeam[2,:])&(IncBeam[2,:]<(DipPol[2,i]+((3*DipoleSep)/2))))
@@ -140,22 +145,71 @@ def Forces(DipPol,IntField,IncBeam,DipoleSep):
             dEy_dz=((((IncBeam[6,linePositionCurrent_IncBeam]+IntField[6,linePositionCurrent_IntField])-(IncBeam[6,linePositionBelow_IncBeam]+IntField[6,linePositionBelow_IntField]))/(DipoleSep))-(1j*(((IncBeam[7,linePositionCurrent_IncBeam]+IntField[7,linePositionCurrent_IntField])-(IncBeam[7,linePositionBelow_IncBeam]+IntField[7,linePositionBelow_IntField]))/(DipoleSep)))) #Complex conjugate already implemented
             dEz_dz=((((IncBeam[8,linePositionCurrent_IncBeam]+IntField[8,linePositionCurrent_IntField])-(IncBeam[8,linePositionBelow_IncBeam]+IntField[8,linePositionBelow_IntField]))/(DipoleSep))-(1j*(((IncBeam[9,linePositionCurrent_IncBeam]+IntField[9,linePositionCurrent_IntField])-(IncBeam[9,linePositionBelow_IncBeam]+IntField[9,linePositionBelow_IntField]))/(DipoleSep)))) #Complex conjugate already implemented
             Force[i,6]=0.5*np.real(((DipPol[4,i]+(1j*DipPol[5,i]))*dEx_dz)+((DipPol[6,i]+(1j*DipPol[7,i]))*dEy_dz)+((DipPol[8,i]+(1j*DipPol[9,i]))*dEz_dz))
-            
+            '''
+        Force[i,6] = 0
+
         Force[i,3]=pow((pow(Force[i,4],2)+pow(Force[i,5],2)+pow(Force[i,6],2)),0.5)
     
     return Force
 
 #Preliminary Variables	
-size = 2 #In micro m
-CorrectionFactor = 0.083861067
-BeamWidth = 0.8 #In micro m
-sigma = 1.68968
+CD = os.getcwd()
+CFD = str(CD+os.sep)+str('CorrectionFactors')+str(CD[-7:])
+CorrectionFactor = np.loadtxt(CFD, skiprows=1)[-1]
+size = float(CD[-3:]) #In micro m
+BeamWidth = 1 #In micro m
 Temperature = 20 #Degrees C
+nu = 8.891e-4
+r = (size/2e6)
+
+Drag_Coefficient = DragCoef(nu,r)
+D = DiffusionCoefficient(Temperature, nu, r)
+arbvalue = 0
+sigma = 100
+sigma_step = 1
+while arbvalue == 0: 
+    PPositionArray = np.zeros([0,5])
+    t_0 = 0
+    t_end = 1
+    t_step = 1e-4
+    #Particle start point start point
+    x_position = 0
+    x_positionsquare = 0
+    
+    while t_0 < t_end:      
+        
+        #Generate the Brownian "Force"
+        B_x = BrownianForce(Drag_Coefficient, Temperature, sigma)
+
+        EstimatedParticleForce3 = np.array([[B_x]])
+                    
+        #Calculate the change in position of the particle
+        x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, t_step)
+        x_position += x[0]
+        x_positionsquare += x[0]**2
+        t_0 += t_step  
+        PPositionArray = np.append(PPositionArray, np.array([[t_0, D, x_position, x_positionsquare, EstimatedParticleForce3[0]]]),axis=0)
+    
+    gradient = np.mean(np.gradient(PPositionArray[:,3], t_step))
+    if -1e-15 < (gradient - (2*D)) < 1e-15:
+        arbvalue += 1
+        
+    elif sigma_step <= 1e-10:
+        arbvalue += 1
+        
+    elif gradient < (2*D):
+        sigma += sigma_step
+        
+    elif gradient > (2*D):
+        sigma -= sigma_step
+        sigma_step *= 0.5
+        sigma += sigma_step
+
+
 Power = 5e-3 #In Watts
 MediumDielectricConstant=87.740-(0.40008*Temperature)+(9.398e-4*(Temperature**2))-(1.410e-6*(Temperature**3))
 ElectricFieldStrength=ElectricFieldStrengthCalc(MediumDielectricConstant,Power,BeamWidth) #V/m
-nu = 8.891e-4
-r = (size/2e6)
+
 
 #Preliminary Dynamic variables
 t_0 = 0
@@ -192,7 +246,7 @@ while t_0 <= t_end:
     print('Processing time: '+str(t_0))
     
     #Calculate incident beam due to first beam
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam1)+" "+str(y_beam1)+" "+str(z_beam1)+" -store_beam" #The script for performing the DDA calculations
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -grid 30 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam1)+" "+str(y_beam1)+" "+str(z_beam1)+" -store_beam" #The script for performing the DDA calculations
     subprocess.call(callString,shell=True)
     Beam1AFile = sorted(glob.glob(BeamPathInput))[-1]
     Beam1ARaw=np.transpose(np.loadtxt(Beam1AFile, skiprows=1))
@@ -202,7 +256,7 @@ while t_0 <= t_end:
         print('Cannot Delete')
         
     #Calculate incident beam due to first counterpropogating beam
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 -1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam1)+" "+str(y_beam1)+" "+str(z_beam1)+" -store_beam" #The script for performing the DDA calculations
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -grid 30 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 -1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam1)+" "+str(y_beam1)+" "+str(z_beam1)+" -store_beam" #The script for performing the DDA calculations
     subprocess.call(callString,shell=True)
     Beam1BFile = sorted(glob.glob(BeamPathInput))[-1]
     Beam1BRaw=np.transpose(np.loadtxt(Beam1BFile, skiprows=1))
@@ -219,7 +273,7 @@ while t_0 <= t_end:
         IncBeam1Raw[i,:]=np.add(Beam1ARaw[i,:],Beam1BRaw[i,:])    
         
     #Calculate incident beam due to second beam
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam2)+" "+str(y_beam2)+" "+str(z_beam2)+" -store_beam" #The script for performing the DDA calculations
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -grid 30 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam2)+" "+str(y_beam2)+" "+str(z_beam2)+" -store_beam" #The script for performing the DDA calculations
     subprocess.call(callString,shell=True)
     Beam2AFile = sorted(glob.glob(BeamPathInput))[-1]
     Beam2ARaw=np.transpose(np.loadtxt(Beam2AFile, skiprows=1))
@@ -229,7 +283,7 @@ while t_0 <= t_end:
         print('Cannot Delete')
         
     #Calculate incident beam due to second counterpropogating beam
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 -1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam2)+" "+str(y_beam2)+" "+str(z_beam2)+" -store_beam" #The script for performing the DDA calculations
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -grid 30 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 -1 -beam barton5 "+str(BeamWidth)+" "+str(x_beam2)+" "+str(y_beam2)+" "+str(z_beam2)+" -store_beam" #The script for performing the DDA calculations
     subprocess.call(callString,shell=True)
     Beam2BFile = sorted(glob.glob(BeamPathInput))[-1]
     Beam2BRaw=np.transpose(np.loadtxt(Beam2BFile, skiprows=1))
@@ -259,8 +313,8 @@ while t_0 <= t_end:
         np.savetxt(f, np.transpose(IncBeamRaw), fmt='%.11f', delimiter=' ')
     
     
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -sym enf -beam read DualBeam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -dpl 15 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -sym enf -beam read DualBeam -store_dip_pol -store_int_field")
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -grid 30 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -sym enf -beam read DualBeam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+    print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -grid 30 -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -sym enf -beam read DualBeam -store_dip_pol -store_int_field")
     subprocess.call(callString,shell=True)
     DipFiles, IntFFiles= sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1] #File containing the paths to each DipPol, IntField file
     DipPolRaw=np.transpose(np.loadtxt(DipFiles, skiprows=1))
@@ -283,14 +337,15 @@ while t_0 <= t_end:
 
     #Generate the Brownian "Force"
     Drag_Coefficient = DragCoef(nu,r)
-    B_x, B_y, B_z = BrownianForce(Drag_Coefficient, Temperature, sigma), BrownianForce(Drag_Coefficient, Temperature, sigma), BrownianForce(Drag_Coefficient, Temperature, sigma)
-
+    #B_x, B_y, B_z = BrownianForce(Drag_Coefficient, Temperature, sigma), BrownianForce(Drag_Coefficient, Temperature, sigma), BrownianForce(Drag_Coefficient, Temperature, sigma)
+    B_y = BrownianForce(Drag_Coefficient, Temperature, sigma)
+    B_x, B_z = 0, 0
     EstimatedParticleForce3 = np.array([[EstimatedParticleForce2[0]+B_x],[EstimatedParticleForce2[1]+B_y],[EstimatedParticleForce2[2]+B_z]])
                     
     #Calculate the change in position of the particle
-    x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, t_step)
-    y = PositionChange(EstimatedParticleForce3[1], Drag_Coefficient, t_step)
-    z = PositionChange(EstimatedParticleForce3[2], Drag_Coefficient, t_step)
+    x = PositionChange(EstimatedParticleForce3[0], Drag_Coefficient, t_step)*(1e6)
+    y = PositionChange(EstimatedParticleForce3[1], Drag_Coefficient, t_step)*(1e6)
+    z = PositionChange(EstimatedParticleForce3[2], Drag_Coefficient, t_step)*(1e6)
     x_beam1 += -x[0,0]
     y_beam1 += -y[0,0]
     z_beam1 += -z[0,0]
@@ -310,10 +365,10 @@ while t_0 <= t_end:
         print('Cannot Delete')
 
     EndTime=time.clock()
-    TimeRecordings=np.array([[(EndTime-StartTime)]])        
+    TimeRecordings=np.array([[(EndTime-StartTime), sigma]])        
     np.savetxt('ParticlePositions', PPositionArray, fmt='%e', delimiter=' ')
     TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
     with open(TimeLogPath, 'wb') as f:
-        f.write(b'Time(s)\n')
+        f.write(b'Time(s), Sigma\n')
         np.savetxt(f, TimeRecordings, fmt='%.10f', delimiter=' ')
 

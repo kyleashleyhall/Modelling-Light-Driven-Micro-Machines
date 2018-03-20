@@ -1,5 +1,5 @@
-#PBS -N CF1.8
+#PBS -N Size1.8
 # The working directory
-cd /home/mv15885/Project/CF1.8
+cd /home/mv15885/Project/Size1.8
 # Script goes below here
-python CalculateCorrectionFactor.py
+python 2BeamDynamics.py
