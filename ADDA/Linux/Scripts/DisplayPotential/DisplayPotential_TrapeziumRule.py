@@ -16,7 +16,7 @@ Positions=Forces[1]
 
 Force=Forces[4]
 
-Seperation=Positions[1]-Positions[0]
+Seperation=(Positions[1]-Positions[0])*(1e-6) #For micro m
 
 Potential[1]=0-((Seperation/2)*Force[1])
 

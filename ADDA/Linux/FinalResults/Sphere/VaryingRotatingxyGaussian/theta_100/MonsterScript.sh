@@ -1,0 +1,5 @@
+#PBS -N Sphere_VaryingRotatingxyGaussian_100
+# The working directory
+cd /home/kh13490/Project/Sphere_VaryingRotatingxyGaussian_100
+# Script goes below here
+python CalculateDDAForces_Third_MovingBeam.py

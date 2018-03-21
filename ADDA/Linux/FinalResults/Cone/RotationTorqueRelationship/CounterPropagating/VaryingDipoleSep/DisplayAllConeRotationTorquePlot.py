@@ -14,9 +14,9 @@ TitleString=r"Cone torque at counter propogating beam focus"
 
 ax = plt.gca()
 '''File1 = np.transpose(np.loadtxt('DipoleSep_0_03\Torques'))
-Plot1=plt.errorbar(File1[0], File1[1],label=r"Dipole Separation 0.03$\mu m$")
+Plot1=plt.errorbar(File1[0], File1[1],label=r"Dipole Separation 0.03$\mu m$")'''
 File2 = np.transpose(np.loadtxt('DipoleSep_0_04\Torques'))
-Plot2=plt.errorbar(File1[0], File1[1],label=r"Dipole Separation 0.04$\mu m$")'''
+Plot2=plt.errorbar(File2[0], File2[1],label=r"Dipole Separation 0.04$\mu m$")
 File3 = np.transpose(np.loadtxt('DipoleSep_0_05\Torques'))
 Plot3=plt.errorbar(File3[0], File3[1],label=r"Dipole Separation 0.05$\mu m$")
 File4 = np.transpose(np.loadtxt('DipoleSep_0_06\Torques'))
@@ -31,5 +31,5 @@ plt.title(TitleString)
 plt.xlabel(r"Rotation angle (degrees)")
 plt.ylabel(r"Torque (Nm)")
 #plt.legend(handles=[Plot1,Plot2,Plot3,Plot4,Plot5,Plot6,Plot7])
-plt.legend(handles=[Plot3,Plot4,Plot5,Plot6,Plot7])
+plt.legend(handles=[Plot2,Plot3,Plot4,Plot5,Plot6,Plot7])
 plt.show()
