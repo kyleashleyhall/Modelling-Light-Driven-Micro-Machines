@@ -86,7 +86,7 @@ for iterator1 in range(np.size(Potential)):
     else:
         yPotential[iterator1]=0
         
-    ApproximationPotential[iterator1]=(0.5*(xPotential[iterator1]+xPotential[iterator1]))+((yPotential[iterator1]-xPotential[iterator1])*(np.sin((2*theta)-(0.5*np.pi))))
+    ApproximationPotential[iterator1]=0.5*((xPotential[iterator1]+xPotential[iterator1])+((yPotential[iterator1]-xPotential[iterator1])*(np.sin((2*theta)-(0.5*np.pi)))))
 
 plt.figure(1)
 
