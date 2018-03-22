@@ -213,8 +213,8 @@ ElectricFieldStrength=ElectricFieldStrengthCalc(MediumDielectricConstant,Power,B
 
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 2
-t_step = 5e-4
+t_end = 200
+t_step = 1e-4
 
 #Start point of beam 1
 x_beam1, y_beam1, z_beam1 = 0,0,0
