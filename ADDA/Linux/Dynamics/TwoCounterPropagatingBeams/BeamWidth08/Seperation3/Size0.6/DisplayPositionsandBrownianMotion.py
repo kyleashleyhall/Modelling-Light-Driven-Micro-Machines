@@ -38,15 +38,15 @@ plt.hist(File[:,9], bins=20)
 
 plt.figure(3)
 plt.subplot(311)
-plt.plot(File[:,0], File[:,4])
+plt.hist(File[:,4])
 plt.title('Force in x')
 
 plt.subplot(312)
-plt.plot(File[:,0], File[:,5])
+plt.hist(File[:,5])
 plt.title('Force in y')
 
 plt.subplot(313)
-plt.plot(File[:,0], File[:,6])
+plt.hist(File[:,6])
 plt.title('Force in z')
 
 plt.show()

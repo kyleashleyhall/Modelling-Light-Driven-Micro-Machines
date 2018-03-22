@@ -47,7 +47,7 @@ Temperature=20 #Degrees C
 
 
 nu = 8.891e-4
-r = 1e-6
+r = 3e-7
 
 #Preliminary Dynamic variables
 t_end = 1
