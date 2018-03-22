@@ -8,6 +8,8 @@ Created on Thu Mar 22 11:42:56 2018
 import numpy as np
 import os
 import glob
+#import matplotlib.pyplot as plt
+#from mpl_toolkits.mplot3d import Axes3D
 import shutil
 import subprocess
 import time
@@ -51,6 +53,16 @@ def prop(l, w, dipsep):
 dipoleSeperation= 0.04
 dipolearray = prop(1,1,dipoleSeperation)
 np.savetxt('propellorfile', dipolearray, fmt='%d')
+#==============================================================================
+# fig = plt.figure()
+# ax = fig.add_subplot(111, projection='3d')
+# ax.scatter(xyzrows[0], xyzrows[1], -xyzrows[2])
+# ax.set_xlabel('0 Column')
+# ax.set_ylabel('1 Column')
+# ax.set_zlabel('2 Column')
+# plt.show()
+# 
+#==============================================================================
 
 def PolystyreneRefractiveIndex(Lambda,MediumsRefractiveIndex):
     
@@ -203,7 +215,7 @@ StartTime=time.clock()
                 
 for iterator in range(iterations):
 
-    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(particleDiameterValue)+" -shape read propellorfile -lambda "+str(lambdaValue)+" -prop 0 0 1 -m "+str(refractiveIndexValue)+" 0 -store_beam -store_dip_pol -store_int_field -store_force" #The script for performing the DDA calculations
+    callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(particleDiameterValue)+" -shape read propellorfile -lambda "+str(lambdaValue)+" -prop 0 0 -1 -m "+str(refractiveIndexValue)+" 0 -store_beam -store_dip_pol -store_int_field -store_force" #The script for performing the DDA calculations
     subprocess.call(callString,shell=True)
     DipFiles, IntFFiles, BeamFiles, ForceFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1], sorted(glob.glob(ForcePathInput))[-1] #File containing the paths to each DipPol, IntField file
     FFiles = DipFiles.replace('DipPol-Y','CalculatedForces')
@@ -268,8 +280,8 @@ DipPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'DipPol-Y')
 IntFPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IntField-Y')
 BeamPathInput = str(os.getcwd())+str(os.sep+'*'+os.sep+'IncBeam-Y')
 
-callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -shape read propellorfile -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -sym enf -beam barton5 "+str(BeamWidth)+" 0 0 0 -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
-print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -shape read propellorfile -m 1.18339034696 0 -lambda 1.064 -prop 0 0 1 -sym enf -beam barton5 "+str(BeamWidth)+" 0 0 0 -store_beam -store_dip_pol -store_int_field")
+callString=".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -shape read propellorfile -m 1.18339034696 0 -lambda 1.064 -prop 0 0 -1 -sym enf -beam barton5 "+str(BeamWidth)+" 0 0 0 -store_beam -store_dip_pol -store_int_field" #The script for performing the DDA calculations
+print(".."+os.sep+"src"+os.sep+"seq"+os.sep+"adda -size "+str(size)+" -shape read propellorfile -m 1.18339034696 0 -lambda 1.064 -prop 0 0 -1 -sym enf -beam barton5 "+str(BeamWidth)+" 0 0 0 -store_beam -store_dip_pol -store_int_field")
 subprocess.call(callString,shell=True)
 DipFiles, IntFFiles, BeamFiles = sorted(glob.glob(DipPathInput))[-1], sorted(glob.glob(IntFPathInput))[-1], sorted(glob.glob(BeamPathInput))[-1] #File containing the paths to each DipPol, IntField file
 DipPolRaw=np.transpose(np.loadtxt(DipFiles, skiprows=1))
