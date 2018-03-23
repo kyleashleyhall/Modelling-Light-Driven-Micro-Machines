@@ -1,5 +1,5 @@
-#PBS -N sep3
+#PBS -N Quickhopping
 # The working directory
-cd /home/mv15885/Project/TBSep3
+cd /home/mv15885/Project/QuickHopping
 # Script goes below here
-python Varying_yGaussianTwinBeam.py
+python HoppingGrid.py
