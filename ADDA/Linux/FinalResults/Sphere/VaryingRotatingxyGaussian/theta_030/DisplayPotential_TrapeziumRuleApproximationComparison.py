@@ -7,6 +7,7 @@ Created on Fri Nov 10 13:57:26 2017
 
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 theta=int(os.getcwd()[-3:])
 
@@ -30,7 +31,7 @@ for iterator1 in range(2,np.size(Forces,axis=1)):
         
     Potential[iterator1]-=((Seperation/2)*Force[iterator1])
         
-xForcesFile=np.transpose(np.loadtxt('..\theta_000\TotalForce'))
+xForcesFile=np.transpose(np.loadtxt('..'+os.sep+'theta_000'+os.sep+'TotalForce'))
 xPotential=np.zeros(np.size(xForcesFile,axis=1))
 xPositions=xForcesFile[3]
 xForce=xForcesFile[7]
@@ -46,7 +47,7 @@ for iterator1 in range(2,np.size(xForcesFile,axis=1)):
         
     xPotential[iterator1]-=((xSeperation/2)*xForce[iterator1])
 
-yForcesFile=np.transpose(np.loadtxt('..\theta_090\TotalForce'))
+yForcesFile=np.transpose(np.loadtxt('..'+os.sep+'theta_090'+os.sep+'TotalForce'))
 yPotential=np.zeros(np.size(yForcesFile,axis=1))
 yPositions=yForcesFile[3]
 yForce=yForcesFile[7]
