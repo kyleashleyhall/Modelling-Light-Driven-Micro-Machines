@@ -1,5 +1,5 @@
-#PBS -N Quickhopping
+#PBS -N QuickhoppingTest
 # The working directory
-cd /home/mv15885/Project/QuickHopping
+cd /home/mv15885/Project/Test
 # Script goes below here
-python HoppingGrid.py
+python HoppingGridTest.py

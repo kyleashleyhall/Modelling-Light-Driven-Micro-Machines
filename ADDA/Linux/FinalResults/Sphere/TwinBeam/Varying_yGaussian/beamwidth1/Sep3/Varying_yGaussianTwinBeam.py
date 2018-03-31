@@ -157,8 +157,8 @@ r = 1e-6
 
 #Preliminary Position variables
 y_0  = -4
-y_end = 4
-y_step = 0.1           
+y_end = -2
+y_step = 0.001           
 
 #Start point of beam 1
 x_beam1, y_beam1, z_beam1 = 0,-1.5,0
@@ -282,7 +282,7 @@ while y_0 <= y_end:
 
 EndTime=time.clock()
 TimeRecordings=np.array([[(EndTime-StartTime)]])        
-np.savetxt('ForcesY', PotentialArray, fmt='%e', delimiter=' ')
+np.savetxt("ForcesY"+str(y_end), PotentialArray, fmt='%e', delimiter=' ')
 TimeLogPath = str(os.getcwd())+str(os.sep+'TimeLog')	
 with open(TimeLogPath, 'wb') as f:
     f.write(b'Time(s)\n')
