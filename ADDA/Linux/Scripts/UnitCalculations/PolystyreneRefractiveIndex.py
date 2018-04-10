@@ -12,4 +12,4 @@ def PolystyreneRefractiveIndex(Lambda,MediumsRefractiveIndex):
     
     return(RefracIndex)
     
-print(PolystyreneRefractiveIndex(0.9,1.328))
+print(PolystyreneRefractiveIndex(1.064,1.328))

@@ -86,15 +86,15 @@ while arbvalue == 0:
         sigma += sigma_step
         
 print(sigma)
-        
+
 #Preliminary Dynamic variables
 t_0 = 0
-t_end = 5e2
+t_end = 50
 t_step = 1e-4
-
+randomval = np.random.random()
 
 #Particle start point start point
-x_position, y_position, z_position = 0,1.5,0
+x_position, y_position, z_position = 0,0,0
 
 PositionArray = np.array([[t_0,y_position,0]])
 
@@ -105,4 +105,4 @@ while t_0 <= t_end:
     y_position += PositionChange(Force_Total, Drag_Coefficient, t_step)*(1e6)
     t_0 += t_step    
     PositionArray = np.append(PositionArray, np.array([[t_0, y_position, Brownian]]), axis=0)
-    np.savetxt('Positions', PositionArray, fmt='%e', delimiter='  ')
+    np.savetxt(('Positions'+str(randomval)), PositionArray, fmt='%e', delimiter='  ')

@@ -1,6 +1,6 @@
-#PBS -N QuickHopSize2
+#PBS -N QHtest
 # The working directory
-cd /home/mv15885/Project/QuickHop
+cd /home/mv15885/Project/QH9
 # Script goes below here
 python HoppingGrid.py
 

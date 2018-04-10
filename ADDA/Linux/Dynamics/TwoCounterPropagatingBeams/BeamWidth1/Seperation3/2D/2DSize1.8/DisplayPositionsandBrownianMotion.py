@@ -20,8 +20,8 @@ plt.plot(File[:,0], File[:,2])
 plt.title('Position in y')
 
 plt.subplot(313)
-plt.plot(File[:,0], File[:,3])
-plt.title('Position in z')
+plt.plot(File[:,0], np.sqrt(File[:,1]**2+File[:,2]**2))
+plt.title('Radial distance from the centre')
 
 plt.figure(2)
 plt.subplot(311)

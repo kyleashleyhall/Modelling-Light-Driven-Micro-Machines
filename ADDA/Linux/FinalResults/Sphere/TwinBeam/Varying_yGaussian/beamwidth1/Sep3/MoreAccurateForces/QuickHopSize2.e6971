@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "HoppingGrid2.py", line 106, in <module>
+    elif pos_index == len(Force_y[:,1])-1:
+IndexError: invalid index to scalar variable.

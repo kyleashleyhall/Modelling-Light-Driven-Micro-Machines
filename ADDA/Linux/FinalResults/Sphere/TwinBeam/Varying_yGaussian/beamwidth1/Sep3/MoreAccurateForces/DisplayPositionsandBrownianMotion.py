@@ -12,6 +12,8 @@ File = np.loadtxt('Positions')
 
 plt.figure(1)
 plt.plot(File[:,0], File[:,1])
+plt.axhline(y=2),plt.axhline(y=1),plt.axhline(y=-1),plt.axhline(y=-2)
+plt.ylim(-2.5, 2.5)
 plt.title('Position in y')
 
 

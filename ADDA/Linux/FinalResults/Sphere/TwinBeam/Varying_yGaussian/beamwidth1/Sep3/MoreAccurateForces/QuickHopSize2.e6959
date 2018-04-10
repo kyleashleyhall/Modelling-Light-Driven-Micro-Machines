@@ -1,0 +1,4 @@
+  File "HoppingGrid2.py", line 108
+    if t_0 % 1e-2 == 0:
+    ^
+IndentationError: unexpected indent
